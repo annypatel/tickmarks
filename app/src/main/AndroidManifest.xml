@@ -1,0 +1,12 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="tickmarks.app">
+
+    <application
+        android:name=".TickmarksApp"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        tools:ignore="GoogleAppIndexingWarning" />
+</manifest>

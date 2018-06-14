@@ -1,0 +1,50 @@
+buildscript {
+    def appVersion = [
+            'major': 1,
+            'minor': 0,
+            'patch': 0,
+            'build': 0,
+    ]
+
+    // Build configuration
+    ext.buildConfig = [
+            'minSdk'     : 15,
+            'compileSdk' : 28,
+            'targetSdk'  : 28,
+            'versionName': "${appVersion.major}.${appVersion.minor}.${appVersion.patch}",
+            'versionCode': appVersion.major * 1000000 + appVersion.minor * 10000 + appVersion.patch * 100 + appVersion.build
+
+    ]
+
+    // Dependency versions
+    def versions = [
+            'agt'   : '3.2.0-alpha18',
+            'kotlin': '1.2.41'
+    ]
+
+    // Dependencies
+    ext.deps = [
+            'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+    ]
+
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:$versions.agt"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
