@@ -19,12 +19,14 @@ buildscript {
     // Dependency versions
     def versions = [
             'agt'   : '3.2.0-alpha18',
-            'kotlin': '1.2.41'
+            'kotlin': '1.2.41',
+            'rxjava': '2.1.14'
     ]
 
     // Dependencies
     ext.deps = [
-            'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+            'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+            'rxjava': "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     ]
 
     repositories {
