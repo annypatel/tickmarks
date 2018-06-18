@@ -2,5 +2,4 @@ package tickmarks.app
 
 import android.app.Application
 
-class TickmarksApp : Application() {
-}
+class TickmarksApp : Application()

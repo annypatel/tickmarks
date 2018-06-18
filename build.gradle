@@ -17,10 +17,12 @@ buildscript {
     ]
 
     // Dependency versions
-    def versions = [
-            'agt'   : '3.2.0-alpha18',
-            'kotlin': '1.2.41',
-            'rxjava': '2.1.14'
+    ext.versions = [
+            'agp'     : '3.2.0-alpha18',
+            'kotlin'  : '1.2.41',
+            'rxjava'  : '2.1.14',
+            'spotless': '3.13.0',
+            'ktlint'  : '0.23.1'
     ]
 
     // Dependencies
@@ -35,8 +37,9 @@ buildscript {
     }
 
     dependencies {
-        classpath "com.android.tools.build:gradle:$versions.agt"
+        classpath "com.android.tools.build:gradle:$versions.agp"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotless"
     }
 }
 
@@ -44,6 +47,16 @@ allprojects {
     repositories {
         google()
         jcenter()
+    }
+}
+
+subprojects {
+    apply plugin: 'com.diffplug.gradle.spotless'
+    spotless {
+        kotlin {
+            target "**/*.kt"
+            ktlint(versions.ktlint)
+        }
     }
 }
 
