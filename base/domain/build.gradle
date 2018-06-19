@@ -3,7 +3,7 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation deps.kotlin
-    implementation deps.rxjava
+    implementation deps.rxJava
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
