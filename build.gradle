@@ -1,35 +1,35 @@
 buildscript {
     def appVersion = [
-            'major': 1,
-            'minor': 0,
-            'patch': 0,
-            'build': 0,
+        'major': 1,
+        'minor': 0,
+        'patch': 0,
+        'build': 0,
     ]
 
     // Build configuration
     ext.buildConfig = [
-            'minSdk'     : 15,
-            'compileSdk' : 28,
-            'targetSdk'  : 28,
-            'versionName': "${appVersion.major}.${appVersion.minor}.${appVersion.patch}",
-            'versionCode': appVersion.major * 1000000 + appVersion.minor * 10000 + appVersion.patch * 100 + appVersion.build
+        'minSdk'     : 15,
+        'compileSdk' : 28,
+        'targetSdk'  : 28,
+        'versionName': "${appVersion.major}.${appVersion.minor}.${appVersion.patch}",
+        'versionCode': appVersion.major * 1000000 + appVersion.minor * 10000 + appVersion.patch * 100 + appVersion.build
 
     ]
 
     // Dependency versions
     ext.versions = [
-            'agp'     : '3.2.0-alpha18',
-            'kotlin'  : '1.2.41',
-            'spotless': '3.13.0',
-            'ktlint'  : '0.23.1',
-            'gvp'     : '0.19.0',
-            'rxjava'  : '2.1.14'
+        'agp'     : '3.2.0-alpha18',
+        'kotlin'  : '1.2.41',
+        'spotless': '3.13.0',
+        'ktlint'  : '0.23.1',
+        'gvp'     : '0.19.0',
+        'rxjava'  : '2.1.14'
     ]
 
     // Dependencies
     ext.deps = [
-            'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
-            'rxjava': "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+        'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+        'rxjava': "io.reactivex.rxjava2:rxjava:$versions.rxjava"
     ]
 
     repositories {
