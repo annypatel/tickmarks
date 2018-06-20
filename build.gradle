@@ -17,24 +17,35 @@ buildscript {
 
     // Dependency versions
     ext.versions = [
-        'agp'     : '3.2.0-alpha18',
-        'kotlin'  : '1.2.41',
-        'spotless': '3.13.0',
-        'ktlint'  : '0.23.1',
-        'gvp'     : '0.19.0',
-        'rxJava'  : '2.1.14',
-        'dagger'  : '2.16',
+        'agp'         : '3.2.0-alpha18',
+        'kotlin'      : '1.2.41',
+        'spotless'    : '3.13.0',
+        'ktlint'      : '0.23.1',
+        'gvp'         : '0.19.0',
+        'rxJava'      : '2.1.14',
+        'dagger'      : '2.16',
+        'okhttp'      : '3.10.0',
+        'retrofit'    : '2.4.0',
+        'retroCrawler': '1.0.0-alpha1'
     ]
 
     // Dependencies
     ext.deps = [
-        'kotlin': "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
-        'rxJava': "io.reactivex.rxjava2:rxjava:$versions.rxJava",
-        'dagger': [
+        'kotlin'  : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+        'rxJava'  : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
+        'dagger'  : [
             'runtime'        : "com.google.dagger:dagger:$versions.dagger",
             'compiler'       : "com.google.dagger:dagger-compiler:$versions.dagger",
             'androidRuntime' : "com.google.dagger:dagger-android-support:$versions.dagger",
             'androidCompiler': "com.google.dagger:dagger-android-processor:$versions.dagger"
+        ],
+        'okhttp'  : [
+            'client': "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+        ],
+        'retrofit': [
+            'client'               : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            'adapterRxJava'        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+            'converterRetroCrawler': "com.github.annypatel.retrocrawler:converter-jspoon:$versions.retroCrawler"
         ]
     ]
 
