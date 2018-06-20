@@ -12,6 +12,7 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/base/data" />
             <option value="$PROJECT_DIR$/base/domain" />
+            <option value="$PROJECT_DIR$/base/ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

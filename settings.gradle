@@ -1,3 +1,4 @@
 include ':app'
+include ':base:ui'
 include ':base:domain'
 include ':base:data'
