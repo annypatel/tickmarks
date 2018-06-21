@@ -13,7 +13,7 @@ object NetworkModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun provideNetworkClient(builder: NetworkComponent.Builder): NetworkClient {
+    fun networkClient(builder: NetworkComponent.Builder): NetworkClient {
         return builder.build().networkClient()
     }
 }

@@ -42,13 +42,13 @@ object InternalNetworkModule {
     @Provides
     @JvmStatic
     @PrivateToComponent
-    fun provideNetworkClient(retrofit: Retrofit): NetworkClient {
+    fun networkClient(retrofit: Retrofit): NetworkClient {
         return NetworkClient(retrofit)
     }
 
     @Provides
     @JvmStatic
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
+    fun retrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(BASE_URL)
@@ -59,7 +59,7 @@ object InternalNetworkModule {
 
     @Provides
     @JvmStatic
-    fun provideOkHttpClient(): OkHttpClient {
+    fun okHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
