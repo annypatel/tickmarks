@@ -1,4 +1,3 @@
-apply plugin: 'java-library'
 apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 
@@ -15,6 +14,3 @@ dependencies {
     implementation deps.retrofit.adapterRxJava
     implementation deps.retrofit.converterRetroCrawler
 }
-
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
