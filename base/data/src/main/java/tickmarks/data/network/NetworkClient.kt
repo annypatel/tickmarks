@@ -1,6 +1,7 @@
 package tickmarks.data.network
 
 import retrofit2.Retrofit
+import kotlin.reflect.KClass
 
 /**
  * Client for creating an implementation of the API endpoints defined by the Retrofit service interface.
@@ -12,7 +13,7 @@ class NetworkClient(
     /**
      * Create an implementation of the API endpoints.
      */
-    fun <T> create(serviceClass: Class<T>): T {
-        return retrofit.create(serviceClass)
+    fun <T : Any> create(serviceClass: KClass<T>): T {
+        return retrofit.create(serviceClass.java)
     }
 }
