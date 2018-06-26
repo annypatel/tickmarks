@@ -27,4 +27,6 @@ dependencies {
     implementation deps.retrofit.client
     implementation deps.retrofit.adapterRxJava
     implementation deps.retrofit.converterRetroCrawler
+
+    implementation deps.junit
 }
