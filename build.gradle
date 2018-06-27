@@ -28,7 +28,8 @@ buildscript {
         'dagger'      : '2.16',
         'okhttp'      : '3.10.0',
         'retrofit'    : '2.4.0',
-        'retroCrawler': '1.0.0-alpha1',
+        'retrocrawler': '1.0.0-alpha1',
+        'jspoon'      : '1.3.0',
         'lifecycle'   : '2.0.0-alpha1',
         'junit'       : '4.12',
         'mockito'     : '2.0.0-RC1'
@@ -36,31 +37,34 @@ buildscript {
 
     // Dependencies
     ext.deps = [
-        'kotlin'   : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
-        'rx'       : [
+        'kotlin'      : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin",
+        'rx'          : [
             'java'   : "io.reactivex.rxjava2:rxjava:$versions.rxJava",
             'kotlin' : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
             'android': "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
         ],
-        'dagger'   : [
+        'dagger'      : [
             'runtime'        : "com.google.dagger:dagger:$versions.dagger",
             'compiler'       : "com.google.dagger:dagger-compiler:$versions.dagger",
             'androidRuntime' : "com.google.dagger:dagger-android-support:$versions.dagger",
             'androidCompiler': "com.google.dagger:dagger-android-processor:$versions.dagger"
         ],
-        'okhttp'   : [
+        'okhttp'      : [
             'client': "com.squareup.okhttp3:okhttp:${versions.okhttp}"
         ],
-        'retrofit' : [
-            'client'               : "com.squareup.retrofit2:retrofit:$versions.retrofit",
-            'adapterRxJava'        : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
-            'converterRetroCrawler': "com.github.annypatel.retrocrawler:converter-jspoon:$versions.retroCrawler"
+        'retrofit'    : [
+            'client'       : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+            'adapterRxJava': "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit"
         ],
-        'lifecycle': [
+        'retrocrawler': [
+            'converter': "com.github.annypatel.retrocrawler:converter-jspoon:$versions.retrocrawler",
+            'jspoon'   : "pl.droidsonroids:jspoon:$versions.jspoon"
+        ],
+        'lifecycle'   : [
             'viewModel': "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle"
         ],
-        'junit'    : "junit:junit:$versions.junit",
-        'mockito'  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito"
+        'junit'       : "junit:junit:$versions.junit",
+        'mockito'     : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito"
     ]
 
     repositories {

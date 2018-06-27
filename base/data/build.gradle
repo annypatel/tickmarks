@@ -26,7 +26,7 @@ dependencies {
     implementation deps.okhttp.client
     implementation deps.retrofit.client
     implementation deps.retrofit.adapterRxJava
-    implementation deps.retrofit.converterRetroCrawler
+    implementation deps.retrocrawler.converter
 
     implementation deps.junit
 }

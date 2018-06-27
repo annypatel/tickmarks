@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion buildConfig.compileSdk
@@ -15,5 +16,20 @@ android {
 }
 
 dependencies {
+    implementation project(":base:data")
+    implementation project(":bookmark:domain")
+
     implementation deps.kotlin
+
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    implementation deps.rx.java
+
+    implementation deps.retrofit.client
+    implementation deps.retrocrawler.jspoon
+
+    testImplementation project(":base-test:data")
+    testImplementation deps.junit
+    testImplementation deps.mockito
 }
