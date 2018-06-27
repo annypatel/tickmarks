@@ -30,7 +30,8 @@ buildscript {
         'retrofit'    : '2.4.0',
         'retroCrawler': '1.0.0-alpha1',
         'lifecycle'   : '2.0.0-alpha1',
-        'junit'       : '4.12'
+        'junit'       : '4.12',
+        'mockito'     : '2.0.0-RC1'
     ]
 
     // Dependencies
@@ -58,7 +59,8 @@ buildscript {
         'lifecycle': [
             'viewModel': "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle"
         ],
-        'junit'    : "junit:junit:$versions.junit"
+        'junit'    : "junit:junit:$versions.junit",
+        'mockito'  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito"
     ]
 
     repositories {
