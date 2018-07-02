@@ -1,5 +1,7 @@
 package tickmarks.ui
 
+import androidx.lifecycle.ViewModelProvider
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,12 +13,19 @@ import javax.inject.Singleton
  * level object graph.
  */
 @Module
-object BaseUiModule {
+abstract class BaseUiModule {
 
-    @Provides
-    @Singleton
-    @JvmStatic
-    fun uiSchedulers() = UiSchedulers(
-        mainThread = AndroidSchedulers.mainThread()
-    )
+    @Binds
+    abstract fun viewModelFactory(factory: ViewModelFactory): ViewModelProvider.Factory
+
+    @Module
+    companion object {
+
+        @Provides
+        @Singleton
+        @JvmStatic
+        fun uiSchedulers() = UiSchedulers(
+            mainThread = AndroidSchedulers.mainThread()
+        )
+    }
 }

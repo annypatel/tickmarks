@@ -25,9 +25,7 @@ dependencies {
     implementation deps.rx.kotlin
     implementation deps.rx.android
 
-    implementation deps.lifecycle.runtime
-    implementation deps.lifecycle.liveData
-    implementation deps.lifecycle.viewModel
+    implementation deps.lifecycle.extensions
 
     testImplementation deps.junit
     testImplementation deps.mockito
