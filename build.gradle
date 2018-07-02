@@ -61,7 +61,10 @@ buildscript {
             'jspoon'   : "pl.droidsonroids:jspoon:$versions.jspoon"
         ],
         'lifecycle'   : [
-            'viewModel': "androidx.lifecycle:lifecycle-viewmodel:$versions.lifecycle"
+            'runtime'  : "androidx.lifecycle:lifecycle-runtime:$versions.lifecycle",
+            'viewModel': "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
+            'liveData' : "androidx.lifecycle:lifecycle-livedata:$versions.lifecycle",
+            'test'     : "androidx.arch.core:core-testing:$versions.lifecycle"
         ],
         'junit'       : "junit:junit:$versions.junit",
         'mockito'     : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito"
