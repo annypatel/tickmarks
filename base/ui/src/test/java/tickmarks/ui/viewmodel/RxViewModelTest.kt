@@ -1,7 +1,6 @@
 package tickmarks.ui.viewmodel
 
 import io.reactivex.Flowable
-import io.reactivex.rxkotlin.plusAssign
 import org.junit.Assert.assertThat
 import org.junit.Test
 import org.hamcrest.CoreMatchers.`is` as Is
@@ -10,9 +9,10 @@ class RxViewModelTest {
 
     class TestViewModel : RxViewModel() {
 
-        fun subscribe() {
-            disposables += Flowable.just(1, 2, 3)
+        fun subscribeAndAutoDispose() {
+            Flowable.just(1, 2, 3)
                 .subscribe()
+                .autoDispose()
         }
 
         // overridden with public modifier to make it accessible in tests
@@ -22,9 +22,17 @@ class RxViewModelTest {
     }
 
     @Test
-    fun onCleared_givenViewModelWithSubscription_shouldClearDisposables() {
+    fun autoDispose_givenSubscription_shouldAddDisposable() {
         val viewModel = TestViewModel()
-        viewModel.subscribe()
+        viewModel.subscribeAndAutoDispose()
+
+        assertThat(viewModel.disposables.size(), Is(1))
+    }
+
+    @Test
+    fun onCleared_givenSubscription_shouldClearDisposables() {
+        val viewModel = TestViewModel()
+        viewModel.subscribeAndAutoDispose()
 
         viewModel.onCleared()
 

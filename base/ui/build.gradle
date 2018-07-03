@@ -22,7 +22,6 @@ dependencies {
     kapt deps.dagger.compiler
 
     implementation deps.rx.java
-    implementation deps.rx.kotlin
     implementation deps.rx.android
 
     implementation deps.lifecycle.extensions
