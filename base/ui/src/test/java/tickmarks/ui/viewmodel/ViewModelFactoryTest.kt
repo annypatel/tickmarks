@@ -1,4 +1,4 @@
-package tickmarks.ui
+package tickmarks.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import org.hamcrest.CoreMatchers.instanceOf

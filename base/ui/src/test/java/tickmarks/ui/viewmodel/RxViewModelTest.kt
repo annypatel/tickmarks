@@ -1,4 +1,4 @@
-package tickmarks.ui.rx
+package tickmarks.ui.viewmodel
 
 import io.reactivex.Flowable
 import io.reactivex.rxkotlin.plusAssign

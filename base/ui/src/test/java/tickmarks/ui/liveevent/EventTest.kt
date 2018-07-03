@@ -1,4 +1,4 @@
-package tickmarks.ui
+package tickmarks.ui.liveevent
 
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never

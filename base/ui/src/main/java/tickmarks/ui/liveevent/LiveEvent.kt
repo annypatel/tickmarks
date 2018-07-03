@@ -1,4 +1,4 @@
-package tickmarks.ui
+package tickmarks.ui.liveevent
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData

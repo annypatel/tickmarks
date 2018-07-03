@@ -1,4 +1,4 @@
-package tickmarks.ui
+package tickmarks.ui.liveevent
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Lifecycle

@@ -1,4 +1,4 @@
-package tickmarks.ui.rx
+package tickmarks.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable

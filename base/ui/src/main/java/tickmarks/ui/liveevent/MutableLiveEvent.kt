@@ -1,4 +1,4 @@
-package tickmarks.ui
+package tickmarks.ui.liveevent
 
 /**
  * [LiveEvent] which publicly exposes [event] (alias for value) and [data] properties.

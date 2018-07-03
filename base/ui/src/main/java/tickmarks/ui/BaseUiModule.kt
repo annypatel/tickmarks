@@ -6,6 +6,7 @@ import dagger.Module
 import dagger.Provides
 import io.reactivex.android.schedulers.AndroidSchedulers
 import tickmarks.ui.rx.UiSchedulers
+import tickmarks.ui.viewmodel.ViewModelFactory
 import javax.inject.Singleton
 
 /**
