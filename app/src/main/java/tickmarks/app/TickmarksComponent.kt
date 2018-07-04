@@ -3,6 +3,9 @@ package tickmarks.app
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
+import tickmarks.data.BaseDataModule
+import tickmarks.domain.BaseDomainModule
+import tickmarks.ui.BaseUiModule
 import javax.inject.Singleton
 
 /**
@@ -12,7 +15,11 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [
-        AndroidSupportInjectionModule::class
+        AndroidSupportInjectionModule::class,
+        BaseUiModule::class,
+        BaseDomainModule::class,
+        BaseDataModule::class,
+        FeatureModules::class
     ]
 )
 interface TickmarksComponent : AndroidInjector<TickmarksApp> {

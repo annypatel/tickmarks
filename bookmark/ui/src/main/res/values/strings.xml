@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="add_bookmark">Add Bookmark</string>
     <string name="add_bookmark_empty_url">Url can\'t be empty</string>
     <string name="add_bookmark_successful">Bookmark added</string>
     <string name="add_bookmark_failure">Unable to add bookmark</string>
