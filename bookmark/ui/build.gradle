@@ -1,11 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion buildConfig.compileSdk
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
+    }
+
+    dataBinding {
+        enabled = true
     }
 
     compileOptions {
@@ -15,5 +20,22 @@ android {
 }
 
 dependencies {
+    implementation project(":base:ui")
+    implementation project(":bookmark:domain")
+    implementation project(":bookmark:data")
+
     implementation deps.kotlin
+
+    implementation deps.rx.java
+    implementation deps.rx.kotlin
+
+    implementation deps.dagger.runtime
+    kapt deps.dagger.compiler
+
+    implementation deps.lifecycle.extensions
+
+    testImplementation project(":base-test:ui")
+    testImplementation deps.junit
+    testImplementation deps.mockito
+    testImplementation deps.lifecycle.test
 }
