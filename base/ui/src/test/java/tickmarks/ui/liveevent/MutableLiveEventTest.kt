@@ -43,19 +43,13 @@ class MutableLiveEventTest {
     }
 
     @Test
-    fun setData_observeLiveEvent_observerShouldBeCalled() {
+    fun set_observeLiveEvent_observerShouldBeCalled() {
         val mockedObserver = mock<Observer<Event<Int>>>()
         val liveEvent = MutableLiveEvent<Int>()
         liveEvent.observe(owner, mockedObserver)
 
-        liveEvent.data = 123
+        liveEvent.set(123)
 
         verify(mockedObserver).onChanged(any())
-    }
-
-    @Test(expected = IllegalStateException::class)
-    fun getData_givenEmptyLiveEvent_throwsException() {
-        val liveEvent = MutableLiveEvent<Int>()
-        liveEvent.data
     }
 }

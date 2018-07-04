@@ -1,7 +1,7 @@
 package tickmarks.ui.liveevent
 
 /**
- * [LiveEvent] which publicly exposes [event] (alias for value) and [data] properties.
+ * [LiveEvent] which publicly exposes [event] (alias for value) property and [get]/[set] for event data.
  */
 open class MutableLiveEvent<T> : LiveEvent<T>() {
 
@@ -11,9 +11,9 @@ open class MutableLiveEvent<T> : LiveEvent<T>() {
             value = event
         }
 
-    var data: T
-        get() = checkNotNull(value).peek()
-        set(data) {
-            value = Event(data)
-        }
+    fun get() = value?.peek()
+
+    fun set(data: T) {
+        value = Event(data)
+    }
 }
