@@ -40,7 +40,7 @@ dependencies {
     implementation deps.lifecycle.extensions
 
     testImplementation project(":base-test:ui")
-    testImplementation deps.junit
-    testImplementation deps.mockito
-    testImplementation deps.lifecycle.test
+    testImplementation deps.test.junit
+    testImplementation deps.test.mockito
+    testImplementation deps.test.lifecycle
 }

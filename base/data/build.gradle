@@ -28,5 +28,5 @@ dependencies {
     implementation deps.retrofit.adapterRxJava
     implementation deps.retrocrawler.converter
 
-    implementation deps.junit
+    testImplementation deps.test.junit
 }

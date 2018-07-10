@@ -64,14 +64,17 @@ buildscript {
         ],
         'lifecycle'   : [
             'viewModelKtx': "androidx.lifecycle:lifecycle-viewmodel-ktx:$versions.lifecycle",
-            'extensions'  : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle",
-            'test'        : "androidx.arch.core:core-testing:$versions.lifecycle"
+            'extensions'  : "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
         ],
         'appcompat'   : "androidx.appcompat:appcompat:$versions.support",
         'fragment'    : "androidx.fragment:fragment:$versions.support",
         'material'    : "com.google.android.material:material:$versions.material",
-        'junit'       : "junit:junit:$versions.junit",
-        'mockito'     : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito"
+
+        'test'        : [
+            'junit'    : "junit:junit:$versions.junit",
+            'mockito'  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
+            'lifecycle': "androidx.arch.core:core-testing:$versions.lifecycle"
+        ]
     ]
 
     repositories {

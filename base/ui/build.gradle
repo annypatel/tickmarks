@@ -31,7 +31,7 @@ dependencies {
     implementation deps.lifecycle.extensions
     implementation deps.material
 
-    testImplementation deps.junit
-    testImplementation deps.mockito
-    testImplementation deps.lifecycle.test
+    testImplementation deps.test.junit
+    testImplementation deps.test.mockito
+    testImplementation deps.test.lifecycle
 }

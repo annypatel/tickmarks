@@ -30,6 +30,6 @@ dependencies {
     implementation deps.retrocrawler.jspoon
 
     testImplementation project(":base-test:data")
-    testImplementation deps.junit
-    testImplementation deps.mockito
+    testImplementation deps.test.junit
+    testImplementation deps.test.mockito
 }

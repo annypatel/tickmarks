@@ -12,6 +12,6 @@ dependencies {
     implementation deps.rx.java
 
     testImplementation project(':base-test:domain')
-    testImplementation deps.junit
-    testImplementation deps.mockito
+    testImplementation deps.test.junit
+    testImplementation deps.test.mockito
 }
