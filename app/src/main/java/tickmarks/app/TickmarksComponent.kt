@@ -3,9 +3,8 @@ package tickmarks.app
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import tickmarks.data.BaseDataModule
-import tickmarks.domain.BaseDomainModule
-import tickmarks.ui.BaseUiModule
+import tickmarks.data.network.NetworkModule
+import tickmarks.ui.viewmodel.ViewModelFactoryModule
 import javax.inject.Singleton
 
 /**
@@ -16,9 +15,9 @@ import javax.inject.Singleton
 @Component(
     modules = [
         AndroidSupportInjectionModule::class,
-        BaseUiModule::class,
-        BaseDomainModule::class,
-        BaseDataModule::class,
+        NetworkModule::class,
+        ViewModelFactoryModule::class,
+        SchedulersModule::class,
         FeatureModules::class
     ]
 )

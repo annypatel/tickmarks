@@ -40,6 +40,7 @@ dependencies {
     implementation deps.kotlin
 
     implementation deps.rx.java
+    implementation deps.rx.android
 
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
