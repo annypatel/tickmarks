@@ -7,6 +7,7 @@ android {
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dataBinding {
@@ -38,4 +39,13 @@ dependencies {
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
     testImplementation deps.test.lifecycle
+
+    androidTestImplementation project(":base:test_ui")
+    androidTestImplementation deps.test.runner
+    androidTestImplementation deps.test.rules
+
+    // for dagger generated code
+    androidTestImplementation project(":base:data")
+    kaptAndroidTest deps.dagger.compiler
+    androidTestImplementation deps.retrofit.client
 }
