@@ -39,7 +39,7 @@ dependencies {
     implementation deps.material
     implementation deps.lifecycle.extensions
 
-    testImplementation project(":base-test:ui")
+    testImplementation project(":base:test_ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
     testImplementation deps.test.lifecycle

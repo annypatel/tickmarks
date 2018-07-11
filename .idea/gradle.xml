@@ -10,12 +10,11 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base" />
-            <option value="$PROJECT_DIR$/base-test" />
-            <option value="$PROJECT_DIR$/base-test/data" />
-            <option value="$PROJECT_DIR$/base-test/domain" />
-            <option value="$PROJECT_DIR$/base-test/ui" />
             <option value="$PROJECT_DIR$/base/data" />
             <option value="$PROJECT_DIR$/base/domain" />
+            <option value="$PROJECT_DIR$/base/test_data" />
+            <option value="$PROJECT_DIR$/base/test_domain" />
+            <option value="$PROJECT_DIR$/base/test_ui" />
             <option value="$PROJECT_DIR$/base/ui" />
             <option value="$PROJECT_DIR$/bookmark" />
             <option value="$PROJECT_DIR$/bookmark/data" />
