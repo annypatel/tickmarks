@@ -7,7 +7,7 @@ import org.junit.Before
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
-import tickmarks.domain.rx.testDomainSchedulers
+import tickmarks.domain.test.rx.testDomainSchedulers
 
 class AddBookmarkImplTest {
 

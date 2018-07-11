@@ -14,7 +14,7 @@ import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
 import tickmarks.ui.binding.NONE
 import tickmarks.ui.binding.Visibility.GONE
-import tickmarks.ui.rx.testUiSchedulers
+import tickmarks.ui.test.rx.testUiSchedulers
 import org.hamcrest.CoreMatchers.`is` as Is
 
 class AddBookmarkViewModelTest {
