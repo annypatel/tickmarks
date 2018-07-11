@@ -114,11 +114,28 @@ subprojects {
         }
     }
 
-    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-        kotlinOptions {
-            jvmTarget = "1.8"
+    plugins.withId("kotlin") {
+        compileKotlin {
+            kotlinOptions {
+                jvmTarget = "1.8"
+            }
         }
     }
+
+    def androidConfig = {
+        android {
+            compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+
+            packagingOptions {
+                exclude 'META-INF/*.kotlin_module'
+            }
+        }
+    }
+    plugins.withId("com.android.application", androidConfig)
+    plugins.withId("com.android.library", androidConfig)
 }
 
 task clean(type: Delete) {
