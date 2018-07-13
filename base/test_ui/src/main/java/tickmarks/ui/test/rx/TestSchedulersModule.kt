@@ -23,27 +23,27 @@ object TestSchedulersModule {
     @Singleton
     @JvmStatic
     fun uiSchedulers() = UiSchedulers(
-        mainThread = wrap(AndroidSchedulers.mainThread())
+        mainThread = wrap(AndroidSchedulers.mainThread(), "mainThread")
     )
 
     @Provides
     @Singleton
     @JvmStatic
     fun domainSchedulers() = DomainSchedulers(
-        computation = wrap(Schedulers.computation())
+        computation = wrap(Schedulers.computation(), "computation")
     )
 
     @Provides
     @Singleton
     @JvmStatic
     fun dataSchedulers() = DataSchedulers(
-        io = wrap(Schedulers.io()),
-        database = wrap(Schedulers.single())
+        io = wrap(Schedulers.io(), "io"),
+        database = wrap(Schedulers.single(), "database")
     )
 
     @JvmStatic
-    private fun wrap(scheduler: Scheduler): Scheduler {
-        val wrapped = Rx2Idler.wrap(scheduler, "")
+    private fun wrap(scheduler: Scheduler, name: String): Scheduler {
+        val wrapped = Rx2Idler.wrap(scheduler, name)
         IdlingRegistry.getInstance().register(wrapped)
         return wrapped
     }

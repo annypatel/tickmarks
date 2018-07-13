@@ -75,13 +75,14 @@ buildscript {
         'material'    : "com.google.android.material:material:$versions.material",
 
         'test'        : [
-            'junit'    : "junit:junit:$versions.junit",
-            'mockito'  : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
-            'lifecycle': "androidx.arch.core:core-testing:$versions.lifecycle",
-            'runner'   : "androidx.test:runner:$versions.testRunner",
-            'rules'    : "androidx.test:rules:$versions.testRules",
-            'rxidler'  : "com.squareup.rx.idler:rx2-idler:$versions.rxidler",
-            'espresso' : [
+            'junit'        : "junit:junit:$versions.junit",
+            'mockito'      : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
+            'lifecycle'    : "androidx.arch.core:core-testing:$versions.lifecycle",
+            'runner'       : "androidx.test:runner:$versions.testRunner",
+            'rules'        : "androidx.test:rules:$versions.testRules",
+            'rxidler'      : "com.squareup.rx.idler:rx2-idler:$versions.rxidler",
+            'mockwebserver': "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
+            'espresso'     : [
                 'core': "androidx.test.espresso:espresso-core:$versions.espresso"
             ]
         ]
@@ -136,6 +137,10 @@ subprojects {
             packagingOptions {
                 exclude 'META-INF/*.kotlin_module'
             }
+        }
+
+        configurations {
+            all*.exclude group: 'org.bouncycastle'
         }
     }
     plugins.withId("com.android.application", androidConfig)

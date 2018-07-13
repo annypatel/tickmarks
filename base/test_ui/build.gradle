@@ -25,4 +25,5 @@ dependencies {
 
     implementation deps.test.rxidler
     implementation deps.test.espresso.core
+    implementation deps.test.mockwebserver
 }

@@ -43,6 +43,8 @@ dependencies {
     androidTestImplementation project(":base:test_ui")
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.rules
+    androidTestImplementation deps.test.espresso.core
+    androidTestImplementation deps.test.mockwebserver
 
     // for dagger generated code
     androidTestImplementation project(":base:data")
