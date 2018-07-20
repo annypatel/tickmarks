@@ -2,6 +2,7 @@ package tickmarks.bookmark.ui.add
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
 import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
@@ -28,9 +29,9 @@ class AddBookmarkFragmentTest {
             .perform(typeText(""))
 
         onView(withId(R.id.btnAddBookmark))
-            .perform(click())
+            .perform(click(), closeSoftKeyboard())
 
-        onView((withText(R.string.add_bookmark_empty_url)))
+        onView(withText(R.string.add_bookmark_empty_url))
             .check(matches(isDisplayed()))
     }
 
@@ -44,9 +45,9 @@ class AddBookmarkFragmentTest {
             .perform(typeText(urlToBookmark))
 
         onView(withId(R.id.btnAddBookmark))
-            .perform(click())
+            .perform(click(), closeSoftKeyboard())
 
-        onView((withText(R.string.add_bookmark_successful)))
+        onView(withText(R.string.add_bookmark_successful))
             .check(matches(isDisplayed()))
     }
 
@@ -60,9 +61,9 @@ class AddBookmarkFragmentTest {
             .perform(typeText(urlToBookmark))
 
         onView(withId(R.id.btnAddBookmark))
-            .perform(click())
+            .perform(click(), closeSoftKeyboard())
 
-        onView((withText(R.string.add_bookmark_failure)))
+        onView(withText(R.string.add_bookmark_failure))
             .check(matches(isDisplayed()))
     }
 }
