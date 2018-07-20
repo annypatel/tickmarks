@@ -42,6 +42,8 @@ dependencies {
     implementation deps.dagger.androidRuntime
     kapt deps.dagger.androidCompiler
 
+    implementation deps.appcompat
+
     // for dagger generated code
     implementation deps.retrofit.client
 }
