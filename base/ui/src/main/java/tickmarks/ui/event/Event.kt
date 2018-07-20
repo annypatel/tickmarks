@@ -1,4 +1,4 @@
-package tickmarks.ui.liveevent
+package tickmarks.ui.event
 
 /**
  * Used as a wrapper for data that is exposed via a [LiveEvent] that represents an event.

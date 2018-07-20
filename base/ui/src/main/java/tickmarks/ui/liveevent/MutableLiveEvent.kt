@@ -1,5 +1,7 @@
 package tickmarks.ui.liveevent
 
+import tickmarks.ui.event.Event
+
 /**
  * [LiveEvent] which publicly exposes [event] (alias for value) property and [get]/[set] for event data.
  */

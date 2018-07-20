@@ -3,6 +3,7 @@ package tickmarks.ui.liveevent
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import tickmarks.ui.event.Event
 
 /**
  * LiveEvent is a [LiveData] that wraps data inside an [Event]. Use LiveEvent instead of [LiveData] when the data
