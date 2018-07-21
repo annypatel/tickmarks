@@ -25,6 +25,14 @@ class Event<out T>(
     }
 
     /**
+     * Retrieves and consume the data wrapped inside this event.
+     */
+    fun consume(): T {
+        consumed = true
+        return data
+    }
+
+    /**
      * Retrieves, but does not consume the data inside this event.
      */
     fun peek() = data

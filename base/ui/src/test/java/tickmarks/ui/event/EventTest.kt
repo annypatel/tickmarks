@@ -36,6 +36,17 @@ class EventTest {
     }
 
     @Test
+    fun consume_givenUnconsumedEvent_shouldConsumeEvent() {
+        val expectedData = "EventData"
+        val event = Event(expectedData)
+
+        val actualData = event.consume()
+
+        assertThat(event.consumed, Is(true))
+        assertThat(actualData, Is(expectedData))
+    }
+
+    @Test
     fun consume_givenUnconsumedEvent_consumedShouldBeTrue() {
         val expectedData = "EventData"
         val event = Event(expectedData)
