@@ -12,14 +12,15 @@
             <option value="$PROJECT_DIR$/base" />
             <option value="$PROJECT_DIR$/base/data" />
             <option value="$PROJECT_DIR$/base/domain" />
-            <option value="$PROJECT_DIR$/base/test_data" />
-            <option value="$PROJECT_DIR$/base/test_domain" />
-            <option value="$PROJECT_DIR$/base/test_ui" />
             <option value="$PROJECT_DIR$/base/ui" />
             <option value="$PROJECT_DIR$/bookmark" />
             <option value="$PROJECT_DIR$/bookmark/data" />
             <option value="$PROJECT_DIR$/bookmark/domain" />
             <option value="$PROJECT_DIR$/bookmark/ui" />
+            <option value="$PROJECT_DIR$/test-utils" />
+            <option value="$PROJECT_DIR$/test-utils/data" />
+            <option value="$PROJECT_DIR$/test-utils/domain" />
+            <option value="$PROJECT_DIR$/test-utils/ui" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

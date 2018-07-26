@@ -24,7 +24,7 @@ dependencies {
     implementation deps.retrofit.client
     implementation deps.retrocrawler.jspoon
 
-    testImplementation project(":base:test_data")
+    testImplementation project(":test-utils:data")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
 }

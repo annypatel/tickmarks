@@ -35,12 +35,12 @@ dependencies {
     implementation deps.material
     implementation deps.lifecycle.extensions
 
-    testImplementation project(":base:test_ui")
+    testImplementation project(":test-utils:ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
     testImplementation deps.test.lifecycle
 
-    androidTestImplementation project(":base:test_ui")
+    androidTestImplementation project(":test-utils:ui")
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.rules
     androidTestImplementation deps.test.espresso.core
