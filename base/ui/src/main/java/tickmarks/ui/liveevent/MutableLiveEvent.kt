@@ -12,10 +12,4 @@ open class MutableLiveEvent<T> : LiveEvent<T>() {
         set(event) {
             value = event
         }
-
-    fun get() = value?.peek()
-
-    fun set(data: T) {
-        value = Event(data)
-    }
 }

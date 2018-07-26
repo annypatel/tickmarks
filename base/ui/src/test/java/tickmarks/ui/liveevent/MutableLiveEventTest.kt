@@ -42,15 +42,4 @@ class MutableLiveEventTest {
 
         verify(mockedObserver).onChanged(any())
     }
-
-    @Test
-    fun set_observeLiveEvent_observerShouldBeCalled() {
-        val mockedObserver = mock<Observer<Event<Int>>>()
-        val liveEvent = MutableLiveEvent<Int>()
-        liveEvent.observe(owner, mockedObserver)
-
-        liveEvent.set(123)
-
-        verify(mockedObserver).onChanged(any())
-    }
 }
