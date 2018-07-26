@@ -11,7 +11,6 @@ import tickmarks.ui.binding.Visibility.GONE
 import tickmarks.ui.binding.Visibility.VISIBLE
 import tickmarks.ui.binding.bind
 import tickmarks.ui.event.Event
-import tickmarks.ui.liveevent.MutableLiveEvent
 import tickmarks.ui.rx.UiSchedulers
 import tickmarks.ui.viewmodel.BaseViewModel
 import javax.inject.Inject
@@ -24,10 +23,10 @@ internal class AddBookmarkViewModel @Inject constructor(
     private val addBookmark: AddBookmark
 ) : BaseViewModel() {
 
-    val snackbar = MutableLiveEvent<Int>()
     @get:Bindable var url by bind(BR.url, EMPTY)
     @get:Bindable var error by bind(BR.error, NONE)
     @get:Bindable var loader by bind(BR.loader, GONE)
+    @get:Bindable var snackbar by bind(BR.snackbar, Event(NONE))
 
     fun addBookmark() {
         val urlToAdd = url
@@ -43,11 +42,11 @@ internal class AddBookmarkViewModel @Inject constructor(
             .subscribeBy(
                 onComplete = {
                     loader = GONE
-                    snackbar.event = Event(R.string.add_bookmark_successful)
+                    snackbar = Event(R.string.add_bookmark_successful)
                 },
                 onError = {
                     loader = GONE
-                    snackbar.event = Event(R.string.add_bookmark_failure)
+                    snackbar = Event(R.string.add_bookmark_failure)
                 }
             )
             .autoDispose()

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.google.android.material.snackbar.Snackbar
 import dagger.android.support.AndroidSupportInjection
 import tickmarks.bookmark.ui.add.AddBookmarkFragmentBinding.inflate
 import tickmarks.ui.fragment.viewModel
@@ -36,10 +35,5 @@ class AddBookmarkFragment : Fragment() {
 
         val viewModel = viewModel<AddBookmarkViewModel>(factory)
         binding.viewModel = viewModel
-
-        // observe snackbar events
-        viewModel.snackbar.observe(this) {
-            Snackbar.make(view, it, Snackbar.LENGTH_LONG).show()
-        }
     }
 }

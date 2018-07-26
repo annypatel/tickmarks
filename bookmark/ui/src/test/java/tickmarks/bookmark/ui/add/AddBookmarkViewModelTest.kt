@@ -1,12 +1,10 @@
 package tickmarks.bookmark.ui.add
 
-import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
 import org.junit.Assert.assertThat
 import org.junit.Before
-import org.junit.Rule
 import org.junit.Test
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
@@ -19,8 +17,6 @@ import org.hamcrest.CoreMatchers.`is` as Is
 
 class AddBookmarkViewModelTest {
 
-    @get:Rule
-    val instantExecutorRule = InstantTaskExecutorRule()
     @Mock
     private lateinit var addBookmark: AddBookmark
     private lateinit var viewModel: AddBookmarkViewModel
@@ -49,7 +45,7 @@ class AddBookmarkViewModelTest {
 
         assertThat(viewModel.error, Is(NONE))
         assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.get(), Is(R.string.add_bookmark_successful))
+        assertThat(viewModel.snackbar.peek(), Is(R.string.add_bookmark_successful))
     }
 
     @Test
@@ -61,6 +57,6 @@ class AddBookmarkViewModelTest {
 
         assertThat(viewModel.error, Is(NONE))
         assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.get(), Is(R.string.add_bookmark_failure))
+        assertThat(viewModel.snackbar.peek(), Is(R.string.add_bookmark_failure))
     }
 }
