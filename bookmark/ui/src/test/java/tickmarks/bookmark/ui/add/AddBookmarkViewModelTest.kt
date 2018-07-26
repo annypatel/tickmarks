@@ -33,34 +33,34 @@ class AddBookmarkViewModelTest {
 
     @Test
     fun addBookmark_givenEmptyUrl_shouldSetError() {
-        viewModel.url.set("")
+        viewModel.url = ""
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error.get(), Is(R.string.add_bookmark_empty_url))
+        assertThat(viewModel.error, Is(R.string.add_bookmark_empty_url))
     }
 
     @Test
     fun addBookmark_addBookmarkSuccessful_shouldSetSuccessMessage() {
         whenever(addBookmark.execute(any())).thenReturn(Completable.complete())
-        viewModel.url.set("http://example.com")
+        viewModel.url = "http://example.com"
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error.get(), Is(NONE))
-        assertThat(viewModel.loader.get(), Is(GONE))
+        assertThat(viewModel.error, Is(NONE))
+        assertThat(viewModel.loader, Is(GONE))
         assertThat(viewModel.snackbar.get(), Is(R.string.add_bookmark_successful))
     }
 
     @Test
     fun addBookmark_addBookmarkFailed_shouldSetFailureMessage() {
         whenever(addBookmark.execute(any())).thenReturn(Completable.error(RuntimeException()))
-        viewModel.url.set("http://example.com")
+        viewModel.url = "http://example.com"
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error.get(), Is(NONE))
-        assertThat(viewModel.loader.get(), Is(GONE))
+        assertThat(viewModel.error, Is(NONE))
+        assertThat(viewModel.loader, Is(GONE))
         assertThat(viewModel.snackbar.get(), Is(R.string.add_bookmark_failure))
     }
 }
