@@ -1,10 +1,11 @@
-package tickmarks.app
+package tickmarks.app.di
 
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import tickmarks.data.network.NetworkModule
-import tickmarks.ui.viewmodel.ViewModelFactoryModule
+import tickmarks.app.TickmarksApp
+import tickmarks.data.network.di.NetworkModule
+import tickmarks.ui.viewmodel.di.ViewModelFactoryModule
 import javax.inject.Singleton
 
 /**

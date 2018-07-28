@@ -1,7 +1,8 @@
-package tickmarks.data.network
+package tickmarks.data.network.di
 
 import dagger.Module
 import dagger.Provides
+import tickmarks.data.network.NetworkClient
 import javax.inject.Singleton
 
 /**

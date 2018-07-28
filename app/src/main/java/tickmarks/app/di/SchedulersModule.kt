@@ -1,4 +1,4 @@
-package tickmarks.app
+package tickmarks.app.di
 
 import dagger.Module
 import dagger.Provides

@@ -1,8 +1,9 @@
-package tickmarks.ui.viewmodel
+package tickmarks.ui.viewmodel.di
 
 import androidx.lifecycle.ViewModelProvider
 import dagger.Binds
 import dagger.Module
+import tickmarks.ui.viewmodel.ViewModelFactory
 
 /**
  * Dagger [module][Module] for ViewModel factory that declares [ViewModelProvider.Factory] to be bind into application

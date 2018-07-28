@@ -1,4 +1,4 @@
-package tickmarks.ui.test.rx
+package tickmarks.ui.test.di
 
 import androidx.test.espresso.IdlingRegistry
 import com.squareup.rx2.idler.Rx2Idler

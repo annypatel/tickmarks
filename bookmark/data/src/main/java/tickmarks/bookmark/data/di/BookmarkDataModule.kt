@@ -1,8 +1,9 @@
-package tickmarks.bookmark.data
+package tickmarks.bookmark.data.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import tickmarks.bookmark.data.CrawlerRepositoryImpl
 import tickmarks.bookmark.data.network.CrawlerService
 import tickmarks.bookmark.domain.CrawlerRepository
 import tickmarks.data.network.NetworkClient

@@ -1,12 +1,13 @@
-package tickmarks.bookmark.ui.test
+package tickmarks.bookmark.ui.test.di
 
 import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
-import tickmarks.bookmark.ui.BookmarkModule
-import tickmarks.data.network.NetworkModule
-import tickmarks.ui.test.rx.TestSchedulersModule
-import tickmarks.ui.viewmodel.ViewModelFactoryModule
+import tickmarks.bookmark.di.BookmarkModule
+import tickmarks.bookmark.ui.test.TestBookmarkApp
+import tickmarks.data.network.di.NetworkModule
+import tickmarks.ui.test.di.TestSchedulersModule
+import tickmarks.ui.viewmodel.di.ViewModelFactoryModule
 import javax.inject.Singleton
 
 /**

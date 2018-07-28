@@ -1,4 +1,4 @@
-package tickmarks.ui.viewmodel
+package tickmarks.ui.viewmodel.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

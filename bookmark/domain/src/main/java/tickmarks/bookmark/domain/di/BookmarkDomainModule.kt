@@ -1,7 +1,9 @@
-package tickmarks.bookmark.domain
+package tickmarks.bookmark.domain.di
 
 import dagger.Binds
 import dagger.Module
+import tickmarks.bookmark.domain.AddBookmark
+import tickmarks.bookmark.domain.AddBookmarkImpl
 
 /**
  * Dagger [module][Module] for bookmark domain module.

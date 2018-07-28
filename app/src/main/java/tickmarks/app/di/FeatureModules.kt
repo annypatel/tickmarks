@@ -1,7 +1,7 @@
-package tickmarks.app
+package tickmarks.app.di
 
 import dagger.Module
-import tickmarks.bookmark.ui.BookmarkModule
+import tickmarks.bookmark.di.BookmarkModule
 
 /**
  * Defines all feature modules of this application.
