@@ -19,6 +19,7 @@ import javax.inject.Singleton
         NetworkModule::class,
         ViewModelFactoryModule::class,
         SchedulersModule::class,
+        AppModule::class,
         FeaturesModule::class
     ]
 )

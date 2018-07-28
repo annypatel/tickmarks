@@ -20,8 +20,10 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         NetworkModule::class,
         ViewModelFactoryModule::class,
-
+        // test-only modules
         TestSchedulersModule::class,
+        TestBookmarkAppModule::class,
+        // feature module
         BookmarkModule::class
     ]
 )

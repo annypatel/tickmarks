@@ -7,6 +7,10 @@ android {
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
+
+        javaCompileOptions.annotationProcessorOptions {
+            arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+        }
     }
 }
 
@@ -23,6 +27,10 @@ dependencies {
 
     implementation deps.retrofit.client
     implementation deps.retrocrawler.jspoon
+
+    implementation deps.room.runtime
+    implementation deps.room.rx
+    kapt deps.room.compiler
 
     testImplementation project(":test-utils:data")
     testImplementation deps.test.junit
