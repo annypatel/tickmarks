@@ -19,7 +19,7 @@ import javax.inject.Singleton
         NetworkModule::class,
         ViewModelFactoryModule::class,
         SchedulersModule::class,
-        FeatureModules::class
+        FeaturesModule::class
     ]
 )
 interface TickmarksComponent : AndroidInjector<TickmarksApp> {

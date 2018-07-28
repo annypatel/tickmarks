@@ -11,4 +11,4 @@ import tickmarks.bookmark.di.BookmarkModule
         BookmarkModule::class
     ]
 )
-object FeatureModules
+object FeaturesModule
