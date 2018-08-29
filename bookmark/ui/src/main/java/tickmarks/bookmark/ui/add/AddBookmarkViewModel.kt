@@ -37,7 +37,7 @@ internal class AddBookmarkViewModel @Inject constructor(
 
         error = NONE
         loader = VISIBLE
-        addBookmark.execute(urlToAdd)
+        addBookmark(urlToAdd)
             .observeOn(schedulers.mainThread)
             .subscribeBy(
                 onComplete = {

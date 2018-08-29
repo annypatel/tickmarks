@@ -26,7 +26,7 @@ class AddBookmarkImplTest {
         whenever(crawlerRepository.crawl(any()))
             .thenReturn(Single.just(stubWebPageElements()))
 
-        val observer = addBookmark.execute("http://www.example.com")
+        val observer = addBookmark("http://www.example.com")
             .test()
 
         observer.assertComplete()
@@ -39,7 +39,7 @@ class AddBookmarkImplTest {
         whenever(crawlerRepository.crawl(any()))
             .thenReturn(Single.error(expectedError))
 
-        val observer = addBookmark.execute("http://www.example.com")
+        val observer = addBookmark("http://www.example.com")
             .test()
 
         observer.assertNotComplete()

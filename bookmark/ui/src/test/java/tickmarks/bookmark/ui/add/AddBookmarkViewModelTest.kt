@@ -38,7 +38,7 @@ class AddBookmarkViewModelTest {
 
     @Test
     fun addBookmark_addBookmarkSuccessful_shouldSetSuccessMessage() {
-        whenever(addBookmark.execute(any())).thenReturn(Completable.complete())
+        whenever(addBookmark(any())).thenReturn(Completable.complete())
         viewModel.url = "http://example.com"
 
         viewModel.addBookmark()
@@ -50,7 +50,7 @@ class AddBookmarkViewModelTest {
 
     @Test
     fun addBookmark_addBookmarkFailed_shouldSetFailureMessage() {
-        whenever(addBookmark.execute(any())).thenReturn(Completable.error(RuntimeException()))
+        whenever(addBookmark(any())).thenReturn(Completable.error(RuntimeException()))
         viewModel.url = "http://example.com"
 
         viewModel.addBookmark()

@@ -18,7 +18,7 @@ internal class AddBookmarkImpl @Inject constructor(
     private val crawlerRepository: CrawlerRepository
 ) : AddBookmark {
 
-    override fun execute(input: String): Completable {
+    override fun invoke(input: String): Completable {
         return crawlerRepository.crawl(input)
             .observeOn(schedulers.computation)
             .ignoreElement()
