@@ -15,12 +15,23 @@ interface AddBookmark : CompletableUseCase<String>
  */
 internal class AddBookmarkImpl @Inject constructor(
     private val schedulers: DomainSchedulers,
-    private val crawlerRepository: CrawlerRepository
+    private val crawlerRepository: CrawlerRepository,
+    private val bookmarkRepository: BookmarkRepository
 ) : AddBookmark {
 
     override fun invoke(input: String): Completable {
         return crawlerRepository.crawl(input)
             .observeOn(schedulers.computation)
-            .ignoreElement()
+            .map {
+                Bookmark(
+                    it.title,
+                    it.url ?: input,
+                    it.image,
+                    it.description
+                )
+            }
+            .flatMapCompletable {
+                bookmarkRepository.saveBookmark(it)
+            }
     }
 }

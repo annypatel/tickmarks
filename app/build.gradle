@@ -46,4 +46,5 @@ dependencies {
 
     // for dagger generated code
     implementation deps.retrofit.client
+    implementation deps.room.runtime
 }

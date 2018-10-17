@@ -50,4 +50,5 @@ dependencies {
     androidTestImplementation project(":base:data")
     kaptAndroidTest deps.dagger.compiler
     androidTestImplementation deps.retrofit.client
+    androidTestImplementation deps.room.runtime
 }

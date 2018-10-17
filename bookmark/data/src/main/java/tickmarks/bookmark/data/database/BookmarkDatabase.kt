@@ -18,4 +18,6 @@ abstract class BookmarkDatabase : RoomDatabase() {
         const val VERSION = 1
         const val NAME = "bookmarks.db"
     }
+
+    abstract fun bookmarkDao(): BookmarkDao
 }

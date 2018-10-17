@@ -12,13 +12,13 @@ data class BookmarkEntity(
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)
-    var id: Long,
+    val id: Long = 0,
 
     @ColumnInfo(name = "title")
     val title: String?,
 
     @ColumnInfo(name = "url")
-    var url: String,
+    val url: String,
 
     @ColumnInfo(name = "image")
     val image: String?,
