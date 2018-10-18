@@ -1,6 +1,7 @@
 package tickmarks.ui.test.mockserver
 
-import androidx.test.InstrumentationRegistry.getContext
+import android.content.Context
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import okhttp3.mockwebserver.MockResponse
 import okio.Buffer
 
@@ -8,7 +9,7 @@ import okio.Buffer
  * Sets the response body from the given file in the assets folder.
  */
 fun MockResponse.setBodyAsset(filePath: String): MockResponse {
-    val ins = getContext().assets.open(filePath)
+    val ins = getApplicationContext<Context>().assets.open(filePath)
     body = Buffer().readFrom(ins)
     return this
 }

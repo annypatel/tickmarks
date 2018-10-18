@@ -35,11 +35,12 @@ buildscript {
         'support'     : '1.0.0',
         'material'    : '1.0.0',
         'junit'       : '4.12',
-        'mockito'     : '2.0.0-RC1',
+        'mockito'     : '2.0.0-RC3',
         'rxidler'     : '0.9.0',
-        'espresso'    : '3.1.0-alpha4',
-        'testRunner'  : '1.1.0-alpha4',
-        'testRules'   : '1.1.0-alpha4'
+        'espresso'    : '3.1.0-beta02',
+        'testCore'    : '1.0.0-beta02',
+        'testRunner'  : '1.1.0-beta02',
+        'testRules'   : '1.1.0-beta02'
     ]
 
     // Dependencies
@@ -83,6 +84,7 @@ buildscript {
         'test'        : [
             'junit'        : "junit:junit:$versions.junit",
             'mockito'      : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
+            'core'         : "androidx.test:core:$versions.testCore",
             'lifecycle'    : "androidx.arch.core:core-testing:$versions.lifecycle",
             'runner'       : "androidx.test:runner:$versions.testRunner",
             'rules'        : "androidx.test:rules:$versions.testRules",

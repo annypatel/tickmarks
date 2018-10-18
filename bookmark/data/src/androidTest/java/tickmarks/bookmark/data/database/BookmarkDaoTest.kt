@@ -1,7 +1,7 @@
 package tickmarks.bookmark.data.database
 
 import androidx.room.Room
-import androidx.test.InstrumentationRegistry.getContext
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Before
@@ -15,7 +15,7 @@ class BookmarkDaoTest {
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder(getContext(), BookmarkDatabase::class.java)
+        database = Room.inMemoryDatabaseBuilder(getApplicationContext(), BookmarkDatabase::class.java)
             .build()
         bookmarkDao = database.bookmarkDao()
     }

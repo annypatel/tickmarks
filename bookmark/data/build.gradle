@@ -37,5 +37,6 @@ dependencies {
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
 
+    androidTestImplementation deps.test.core
     androidTestImplementation deps.test.runner
 }
