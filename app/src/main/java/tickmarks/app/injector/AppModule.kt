@@ -1,4 +1,4 @@
-package tickmarks.app.di
+package tickmarks.app.injector
 
 import android.app.Application
 import dagger.Binds

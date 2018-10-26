@@ -1,4 +1,4 @@
-package tickmarks.data.network.di
+package tickmarks.data.injector
 
 import dagger.Module
 import dagger.Provides
@@ -7,7 +7,6 @@ import okhttp3.OkHttpClient
 import retrocrawler.jspoon.RetroCrawlerJSpoonConverterFactory
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import tickmarks.data.di.PrivateToComponent
 import tickmarks.data.network.NetworkClient
 import java.util.concurrent.TimeUnit
 

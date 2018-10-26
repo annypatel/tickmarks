@@ -1,4 +1,4 @@
-package tickmarks.bookmark.data.database.di
+package tickmarks.bookmark.data.injector
 
 import dagger.Module
 import dagger.Provides

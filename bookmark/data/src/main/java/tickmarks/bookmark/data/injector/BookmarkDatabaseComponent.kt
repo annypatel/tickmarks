@@ -1,4 +1,4 @@
-package tickmarks.bookmark.data.database.di
+package tickmarks.bookmark.data.injector
 
 import android.app.Application
 import androidx.room.Room
@@ -6,7 +6,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
 import tickmarks.bookmark.data.database.BookmarkDatabase
-import tickmarks.data.di.PrivateToComponent
+import tickmarks.data.injector.PrivateToComponent
 
 /**
  * BookmarkDatabaseComponent exposes [BookmarkDatabase] with [bookmarkDatabase] provision method, dependencies declared

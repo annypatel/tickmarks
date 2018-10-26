@@ -1,4 +1,4 @@
-package tickmarks.bookmark.domain.di
+package tickmarks.bookmark.domain.injector
 
 import dagger.Binds
 import dagger.Module

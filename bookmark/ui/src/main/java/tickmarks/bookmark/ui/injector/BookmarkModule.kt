@@ -1,13 +1,12 @@
-package tickmarks.bookmark.di
+package tickmarks.bookmark.ui.injector
 
 import dagger.Module
 import dagger.android.AndroidInjector
 import dagger.android.ContributesAndroidInjector
-import tickmarks.bookmark.data.database.di.BookmarkDatabaseModule
-import tickmarks.bookmark.data.di.BookmarkDataModule
-import tickmarks.bookmark.domain.di.BookmarkDomainModule
+import tickmarks.bookmark.data.injector.BookmarkDataModule
+import tickmarks.bookmark.data.injector.BookmarkDatabaseModule
+import tickmarks.bookmark.domain.injector.BookmarkDomainModule
 import tickmarks.bookmark.ui.add.AddBookmarkFragment
-import tickmarks.bookmark.ui.di.BookmarkUiModule
 
 /**
  * Dagger [module][Module] for bookmark module, binds [AndroidInjector] for fragments/activities and bookmark database

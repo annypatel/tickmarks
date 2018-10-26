@@ -1,4 +1,4 @@
-package tickmarks.data.di
+package tickmarks.data.injector
 
 import dagger.Subcomponent
 import javax.inject.Qualifier

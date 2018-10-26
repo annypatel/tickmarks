@@ -1,4 +1,4 @@
-package tickmarks.data.network.di
+package tickmarks.data.injector
 
 import dagger.Module
 import dagger.Provides

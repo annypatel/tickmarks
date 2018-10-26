@@ -1,4 +1,4 @@
-package tickmarks.bookmark.ui.test.di
+package tickmarks.bookmark.ui.test.injector
 
 import android.app.Application
 import dagger.Binds
