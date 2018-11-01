@@ -2,9 +2,5 @@ apply plugin: 'kotlin'
 
 dependencies {
     implementation project(":base:domain")
-
-    implementation deps.kotlin
-
-    implementation deps.rx.java
 }
 

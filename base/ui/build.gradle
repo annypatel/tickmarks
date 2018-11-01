@@ -15,13 +15,13 @@ android {
 }
 
 dependencies {
-    implementation deps.kotlin
+    api deps.kotlin
+    api deps.rx.java
+    api deps.rx.kotlin
+    api deps.rx.android
 
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
-
-    implementation deps.rx.java
-    implementation deps.rx.android
 
     implementation deps.lifecycle.extensions
     implementation deps.material

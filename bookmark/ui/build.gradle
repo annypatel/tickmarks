@@ -16,14 +16,9 @@ android {
 }
 
 dependencies {
-    implementation project(":base:ui")
-    implementation project(":bookmark:domain")
-    implementation project(":bookmark:data")
-
-    implementation deps.kotlin
-
-    implementation deps.rx.java
-    implementation deps.rx.kotlin
+    api project(":base:ui")
+    api project(":bookmark:domain")
+    api project(":bookmark:data")
 
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler

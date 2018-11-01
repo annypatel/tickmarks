@@ -11,8 +11,4 @@ android {
 
 dependencies {
     implementation project(":base:data")
-
-    implementation deps.kotlin
-
-    implementation deps.rx.java
 }

@@ -15,11 +15,6 @@ dependencies {
     implementation project(":base:domain")
     implementation project(":base:data")
 
-    implementation deps.kotlin
-
-    implementation deps.rx.java
-    implementation deps.rx.android
-
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
 
