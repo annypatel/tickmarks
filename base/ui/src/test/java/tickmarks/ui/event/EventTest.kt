@@ -1,58 +1,43 @@
 package tickmarks.ui.event
 
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test
-import org.hamcrest.CoreMatchers.`is` as Is
 
 class EventTest {
 
     @Test
     fun consume_givenUnconsumedEvent_shouldCallConsumerOnce() {
-        val mockedConsumer = mock<(String) -> Unit>()
-        val expectedData = "EventData"
-        val event = Event(expectedData)
+        val event = Event("EventData")
+        val mockedConsumer = mock<(Event<String>) -> Unit>()
 
         event.consume(mockedConsumer)
 
-        verify(mockedConsumer, times(1)).invoke(expectedData)
-        assertThat(event.peek(), Is(expectedData))
+        verify(mockedConsumer, times(1)).invoke(event)
     }
 
     @Test
     fun consume_givenConsumedEvent_shouldNeverCallConsumer() {
-        val mockedConsumer = mock<(String) -> Unit>()
-        val expectedData = "EventData"
-        val event = Event(expectedData)
+        val event = Event("EventData")
+        val mockedConsumer = mock<(Event<String>) -> Unit>()
         event.consume {}
 
         event.consume(mockedConsumer)
 
-        verify(mockedConsumer, never()).invoke(expectedData)
-        assertThat(event.peek(), Is(expectedData))
-    }
-
-    @Test
-    fun consume_givenUnconsumedEvent_shouldConsumeEvent() {
-        val expectedData = "EventData"
-        val event = Event(expectedData)
-
-        val actualData = event.consume()
-
-        assertThat(event.consumed, Is(true))
-        assertThat(actualData, Is(expectedData))
+        verify(mockedConsumer, never()).invoke(any())
     }
 
     @Test
     fun consume_givenUnconsumedEvent_consumedShouldBeTrue() {
-        val expectedData = "EventData"
-        val event = Event(expectedData)
+        val event = Event("EventData")
 
         event.consume {}
 
-        assertThat(event.consumed, Is(true))
+        assertThat(event.consumed, equalTo(true))
     }
 }

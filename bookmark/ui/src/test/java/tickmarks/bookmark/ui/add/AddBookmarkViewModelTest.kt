@@ -45,7 +45,7 @@ class AddBookmarkViewModelTest {
 
         assertThat(viewModel.error, Is(NONE))
         assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.peek(), Is(R.string.add_bookmark_successful))
+        assertThat(viewModel.snackbar.data, Is(R.string.add_bookmark_successful))
     }
 
     @Test
@@ -57,6 +57,6 @@ class AddBookmarkViewModelTest {
 
         assertThat(viewModel.error, Is(NONE))
         assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.peek(), Is(R.string.add_bookmark_failure))
+        assertThat(viewModel.snackbar.data, Is(R.string.add_bookmark_failure))
     }
 }

@@ -4,6 +4,7 @@ import android.view.View
 import androidx.databinding.BindingAdapter
 import com.google.android.material.snackbar.Snackbar
 import tickmarks.ui.event.Event
+import tickmarks.ui.event.consume
 
 /**
  * Defines [BindingAdapter]s for a [Snackbar].
@@ -19,12 +20,10 @@ object SnackbarBindingAdapter {
     @JvmStatic
     @BindingAdapter("snackbar")
     fun showSnackbar(view: View, event: Event<Int>?) {
-        event?.apply {
-            if (!consumed) {
-                val resId = consume()
-                if (resId != NONE) {
-                    Snackbar.make(view, resId, Snackbar.LENGTH_LONG).show()
-                }
+        event?.consume {
+            val resId = it.data
+            if (resId != NONE) {
+                Snackbar.make(view, resId, Snackbar.LENGTH_LONG).show()
             }
         }
     }
