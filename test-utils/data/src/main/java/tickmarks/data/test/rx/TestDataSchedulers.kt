@@ -4,9 +4,9 @@ import io.reactivex.schedulers.Schedulers
 import tickmarks.data.rx.DataSchedulers
 
 /**
- * Creates [DataSchedulers] for unit tests.
+ * [DataSchedulers] for unit tests.
  */
-fun testDataSchedulers() = DataSchedulers(
-    io = Schedulers.trampoline(),
-    database = Schedulers.trampoline()
-)
+val testDataSchedulers = object : DataSchedulers {
+    override val io = Schedulers.trampoline()
+    override val database = Schedulers.trampoline()
+}

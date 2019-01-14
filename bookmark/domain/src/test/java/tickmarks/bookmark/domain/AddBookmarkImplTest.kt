@@ -21,7 +21,7 @@ class AddBookmarkImplTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        addBookmark = AddBookmarkImpl(testDomainSchedulers(), crawlerRepository, bookmarkRepository)
+        addBookmark = AddBookmarkImpl(testDomainSchedulers, crawlerRepository, bookmarkRepository)
     }
 
     @Test

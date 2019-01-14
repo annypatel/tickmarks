@@ -7,6 +7,6 @@ import tickmarks.domain.UseCase
  * RxJava schedulers for domain modules. Use these schedulers to perform business logic related operations in your
  * [UseCase] implementations.
  */
-class DomainSchedulers(
+interface DomainSchedulers {
     val computation: Scheduler
-)
+}

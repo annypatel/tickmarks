@@ -24,7 +24,7 @@ class AddBookmarkViewModelTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        viewModel = AddBookmarkViewModel(testUiSchedulers(), addBookmark)
+        viewModel = AddBookmarkViewModel(testUiSchedulers, addBookmark)
     }
 
     @Test

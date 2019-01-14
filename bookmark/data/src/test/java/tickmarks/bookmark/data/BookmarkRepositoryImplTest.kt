@@ -20,7 +20,7 @@ class BookmarkRepositoryImplTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        repository = BookmarkRepositoryImpl(testDataSchedulers(), bookmarkDao)
+        repository = BookmarkRepositoryImpl(testDataSchedulers, bookmarkDao)
     }
 
     @Test

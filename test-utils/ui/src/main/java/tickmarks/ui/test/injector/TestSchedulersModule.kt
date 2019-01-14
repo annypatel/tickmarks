@@ -22,24 +22,24 @@ object TestSchedulersModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun uiSchedulers() = UiSchedulers(
-        mainThread = wrap(AndroidSchedulers.mainThread(), "mainThread")
-    )
+    fun uiSchedulers() = object : UiSchedulers {
+        override val mainThread = wrap(AndroidSchedulers.mainThread(), "mainThread")
+    }
 
     @Provides
     @Singleton
     @JvmStatic
-    fun domainSchedulers() = DomainSchedulers(
-        computation = wrap(Schedulers.computation(), "computation")
-    )
+    fun domainSchedulers() = object : DomainSchedulers {
+        override val computation = wrap(Schedulers.computation(), "computation")
+    }
 
     @Provides
     @Singleton
     @JvmStatic
-    fun dataSchedulers() = DataSchedulers(
-        io = wrap(Schedulers.io(), "io"),
-        database = wrap(Schedulers.single(), "database")
-    )
+    fun dataSchedulers() = object : DataSchedulers {
+        override val io = wrap(Schedulers.io(), "io")
+        override val database = wrap(Schedulers.single(), "database")
+    }
 
     @JvmStatic
     private fun wrap(scheduler: Scheduler, name: String): Scheduler {

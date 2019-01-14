@@ -21,7 +21,7 @@ class CrawlerRepositoryImplTest {
     @Before
     fun setup() {
         MockitoAnnotations.initMocks(this)
-        crawlerRepository = CrawlerRepositoryImpl(testDataSchedulers(), crawlerService)
+        crawlerRepository = CrawlerRepositoryImpl(testDataSchedulers, crawlerService)
     }
 
     @Test
