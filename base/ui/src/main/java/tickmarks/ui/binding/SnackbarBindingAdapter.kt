@@ -19,8 +19,8 @@ object SnackbarBindingAdapter {
      */
     @JvmStatic
     @BindingAdapter("snackbar")
-    fun showSnackbar(view: View, event: Event<Int>) {
-        event.consume {
+    fun showSnackbar(view: View, event: Event<Int>?) {
+        event?.consume {
             val resId = it.data
             if (resId != NONE) {
                 Snackbar.make(view, resId, Snackbar.LENGTH_LONG).show()

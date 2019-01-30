@@ -16,7 +16,7 @@ object ViewBindingAdapter {
      */
     @JvmStatic
     @BindingAdapter("visibility")
-    fun setVisibility(view: View, visibility: Visibility) {
+    fun setVisibility(view: View, visibility: Visibility?) {
         when (visibility) {
             VISIBLE -> view.visibility = View.VISIBLE
             INVISIBLE -> view.visibility = View.INVISIBLE

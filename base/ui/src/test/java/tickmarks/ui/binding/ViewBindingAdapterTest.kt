@@ -1,6 +1,8 @@
 package tickmarks.ui.binding
 
 import android.view.View
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Before
 import org.junit.Test
@@ -36,5 +38,12 @@ class ViewBindingAdapterTest {
         ViewBindingAdapter.setVisibility(view, Visibility.GONE)
 
         verify(view).visibility = View.GONE
+    }
+
+    @Test
+    fun setVisibility_givenNull__noChangeInVisibility() {
+        ViewBindingAdapter.setVisibility(view, null)
+
+        verify(view, never()).visibility = any()
     }
 }
