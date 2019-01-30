@@ -17,6 +17,7 @@
         app:snackbar="@{viewModel.snackbar}">
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
@@ -39,6 +40,7 @@
             android:onClick="@{() -> viewModel.addBookmark()}" />
 
         <ProgressBar
+            android:id="@+id/loader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:visibility="@{viewModel.loader}" />

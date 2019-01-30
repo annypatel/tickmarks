@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
+import androidx.databinding.ViewDataBinding
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import androidx.test.espresso.util.HumanReadables.describe
 import com.google.android.material.R
@@ -16,6 +17,14 @@ import org.hamcrest.Description
 import org.hamcrest.Matcher
 import org.hamcrest.TypeSafeMatcher
 import org.junit.Assert
+
+/**
+ * Asserts view binding against given matchers.
+ */
+fun <T : ViewDataBinding> assertThat(binding: T, matcher: Matcher<View>) {
+    val view = (binding.root.parent ?: binding.root) as View
+    assertThat(view, matcher)
+}
 
 /**
  * Asserts view against given matchers.
