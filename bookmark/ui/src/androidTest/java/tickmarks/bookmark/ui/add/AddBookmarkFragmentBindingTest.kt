@@ -7,7 +7,6 @@ import com.nhaarman.mockitokotlin2.verify
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 import tickmarks.bookmark.ui.R
 import tickmarks.ui.binding.Visibility.INVISIBLE
@@ -64,7 +63,6 @@ class AddBookmarkFragmentBindingTest {
     }
 
     @Test
-    @Ignore
     @UiThreadTest
     fun btnAddBookmark_givenViewModel_shouldCallAddBookmark() {
         val mockedViewModel = mock<AddBookmarkViewModel>()

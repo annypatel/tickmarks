@@ -34,6 +34,7 @@ buildscript {
         'room'          : '2.1.0-alpha03',
         'support'       : '1.0.0',
         'material'      : '1.0.0',
+        'allopen'       : '1.0.1',
         'junit'         : '4.12',
         'mockito'       : '2.0.0',
         'mockitoAndroid': '2.23.4',
@@ -81,6 +82,10 @@ buildscript {
         'appcompat'   : "androidx.appcompat:appcompat:$versions.support",
         'fragment'    : "androidx.fragment:fragment:$versions.support",
         'material'    : "com.google.android.material:material:$versions.material",
+        'open'     : [
+            'all' : "com.github.annypatel.allopen-annotations:all-open:$versions.allopen",
+            'none': "com.github.annypatel.allopen-annotations:none-open:$versions.allopen",
+        ],
 
         'test'        : [
             'junit'         : "junit:junit:$versions.junit",
@@ -106,6 +111,7 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.agp"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
         classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotless"
         classpath "com.github.ben-manes:gradle-versions-plugin:$versions.gvp"
     }
@@ -119,8 +125,13 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: "com.github.ben-manes.versions"
+    apply plugin: "kotlin-allopen"
     apply plugin: 'com.diffplug.gradle.spotless'
+    apply plugin: "com.github.ben-manes.versions"
+
+    allOpen {
+        annotation("allopen.annotations.Open")
+    }
 
     spotless {
         kotlin {

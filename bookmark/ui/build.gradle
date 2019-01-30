@@ -31,6 +31,9 @@ dependencies {
     implementation deps.material
     implementation deps.lifecycle.extensions
 
+    debugImplementation deps.open.all
+    releaseImplementation deps.open.none
+
     testImplementation project(":test-utils:ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
