@@ -7,20 +7,13 @@ import tickmarks.ui.binding.Visibility.INVISIBLE
 import tickmarks.ui.binding.Visibility.VISIBLE
 
 /**
- * Defines [BindingAdapter]s for a [View].
+ * Sets [visibility][View.setVisibility] of the given view.
  */
-object ViewBindingAdapter {
-
-    /**
-     * Sets [visibility][View.setVisibility] of the given view.
-     */
-    @JvmStatic
-    @BindingAdapter("visibility")
-    fun setVisibility(view: View, visibility: Visibility?) {
-        when (visibility) {
-            VISIBLE -> view.visibility = View.VISIBLE
-            INVISIBLE -> view.visibility = View.INVISIBLE
-            GONE -> view.visibility = View.GONE
-        }
+@BindingAdapter("visibility")
+fun View.setVisibility(visibility: Visibility?) {
+    when (visibility) {
+        VISIBLE -> this.visibility = View.VISIBLE
+        INVISIBLE -> this.visibility = View.INVISIBLE
+        GONE -> this.visibility = View.GONE
     }
 }

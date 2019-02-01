@@ -21,28 +21,28 @@ class ViewBindingAdapterTest {
 
     @Test
     fun setVisibility_givenVisible__setVisibilityToVisible() {
-        ViewBindingAdapter.setVisibility(view, Visibility.VISIBLE)
+        view.setVisibility(Visibility.VISIBLE)
 
         verify(view).visibility = View.VISIBLE
     }
 
     @Test
     fun setVisibility_givenInvisible_setVisibilityToInvisible() {
-        ViewBindingAdapter.setVisibility(view, Visibility.INVISIBLE)
+        view.setVisibility(Visibility.INVISIBLE)
 
         verify(view).visibility = View.INVISIBLE
     }
 
     @Test
     fun setVisibility_givenGone__setVisibilityToGone() {
-        ViewBindingAdapter.setVisibility(view, Visibility.GONE)
+        view.setVisibility(Visibility.GONE)
 
         verify(view).visibility = View.GONE
     }
 
     @Test
     fun setVisibility_givenNull__noChangeInVisibility() {
-        ViewBindingAdapter.setVisibility(view, null)
+        view.setVisibility(null)
 
         verify(view, never()).visibility = any()
     }

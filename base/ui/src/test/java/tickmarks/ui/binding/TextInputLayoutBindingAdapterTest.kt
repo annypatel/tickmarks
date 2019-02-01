@@ -22,7 +22,7 @@ class TextInputLayoutBindingAdapterTest {
 
     @Test
     fun setError_givenNone_setErrorToNull() {
-        TextInputLayoutBindingAdapter.setError(til, NONE)
+        til.setError(NONE)
 
         verify(til).error = null
     }
@@ -35,7 +35,7 @@ class TextInputLayoutBindingAdapterTest {
         whenever(context.getString(stringRes)).thenReturn(expectedStringValue)
         whenever(til.context).thenReturn(context)
 
-        TextInputLayoutBindingAdapter.setError(til, stringRes)
+        til.setError(stringRes)
 
         verify(til).error = expectedStringValue
     }

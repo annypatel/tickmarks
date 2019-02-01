@@ -30,7 +30,7 @@ class SnackbarBindingAdapterTest {
     fun showSnackbar_givenEvent_shouldShowSnackbar() {
         val snackbarMsg = android.R.string.ok
 
-        SnackbarBindingAdapter.showSnackbar(container, Event(snackbarMsg))
+        container.showSnackbar(Event(snackbarMsg))
 
         assertThat(container, hasSnackbar(withMessage(snackbarMsg)))
     }
@@ -42,7 +42,7 @@ class SnackbarBindingAdapterTest {
         val event = Event(snackbarMsg)
         event.consume { }
 
-        SnackbarBindingAdapter.showSnackbar(container, event)
+        container.showSnackbar(event)
 
         assertThat(container, hasNoSnackbar())
     }
@@ -50,7 +50,7 @@ class SnackbarBindingAdapterTest {
     @Test
     @UiThreadTest
     fun showSnackbar_givenNull_shouldNotShowSnackbar() {
-        SnackbarBindingAdapter.showSnackbar(container, null)
+        container.showSnackbar(null)
 
         assertThat(container, hasNoSnackbar())
     }
