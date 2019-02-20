@@ -27,6 +27,8 @@ dependencies {
     implementation deps.lifecycle.extensions
     implementation deps.material
 
+    implementation deps.databindLint
+
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
     testImplementation deps.test.lifecycle
