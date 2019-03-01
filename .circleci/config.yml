@@ -3,39 +3,48 @@ version: 2
 cache_key: &cache_key
   key: jars-{{ checksum "build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
+android_config: &android_config
+  working_directory: ~/Tickmarks
+  docker:
+    - image: circleci/android:api-28-alpha
+  environment:
+    JVM_OPTS: -Xmx3200m
+    TERM: dumb
+
+gcloud_config: &gcloud_config
+  working_directory: ~/Tickmarks
+  docker:
+    - image: google/cloud-sdk:latest
+  environment:
+    TERM: dumb
+
 jobs:
   build:
-    working_directory: ~/Tickmarks
-
-    docker:
-      - image: circleci/android:api-28-alpha
-
-    environment:
-      JVM_OPTS: -Xmx3200m
-      TERM: dumb
-
+    <<: *android_config
     steps:
       - checkout
 
       - restore_cache:
           <<: *cache_key
-
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
+      - save_cache:
+          <<: *cache_key
+          paths:
+            - ~/.gradle/caches
+            - ~/.gradle/wrapper
 
       - run:
           name: Check and Assemble APK
-          command: ./gradlew check dependencyUpdates
+          command: ./gradlew check dependencyUpdates assembleDebug assembleDebugAndroidTest
 
       - run:
           name: Copy Test Results
           command: .circleci/store_artifact.sh ".*/build/test-results/.*xml" ~/test-results/
-
       - run:
           name: Copy Lint Reports
           command: .circleci/store_artifact.sh ".*/build/reports/lint-results.xml" ~/lint-reports/
-
       - run:
           name: Copy Dependency Reports
           command: .circleci/store_artifact.sh ".*/build/dependencyUpdates/report.txt" ~/dependency-reports/
@@ -49,8 +58,41 @@ jobs:
       - store_artifacts:
           path: ~/dependency-reports
 
-      - save_cache:
-          <<: *cache_key
+      - persist_to_workspace:
+          root: .
           paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
+            - build
+            - ./**/build
+            - ./**/**/build
+
+  instrumented_test:
+    <<: *gcloud_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/Tickmarks
+
+      - run:
+          name: Setup Google Cloud Auth
+          command: .circleci/ftl_setup.sh
+
+      - run:
+          name: Test with Firebase Test Lab and download results
+          command: |
+            .circleci/ftl_test.sh app base/ui ~/instrumented-test-results
+            .circleci/ftl_test.sh app bookmark/ui ~/instrumented-test-results
+            .circleci/ftl_test.sh app bookmark/data ~/instrumented-test-results
+
+      - store_artifacts:
+          path: ~/instrumented-test-results
+      - store_test_Results:
+          path: ~/instrumented-test-results
+
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - instrumented_test:
+          requires:
+            - build
