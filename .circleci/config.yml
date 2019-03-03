@@ -78,8 +78,6 @@ jobs:
       - store_artifacts:
           path: ~/test-results
 
-
-
   instrumented_test:
     <<: *gcloud_config
     steps:
