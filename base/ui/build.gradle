@@ -13,6 +13,10 @@ android {
     dataBinding {
         enabled = true
     }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
+    }
 }
 
 dependencies {
@@ -29,10 +33,10 @@ dependencies {
 
     implementation deps.databindLint
 
+    testImplementation project(":test-utils:ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
     testImplementation deps.test.lifecycle
-
-    androidTestImplementation project(":test-utils:ui")
-    androidTestImplementation deps.test.rules
+    testImplementation deps.test.junitAndroid
+    testImplementation deps.test.robolectric
 }
