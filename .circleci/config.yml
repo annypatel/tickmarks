@@ -92,7 +92,6 @@ jobs:
       - run:
           name: Test with Firebase Test Lab and download results
           command: |
-            .circleci/ftl_test.sh app base/ui ~/instrumented-test-results
             .circleci/ftl_test.sh app bookmark/ui ~/instrumented-test-results
             .circleci/ftl_test.sh app bookmark/data ~/instrumented-test-results
 
