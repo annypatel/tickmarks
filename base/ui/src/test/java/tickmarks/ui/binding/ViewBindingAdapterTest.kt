@@ -1,49 +1,54 @@
 package tickmarks.ui.binding
 
+import android.view.ContextThemeWrapper
 import android.view.View
-import com.nhaarman.mockitokotlin2.any
-import com.nhaarman.mockitokotlin2.never
-import com.nhaarman.mockitokotlin2.verify
+import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import androidx.test.ext.junit.runners.AndroidJUnit4
+import org.hamcrest.CoreMatchers.equalTo
+import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
+import org.junit.runner.RunWith
+import tickmarks.ui.R
 
+@RunWith(AndroidJUnit4::class)
 class ViewBindingAdapterTest {
 
-    @Mock
     private lateinit var view: View
 
     @Before
     fun setup() {
-        MockitoAnnotations.initMocks(this)
+        val context = ContextThemeWrapper(getApplicationContext(), R.style.Theme_AppCompat)
+        view = View(context)
     }
 
     @Test
     fun setVisibility_givenVisible__setVisibilityToVisible() {
         view.setVisibility(Visibility.VISIBLE)
 
-        verify(view).visibility = View.VISIBLE
+        assertThat(view.visibility, equalTo(View.VISIBLE))
     }
 
     @Test
     fun setVisibility_givenInvisible_setVisibilityToInvisible() {
         view.setVisibility(Visibility.INVISIBLE)
 
-        verify(view).visibility = View.INVISIBLE
+        assertThat(view.visibility, equalTo(View.INVISIBLE))
     }
 
     @Test
     fun setVisibility_givenGone__setVisibilityToGone() {
         view.setVisibility(Visibility.GONE)
 
-        verify(view).visibility = View.GONE
+        assertThat(view.visibility, equalTo(View.GONE))
     }
 
     @Test
     fun setVisibility_givenNull__noChangeInVisibility() {
+        view.visibility = View.INVISIBLE
+
         view.setVisibility(null)
 
-        verify(view, never()).visibility = any()
+        assertThat(view.visibility, equalTo(View.INVISIBLE))
     }
 }
