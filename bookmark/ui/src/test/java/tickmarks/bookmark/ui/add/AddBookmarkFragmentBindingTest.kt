@@ -13,9 +13,9 @@ import org.junit.runner.RunWith
 import tickmarks.bookmark.ui.R
 import tickmarks.ui.binding.Visibility.INVISIBLE
 import tickmarks.ui.event.Event
-import tickmarks.ui.test.assertThat
 import tickmarks.ui.test.binding.bindNow
 import tickmarks.ui.test.binding.inflate
+import tickmarks.ui.test.binding.parent
 import tickmarks.ui.test.equalToRes
 import tickmarks.ui.test.hasSnackbar
 import tickmarks.ui.test.withMessage
@@ -48,7 +48,7 @@ class AddBookmarkFragmentBindingTest {
         assertThat(binding.etUrl.text.toString(), equalTo(urlToAdd))
         assertThat(binding.tilUrl.error, equalToRes(errorMsg))
         assertThat(binding.loader.visibility, equalTo(View.INVISIBLE))
-        assertThat(binding, hasSnackbar(withMessage(snackbarMsg)))
+        assertThat(binding.parent, hasSnackbar(withMessage(snackbarMsg)))
     }
 
     @Test

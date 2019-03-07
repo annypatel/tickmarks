@@ -2,6 +2,7 @@ package tickmarks.ui.test.binding
 
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater
+import android.view.View
 import android.widget.FrameLayout
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
@@ -30,3 +31,9 @@ inline fun <T : ViewDataBinding> T.bindNow(call: () -> Unit) {
     call()
     executePendingBindings()
 }
+
+/**
+ * Returns parent view of binding's root view.
+ */
+inline val <T : ViewDataBinding> T.parent: View
+    get() = root.parent as View
