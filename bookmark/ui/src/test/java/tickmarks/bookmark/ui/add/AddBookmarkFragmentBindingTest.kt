@@ -1,13 +1,15 @@
 package tickmarks.bookmark.ui.add
 
 import android.view.View
-import androidx.test.annotation.UiThreadTest
+import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
+import org.junit.runner.RunWith
 import tickmarks.bookmark.ui.R
 import tickmarks.ui.binding.Visibility.INVISIBLE
 import tickmarks.ui.event.Event
@@ -18,18 +20,17 @@ import tickmarks.ui.test.equalToRes
 import tickmarks.ui.test.hasSnackbar
 import tickmarks.ui.test.withMessage
 
+@RunWith(AndroidJUnit4::class)
 class AddBookmarkFragmentBindingTest {
 
     private lateinit var binding: AddBookmarkFragmentBinding
 
     @Before
-    @UiThreadTest
     fun setup() {
         binding = inflate(R.layout.fragment_add_bookmark)
     }
 
     @Test
-    @UiThreadTest
     fun bind_givenViewModel_shouldUpdateViews() {
         val viewModel = AddBookmarkViewModel(mock(), mock())
         binding.viewModel = viewModel
@@ -51,7 +52,6 @@ class AddBookmarkFragmentBindingTest {
     }
 
     @Test
-    @UiThreadTest
     fun inverseBind_givenViewModel_shouldUpdateViewModel() {
         val viewModel = AddBookmarkViewModel(mock(), mock())
         binding.viewModel = viewModel
@@ -63,7 +63,7 @@ class AddBookmarkFragmentBindingTest {
     }
 
     @Test
-    @UiThreadTest
+    @Ignore
     fun btnAddBookmark_givenViewModel_shouldCallAddBookmark() {
         val mockedViewModel = mock<AddBookmarkViewModel>()
         binding.viewModel = mockedViewModel

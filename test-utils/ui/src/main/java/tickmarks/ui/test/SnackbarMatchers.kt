@@ -1,8 +1,6 @@
 package tickmarks.ui.test
 
 import android.content.res.Resources
-import android.os.Handler
-import android.os.Looper
 import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.StringRes
@@ -23,16 +21,7 @@ import org.junit.Assert
  */
 fun <T : ViewDataBinding> assertThat(binding: T, matcher: Matcher<View>) {
     val view = (binding.root.parent ?: binding.root) as View
-    assertThat(view, matcher)
-}
-
-/**
- * Asserts view against given matchers.
- */
-fun assertThat(view: View, matcher: Matcher<View>) {
-    Handler(Looper.getMainLooper()).post {
-        Assert.assertThat(view, matcher)
-    }
+    Assert.assertThat(view, matcher)
 }
 
 /**

@@ -35,12 +35,11 @@ buildscript {
         'support'       : '1.0.0',
         'material'      : '1.0.0',
         'databindLint'  : '1.0.0-alpha1',
-        'allopen'       : '1.0.1',
         'junit'         : '4.12',
         'mockito'       : '2.0.0',
-        'mockitoAndroid': '2.23.4',
         'rxidler'       : '0.9.0',
         'robolectric'   : '4.2',
+        'bindingMapper' : '1.0.0-alpha1',
         'espresso'      : '3.1.1',
         'testCore'      : '1.1.0',
         'junitAndroid'  : '1.1.0',
@@ -86,15 +85,10 @@ buildscript {
         'fragment'    : "androidx.fragment:fragment:$versions.support",
         'material'    : "com.google.android.material:material:$versions.material",
         'databindLint': "com.github.annypatel.databinding:lint-checks:$versions.databindLint",
-        'open'        : [
-            'all' : "com.github.annypatel.allopen-annotations:all-open:$versions.allopen",
-            'none': "com.github.annypatel.allopen-annotations:none-open:$versions.allopen",
-        ],
 
         'test'        : [
             'junit'         : "junit:junit:$versions.junit",
             'mockito'       : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
-            'mockitoAndroid': "org.mockito:mockito-android:$versions.mockitoAndroid",
             'core'          : "androidx.test:core:$versions.testCore",
             'lifecycle'     : "androidx.arch.core:core-testing:$versions.lifecycle",
             'runner'        : "androidx.test:runner:$versions.testRunner",
@@ -103,6 +97,7 @@ buildscript {
             'rxidler'       : "com.squareup.rx.idler:rx2-idler:$versions.rxidler",
             'mockwebserver' : "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
             'robolectric'   : "org.robolectric:robolectric:$versions.robolectric",
+            'bindingMapper' : "com.github.annypatel.databinding:binding-mapper:$versions.bindingMapper",
             'espresso'      : [
                 'core': "androidx.test.espresso:espresso-core:$versions.espresso"
             ]
@@ -117,7 +112,6 @@ buildscript {
     dependencies {
         classpath "com.android.tools.build:gradle:$versions.agp"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$versions.kotlin"
         classpath "com.diffplug.spotless:spotless-plugin-gradle:$versions.spotless"
         classpath "com.github.ben-manes:gradle-versions-plugin:$versions.gvp"
     }
@@ -131,13 +125,8 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: "kotlin-allopen"
     apply plugin: 'com.diffplug.gradle.spotless'
     apply plugin: "com.github.ben-manes.versions"
-
-    allOpen {
-        annotation("allopen.annotations.Open")
-    }
 
     spotless {
         kotlin {

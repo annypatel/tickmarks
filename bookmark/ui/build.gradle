@@ -7,12 +7,15 @@ android {
     defaultConfig {
         minSdkVersion buildConfig.minSdk
         targetSdkVersion buildConfig.targetSdk
-        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dataBinding {
         enabled = true
+    }
+
+    testOptions.unitTests {
+        includeAndroidResources = true
     }
 }
 
@@ -33,21 +36,18 @@ dependencies {
 
     implementation deps.databindLint
 
-    debugImplementation deps.open.all
-    releaseImplementation deps.open.none
-
     testImplementation project(":test-utils:ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
-    testImplementation deps.test.lifecycle
+    testImplementation deps.test.junitAndroid
+    testImplementation deps.test.robolectric
+    testImplementation deps.test.bindingMapper
 
     androidTestImplementation project(":test-utils:ui")
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.rules
     androidTestImplementation deps.test.espresso.core
     androidTestImplementation deps.test.mockwebserver
-    androidTestImplementation deps.test.mockito
-    androidTestImplementation deps.test.mockitoAndroid
 
     // for dagger generated code
     androidTestImplementation project(":base:data")

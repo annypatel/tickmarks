@@ -1,6 +1,5 @@
 package tickmarks.bookmark.ui.add
 
-import allopen.annotations.TestOnlyOpen
 import androidx.databinding.Bindable
 import io.reactivex.rxkotlin.subscribeBy
 import tickmarks.bookmark.domain.AddBookmark
@@ -19,7 +18,6 @@ import javax.inject.Inject
 /**
  * View Model for Add Bookmark screen.
  */
-@TestOnlyOpen
 internal class AddBookmarkViewModel @Inject constructor(
     private val schedulers: UiSchedulers,
     private val addBookmark: AddBookmark
