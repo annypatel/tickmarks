@@ -3,7 +3,7 @@ package tickmarks.ui.viewmodel
 import io.reactivex.Flowable
 import org.junit.Assert.assertThat
 import org.junit.Test
-import org.hamcrest.CoreMatchers.`is` as Is
+import org.hamcrest.CoreMatchers.equalTo
 
 class RxViewModelTest {
 
@@ -26,7 +26,7 @@ class RxViewModelTest {
         val viewModel = TestViewModel()
         viewModel.subscribeAndAutoDispose()
 
-        assertThat(viewModel.disposables.size(), Is(1))
+        assertThat(viewModel.disposables.size(), equalTo(1))
     }
 
     @Test
@@ -36,6 +36,6 @@ class RxViewModelTest {
 
         viewModel.onCleared()
 
-        assertThat(viewModel.disposables.size(), Is(0))
+        assertThat(viewModel.disposables.size(), equalTo(0))
     }
 }

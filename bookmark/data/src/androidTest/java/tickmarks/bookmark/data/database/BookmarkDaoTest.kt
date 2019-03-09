@@ -6,7 +6,7 @@ import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.hamcrest.CoreMatchers.`is` as IS
+import org.hamcrest.CoreMatchers.equalTo
 
 class BookmarkDaoTest {
 
@@ -37,7 +37,7 @@ class BookmarkDaoTest {
         val actualBookmark = bookmarkDao.getAll()
             .test()
             .values()[0][0]
-        assertThat(actualBookmark, IS(expectedBookmark))
+        assertThat(actualBookmark, equalTo(expectedBookmark))
     }
 
     private fun stubBookmark() = BookmarkEntity(

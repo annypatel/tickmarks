@@ -13,7 +13,7 @@ import tickmarks.bookmark.ui.R
 import tickmarks.ui.binding.NONE
 import tickmarks.ui.binding.Visibility.GONE
 import tickmarks.ui.test.rx.testUiSchedulers
-import org.hamcrest.CoreMatchers.`is` as Is
+import org.hamcrest.CoreMatchers.equalTo
 
 class AddBookmarkViewModelTest {
 
@@ -33,7 +33,7 @@ class AddBookmarkViewModelTest {
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, Is(R.string.add_bookmark_empty_url))
+        assertThat(viewModel.error, equalTo(R.string.add_bookmark_empty_url))
     }
 
     @Test
@@ -43,9 +43,9 @@ class AddBookmarkViewModelTest {
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, Is(NONE))
-        assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.data, Is(R.string.add_bookmark_successful))
+        assertThat(viewModel.error, equalTo(NONE))
+        assertThat(viewModel.loader, equalTo(GONE))
+        assertThat(viewModel.snackbar.data, equalTo(R.string.add_bookmark_successful))
     }
 
     @Test
@@ -55,8 +55,8 @@ class AddBookmarkViewModelTest {
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, Is(NONE))
-        assertThat(viewModel.loader, Is(GONE))
-        assertThat(viewModel.snackbar.data, Is(R.string.add_bookmark_failure))
+        assertThat(viewModel.error, equalTo(NONE))
+        assertThat(viewModel.loader, equalTo(GONE))
+        assertThat(viewModel.snackbar.data, equalTo(R.string.add_bookmark_failure))
     }
 }

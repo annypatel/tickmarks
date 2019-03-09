@@ -4,7 +4,7 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertThat
 import org.junit.Test
-import org.hamcrest.CoreMatchers.`is` as Is
+import org.hamcrest.CoreMatchers.equalTo
 
 class BindDelegateTest {
 
@@ -15,7 +15,7 @@ class BindDelegateTest {
 
         val actualValue = delegate.getValue(mock(), mock())
 
-        assertThat(actualValue, Is(expectedValue))
+        assertThat(actualValue, equalTo(expectedValue))
     }
 
     @Test
@@ -25,7 +25,7 @@ class BindDelegateTest {
 
         delegate.setValue(mock(), mock(), expectedValue)
 
-        assertThat(delegate.getValue(mock(), mock()), Is(expectedValue))
+        assertThat(delegate.getValue(mock(), mock()), equalTo(expectedValue))
     }
 
     @Test
