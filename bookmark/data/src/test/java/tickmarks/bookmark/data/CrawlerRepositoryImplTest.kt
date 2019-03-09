@@ -1,12 +1,10 @@
 package tickmarks.bookmark.data
 
 import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Single
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 import tickmarks.bookmark.data.network.CrawlerService
 import tickmarks.bookmark.data.network.WebPageElementsRaw
 import tickmarks.bookmark.domain.WebPageElements
@@ -14,15 +12,8 @@ import tickmarks.data.test.rx.testDataSchedulers
 
 class CrawlerRepositoryImplTest {
 
-    @Mock
-    private lateinit var crawlerService: CrawlerService
-    private lateinit var crawlerRepository: CrawlerRepositoryImpl
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        crawlerRepository = CrawlerRepositoryImpl(testDataSchedulers, crawlerService)
-    }
+    private val crawlerService = mock<CrawlerService>()
+    private val crawlerRepository = CrawlerRepositoryImpl(testDataSchedulers, crawlerService)
 
     @Test
     fun crawl_whenCrawlingSuccessful_shouldEmitAndComplete() {

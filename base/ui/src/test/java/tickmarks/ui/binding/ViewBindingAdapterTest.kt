@@ -1,26 +1,17 @@
 package tickmarks.ui.binding
 
-import android.view.ContextThemeWrapper
 import android.view.View
-import androidx.test.core.app.ApplicationProvider.getApplicationContext
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import tickmarks.ui.R
+import tickmarks.ui.test.themedContext
 
 @RunWith(AndroidJUnit4::class)
 class ViewBindingAdapterTest {
 
-    private lateinit var view: View
-
-    @Before
-    fun setup() {
-        val context = ContextThemeWrapper(getApplicationContext(), R.style.Theme_AppCompat)
-        view = View(context)
-    }
+    private val view = View(themedContext())
 
     @Test
     fun setVisibility_givenVisible__setVisibilityToVisible() {

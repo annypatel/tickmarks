@@ -1,27 +1,18 @@
 package tickmarks.bookmark.data
 
 import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 import tickmarks.bookmark.data.database.BookmarkDao
 import tickmarks.bookmark.domain.Bookmark
 import tickmarks.data.test.rx.testDataSchedulers
 
 class BookmarkRepositoryImplTest {
 
-    @Mock
-    private lateinit var bookmarkDao: BookmarkDao
-    private lateinit var repository: BookmarkRepositoryImpl
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        repository = BookmarkRepositoryImpl(testDataSchedulers, bookmarkDao)
-    }
+    private val bookmarkDao = mock<BookmarkDao>()
+    private val repository = BookmarkRepositoryImpl(testDataSchedulers, bookmarkDao)
 
     @Test
     fun saveBookmark_whenInsertSuccessful_shouldComplete() {

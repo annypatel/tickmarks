@@ -1,28 +1,18 @@
 package tickmarks.bookmark.domain
 
 import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
 import io.reactivex.Single
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 import tickmarks.domain.test.rx.testDomainSchedulers
 
 class AddBookmarkImplTest {
 
-    @Mock
-    private lateinit var crawlerRepository: CrawlerRepository
-    @Mock
-    private lateinit var bookmarkRepository: BookmarkRepository
-    private lateinit var addBookmark: AddBookmarkImpl
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        addBookmark = AddBookmarkImpl(testDomainSchedulers, crawlerRepository, bookmarkRepository)
-    }
+    private val crawlerRepository = mock<CrawlerRepository>()
+    private val bookmarkRepository = mock<BookmarkRepository>()
+    private val addBookmark = AddBookmarkImpl(testDomainSchedulers, crawlerRepository, bookmarkRepository)
 
     @Test
     fun execute_whenCrawlingAndSavingSuccessful_shouldComplete() {

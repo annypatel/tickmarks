@@ -1,23 +1,15 @@
 package tickmarks.ui.binding
 
 import androidx.databinding.Observable.OnPropertyChangedCallback
+import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify
-import org.junit.Before
 import org.junit.Test
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
 
 class BaseObservableTest {
 
-    @Mock
-    private lateinit var mockedCallback: OnPropertyChangedCallback
+    private val mockedCallback = mock<OnPropertyChangedCallback>()
     private val observable = BaseObservable()
-
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-    }
 
     @Test
     fun notifyChange_givenObservableWithCallback_shouldInvokeCallback() {

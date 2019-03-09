@@ -6,7 +6,6 @@ import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import org.hamcrest.CoreMatchers.equalTo
 import org.junit.Assert.assertThat
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import tickmarks.bookmark.ui.R
@@ -22,12 +21,7 @@ import tickmarks.ui.test.withMessage
 @RunWith(AndroidJUnit4::class)
 class AddBookmarkFragmentBindingTest {
 
-    private lateinit var binding: AddBookmarkFragmentBinding
-
-    @Before
-    fun setup() {
-        binding = inflate(R.layout.fragment_add_bookmark)
-    }
+    private val binding = inflate<AddBookmarkFragmentBinding>(R.layout.fragment_add_bookmark)
 
     @Test
     fun bind_givenViewModel_shouldUpdateViews() {

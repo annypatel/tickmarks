@@ -18,6 +18,7 @@ dependencies {
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
 
+    implementation deps.appcompat
     implementation deps.test.core
     implementation deps.test.rxidler
     implementation deps.test.espresso.core
