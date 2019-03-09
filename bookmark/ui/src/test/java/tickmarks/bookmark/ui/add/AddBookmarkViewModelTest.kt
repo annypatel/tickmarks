@@ -17,37 +17,38 @@ class AddBookmarkViewModelTest {
 
     private val addBookmark = mock<AddBookmark>()
     private val viewModel = AddBookmarkViewModel(testUiSchedulers, addBookmark)
+    private val viewState = viewModel.viewState
 
     @Test
     fun addBookmark_givenEmptyUrl_shouldSetError() {
-        viewModel.url = ""
+        viewState.url = ""
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, equalTo(R.string.add_bookmark_empty_url))
+        assertThat(viewState.error, equalTo(R.string.add_bookmark_empty_url))
     }
 
     @Test
     fun addBookmark_addBookmarkSuccessful_shouldSetSuccessMessage() {
         whenever(addBookmark(any())).thenReturn(Completable.complete())
-        viewModel.url = "http://example.com"
+        viewState.url = "http://example.com"
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, equalTo(NONE))
-        assertThat(viewModel.loader, equalTo(GONE))
-        assertThat(viewModel.snackbar.data, equalTo(R.string.add_bookmark_successful))
+        assertThat(viewState.error, equalTo(NONE))
+        assertThat(viewState.loader, equalTo(GONE))
+        assertThat(viewState.snackbar.data, equalTo(R.string.add_bookmark_successful))
     }
 
     @Test
     fun addBookmark_addBookmarkFailed_shouldSetFailureMessage() {
         whenever(addBookmark(any())).thenReturn(Completable.error(RuntimeException()))
-        viewModel.url = "http://example.com"
+        viewState.url = "http://example.com"
 
         viewModel.addBookmark()
 
-        assertThat(viewModel.error, equalTo(NONE))
-        assertThat(viewModel.loader, equalTo(GONE))
-        assertThat(viewModel.snackbar.data, equalTo(R.string.add_bookmark_failure))
+        assertThat(viewState.error, equalTo(NONE))
+        assertThat(viewState.loader, equalTo(GONE))
+        assertThat(viewState.snackbar.data, equalTo(R.string.add_bookmark_failure))
     }
 }

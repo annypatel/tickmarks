@@ -25,7 +25,10 @@ class AddBookmarkFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val binding = AddBookmarkFragmentBinding.inflate(inflater, container, false)
-        binding.viewModel = viewModel(factory)
+            .apply {
+                viewModel = viewModel(factory)
+                viewState = viewModel?.viewState
+            }
         return binding.root
     }
 }

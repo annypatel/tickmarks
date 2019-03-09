@@ -1,11 +1,26 @@
 package tickmarks.ui.viewmodel
 
-import tickmarks.ui.binding.BaseObservable
-import tickmarks.ui.binding.Observable
+import androidx.lifecycle.ViewModel
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 /**
- * View model with support for observing data-bindings and [auto-dispose][autoDispose] for reactive observables.
+ * ViewModel which exposes a [autoDispose] method on [Disposable], which will be cleared automatically when the
+ * ViewModel is cleared.
  */
-abstract class BaseViewModel :
-    RxViewModel(),
-    Observable by BaseObservable()
+open class BaseViewModel : ViewModel() {
+
+    internal val disposables by lazy { CompositeDisposable() }
+
+    /**
+     * Adds disposable to [CompositeDisposable], which will be cleared automatically when ViewModel is cleared.
+     */
+    protected fun Disposable.autoDispose() {
+        disposables.add(this)
+    }
+
+    override fun onCleared() {
+        disposables.clear()
+        super.onCleared()
+    }
+}

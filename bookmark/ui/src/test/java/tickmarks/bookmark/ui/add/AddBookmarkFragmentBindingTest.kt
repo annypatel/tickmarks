@@ -25,17 +25,17 @@ class AddBookmarkFragmentBindingTest {
 
     @Test
     fun bind_givenViewModel_shouldUpdateViews() {
-        val viewModel = AddBookmarkViewModel(mock(), mock())
-        binding.viewModel = viewModel
+        val viewState = AddBookmarkViewState()
+        binding.viewState = viewState
         val urlToAdd = "http://www.example.com"
         val errorMsg = R.string.add_bookmark_empty_url
         val snackbarMsg = R.string.add_bookmark_failure
 
         binding.bindNow {
-            viewModel.url = urlToAdd
-            viewModel.error = errorMsg
-            viewModel.loader = INVISIBLE
-            viewModel.snackbar = Event(snackbarMsg)
+            viewState.url = urlToAdd
+            viewState.error = errorMsg
+            viewState.loader = INVISIBLE
+            viewState.snackbar = Event(snackbarMsg)
         }
 
         assertThat(binding.etUrl.text.toString(), equalTo(urlToAdd))
@@ -46,13 +46,13 @@ class AddBookmarkFragmentBindingTest {
 
     @Test
     fun inverseBind_givenViewModel_shouldUpdateViewModel() {
-        val viewModel = AddBookmarkViewModel(mock(), mock())
-        binding.viewModel = viewModel
+        val viewState = AddBookmarkViewState()
+        binding.viewState = viewState
         val urlToAdd = "http://www.example.com"
 
         binding.etUrl.setText(urlToAdd)
 
-        assertThat(viewModel.url, equalTo(urlToAdd))
+        assertThat(viewState.url, equalTo(urlToAdd))
     }
 
     @Test

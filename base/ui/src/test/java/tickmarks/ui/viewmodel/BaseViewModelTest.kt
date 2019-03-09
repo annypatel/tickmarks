@@ -5,9 +5,9 @@ import org.junit.Assert.assertThat
 import org.junit.Test
 import org.hamcrest.CoreMatchers.equalTo
 
-class RxViewModelTest {
+class BaseViewModelTest {
 
-    class TestViewModel : RxViewModel() {
+    class TestViewModel : BaseViewModel() {
 
         fun subscribeAndAutoDispose() {
             Flowable.just(1, 2, 3)

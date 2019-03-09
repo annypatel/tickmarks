@@ -1,5 +1,6 @@
 package tickmarks.ui.binding
 
+import androidx.databinding.BaseObservable
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import org.junit.Assert.assertThat
@@ -31,11 +32,11 @@ class BindDelegateTest {
     @Test
     fun setValue_givenDelegate_shouldNotifyPropertyChanged() {
         val expectedFieldId = 12
-        val observable = mock<Observable>()
+        val observable = mock<BaseObservable>()
         val delegate = BindDelegate(expectedFieldId, "Init Data")
 
         delegate.setValue(observable, mock(), "Updated Data")
 
-        verify(observable).notifyPropertyChanged(observable, expectedFieldId)
+        verify(observable).notifyPropertyChanged(expectedFieldId)
     }
 }
