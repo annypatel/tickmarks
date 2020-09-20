@@ -14,7 +14,7 @@ dependencies {
     implementation project(":base:ui")
     implementation project(":base:domain")
     implementation project(":base:data")
-
+    implementation deps.material
     implementation deps.dagger.runtime
     kapt deps.dagger.compiler
 
