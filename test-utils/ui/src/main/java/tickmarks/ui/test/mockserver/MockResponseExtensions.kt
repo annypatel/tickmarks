@@ -10,6 +10,6 @@ import okio.Buffer
  */
 fun MockResponse.setBodyAsset(filePath: String): MockResponse {
     val ins = getApplicationContext<Context>().assets.open(filePath)
-    body = Buffer().readFrom(ins)
+    setBody(Buffer().readFrom(ins))
     return this
 }

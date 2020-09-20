@@ -1,3 +1,5 @@
+apply plugin: "com.github.ben-manes.versions"
+
 buildscript {
     def appVersion = [
         'major': 1,
@@ -8,7 +10,7 @@ buildscript {
 
     // Build configuration
     ext.buildConfig = [
-        'minSdk'     : 16,
+        'minSdk'     : 21,
         'compileSdk' : 28,
         'targetSdk'  : 28,
         'versionName': "${appVersion.major}.${appVersion.minor}.${appVersion.patch}",
@@ -17,34 +19,36 @@ buildscript {
 
     // Dependency versions
     ext.versions = [
-        'agp'           : '4.0.1',
-        'kotlin'        : '1.3.21',
-        'spotless'      : '3.13.0',
-        'ktlint'        : '0.23.1',
-        'gvp'           : '0.19.0',
-        'rxJava'        : '2.2.4',
-        'rxKotlin'      : '2.3.0',
-        'rxAndroid'     : '2.1.0',
-        'dagger'        : '2.20',
-        'okhttp'        : '3.12.1',
-        'retrofit'      : '2.5.0',
-        'retrocrawler'  : '1.0.0-alpha1',
-        'jspoon'        : '1.3.2',
-        'lifecycle'     : '2.0.0',
-        'room'          : '2.1.0-alpha03',
-        'support'       : '1.0.0',
-        'material'      : '1.0.0',
-        'databindLint'  : '1.0.0-alpha1',
-        'junit'         : '4.12',
-        'mockito'       : '2.0.0',
-        'robolectric'   : '4.2',
-        'junitAndroid'  : '1.1.0',
-        'bindingMapper' : '1.0.0-alpha1',
-        'rxidler'       : '0.9.0',
-        'espresso'      : '3.1.1',
-        'testCore'      : '1.1.0',
-        'testRunner'    : '1.1.1',
-        'testRules'     : '1.1.1'
+        'agp'            : '4.0.1',
+        'kotlin'         : '1.4.10',
+        'spotless'       : '5.5.2',
+        'ktlint'         : '0.23.1',
+        'gvp'            : '0.33.0',
+        'rxJava'         : '2.2.19',
+        'rxKotlin'       : '2.4.0',
+        'rxAndroid'      : '2.1.1',
+        'dagger'         : '2.29.1',
+        'okhttp'         : '4.9.0',
+        'retrofit'       : '2.9.0',
+        'retrocrawler'   : '1.0.0-alpha1',
+        'jspoon'         : '1.3.2',
+        'lifecycle'      : '2.2.0',
+        'room'           : '2.2.5',
+        'appcompat'      : '1.2.0',
+        'fragment'       : '1.2.5',
+        'material'       : '1.2.1',
+        'databindLint'   : '1.0.0-alpha1',
+        'junit'          : '4.13',
+        'mockito'        : '2.1.0',
+        'robolectric'    : '4.2',
+        'junitAndroid'   : '1.1.2',
+        'archCoreTesting': '2.1.0',
+        'bindingMapper'  : '1.0.0-alpha1',
+        'rxidler'        : '0.11.0',
+        'espresso'       : '3.3.0',
+        'testCore'       : '1.3.0',
+        'testRunner'     : '1.3.0',
+        'testRules'      : '1.3.0'
     ]
 
     // Dependencies
@@ -81,24 +85,24 @@ buildscript {
             'compiler': "androidx.room:room-compiler:$versions.room",
             'rx'      : "androidx.room:room-rxjava2:$versions.room"
         ],
-        'appcompat'   : "androidx.appcompat:appcompat:$versions.support",
-        'fragment'    : "androidx.fragment:fragment:$versions.support",
+        'appcompat'   : "androidx.appcompat:appcompat:$versions.appcompat",
+        'fragment'    : "androidx.fragment:fragment:$versions.fragment",
         'material'    : "com.google.android.material:material:$versions.material",
         'databindLint': "com.github.annypatel.databinding:lint-checks:$versions.databindLint",
 
         'test'        : [
-            'junit'         : "junit:junit:$versions.junit",
-            'mockito'       : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
-            'lifecycle'     : "androidx.arch.core:core-testing:$versions.lifecycle",
-            'robolectric'   : "org.robolectric:robolectric:$versions.robolectric",
-            'junitAndroid'  : "androidx.test.ext:junit:$versions.junitAndroid",
-            'bindingMapper' : "com.github.annypatel.databinding:binding-mapper:$versions.bindingMapper",
-            'core'          : "androidx.test:core:$versions.testCore",
-            'runner'        : "androidx.test:runner:$versions.testRunner",
-            'rules'         : "androidx.test:rules:$versions.testRules",
-            'rxidler'       : "com.squareup.rx.idler:rx2-idler:$versions.rxidler",
-            'mockwebserver' : "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
-            'espresso'      : [
+            'junit'          : "junit:junit:$versions.junit",
+            'mockito'        : "com.nhaarman.mockitokotlin2:mockito-kotlin:$versions.mockito",
+            'archCoreTesting': "androidx.arch.core:core-testing:$versions.archCoreTesting",
+            'robolectric'    : "org.robolectric:robolectric:$versions.robolectric",
+            'junitAndroid'   : "androidx.test.ext:junit:$versions.junitAndroid",
+            'bindingMapper'  : "com.github.annypatel.databinding:binding-mapper:$versions.bindingMapper",
+            'core'           : "androidx.test:core:$versions.testCore",
+            'runner'         : "androidx.test:runner:$versions.testRunner",
+            'rules'          : "androidx.test:rules:$versions.testRules",
+            'rxidler'        : "com.squareup.rx.idler:rx2-idler:$versions.rxidler",
+            'mockwebserver'  : "com.squareup.okhttp3:mockwebserver:$versions.okhttp",
+            'espresso'       : [
                 'core': "androidx.test.espresso:espresso-core:$versions.espresso"
             ]
         ]
@@ -125,8 +129,7 @@ allprojects {
 }
 
 subprojects {
-    apply plugin: 'com.diffplug.gradle.spotless'
-    apply plugin: "com.github.ben-manes.versions"
+    apply plugin: 'com.diffplug.spotless'
 
     spotless {
         kotlin {
@@ -161,4 +164,17 @@ subprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+
+def isNonStable = { String version ->
+    def stableKeyword = ['RELEASE', 'FINAL', 'GA'].any { it -> version.toUpperCase().contains(it) }
+    def regex = /^[0-9,.v-]+(-r)?$/
+    return !stableKeyword && !(version ==~ regex)
+}
+
+tasks.named("dependencyUpdates").configure {
+    rejectVersionIf {
+        !isNonStable(it.currentVersion) && isNonStable(it.candidate.version)
+    }
 }

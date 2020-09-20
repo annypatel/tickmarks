@@ -35,7 +35,7 @@ dependencies {
     testImplementation project(":test-utils:ui")
     testImplementation deps.test.junit
     testImplementation deps.test.mockito
-    testImplementation deps.test.lifecycle
+    testImplementation deps.test.archCoreTesting
     testImplementation deps.test.junitAndroid
     testImplementation deps.test.robolectric
 }
