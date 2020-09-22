@@ -6,7 +6,7 @@ cache_key: &cache_key
 android_config: &android_config
   working_directory: ~/Tickmarks
   docker:
-    - image: circleci/android:api-28-alpha
+    - image: circleci/android:api-30
   environment:
     JVM_OPTS: -Xmx3200m
     TERM: dumb
