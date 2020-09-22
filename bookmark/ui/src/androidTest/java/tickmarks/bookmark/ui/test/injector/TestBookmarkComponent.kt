@@ -29,6 +29,6 @@ import javax.inject.Singleton
 )
 interface TestBookmarkComponent : AndroidInjector<TestBookmarkApp> {
 
-    @Component.Builder
-    abstract class Builder : AndroidInjector.Builder<TestBookmarkApp>()
+    @Component.Factory
+    abstract class Factory : AndroidInjector.Factory<TestBookmarkApp>
 }

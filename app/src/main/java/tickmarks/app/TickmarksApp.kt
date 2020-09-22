@@ -10,7 +10,6 @@ import tickmarks.app.injector.DaggerTickmarksComponent
 class TickmarksApp : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerTickmarksComponent.builder()
-            .create(this)
+        return DaggerTickmarksComponent.factory().create(this)
     }
 }

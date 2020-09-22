@@ -10,7 +10,6 @@ import tickmarks.bookmark.ui.test.injector.DaggerTestBookmarkComponent
 class TestBookmarkApp : DaggerApplication() {
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
-        return DaggerTestBookmarkComponent.builder()
-            .create(this)
+        return DaggerTestBookmarkComponent.factory().create(this)
     }
 }

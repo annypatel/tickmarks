@@ -9,8 +9,8 @@ android {
         targetSdkVersion buildConfig.targetSdk
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     testOptions.unitTests {

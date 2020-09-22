@@ -12,8 +12,8 @@ android {
         versionName buildConfig.versionName
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     buildTypes {

@@ -10,8 +10,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        dataBinding = true
     }
 
     testOptions.unitTests {
@@ -44,6 +44,7 @@ dependencies {
     testImplementation deps.test.bindingMapper
 
     androidTestImplementation project(":test-utils:ui")
+    androidTestImplementation deps.test.core
     androidTestImplementation deps.test.runner
     androidTestImplementation deps.test.rules
     androidTestImplementation deps.test.espresso.core

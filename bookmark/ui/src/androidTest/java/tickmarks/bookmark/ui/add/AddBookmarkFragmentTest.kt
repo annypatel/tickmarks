@@ -1,5 +1,6 @@
 package tickmarks.bookmark.ui.add
 
+import androidx.test.core.app.launchActivity
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
@@ -8,7 +9,6 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
-import androidx.test.rule.ActivityTestRule
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
@@ -19,12 +19,11 @@ import tickmarks.ui.test.mockserver.setBodyAsset
 class AddBookmarkFragmentTest {
 
     @get:Rule
-    var activityRule = ActivityTestRule(AddBookmarkActivity::class.java, true)
-    @get:Rule
     var server = MockWebServer()
 
     @Test
     fun addBookmark_givenEmptyUrl_shouldShowEmptyError() {
+        launchActivity<AddBookmarkActivity>()
         onView(withId(R.id.etUrl))
             .perform(typeText(""))
 
@@ -37,9 +36,8 @@ class AddBookmarkFragmentTest {
 
     @Test
     fun addBookmark_whenSuccessful_shouldShowSuccessMessage() {
-        server.enqueue(
-            MockResponse().setBodyAsset("open_graph_props.html")
-        )
+        server.enqueue(MockResponse().setBodyAsset("open_graph_props.html"))
+        launchActivity<AddBookmarkActivity>()
         val urlToBookmark = server.url("/").toString()
         onView(withId(R.id.etUrl))
             .perform(typeText(urlToBookmark))
@@ -53,9 +51,8 @@ class AddBookmarkFragmentTest {
 
     @Test
     fun addBookmark_whenFailed_shouldShowFailureMessage() {
-        server.enqueue(
-            MockResponse().setResponseCode(404)
-        )
+        server.enqueue(MockResponse().setResponseCode(404))
+        launchActivity<AddBookmarkActivity>()
         val urlToBookmark = server.url("/").toString()
         onView(withId(R.id.etUrl))
             .perform(typeText(urlToBookmark))
