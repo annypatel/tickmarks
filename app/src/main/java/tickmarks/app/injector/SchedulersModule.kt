@@ -18,21 +18,18 @@ object SchedulersModule {
 
     @Provides
     @Singleton
-    @JvmStatic
     fun uiSchedulers() = object : UiSchedulers {
         override val mainThread = AndroidSchedulers.mainThread()
     }
 
     @Provides
     @Singleton
-    @JvmStatic
     fun domainSchedulers() = object : DomainSchedulers {
         override val computation = Schedulers.computation()
     }
 
     @Provides
     @Singleton
-    @JvmStatic
     fun dataSchedulers() = object : DataSchedulers {
         override val io = Schedulers.io()
         override val database = Schedulers.single()

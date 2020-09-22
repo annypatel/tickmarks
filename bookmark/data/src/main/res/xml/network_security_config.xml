@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<network-security-config>
-    <base-config cleartextTrafficPermitted="true" />
+<network-security-config
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- allow clear text traffic so that http urls can be added as bookmarks -->
+    <base-config
+        cleartextTrafficPermitted="true"
+        tools:ignore="InsecureBaseConfiguration" />
 </network-security-config>

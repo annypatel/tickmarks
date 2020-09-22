@@ -9,5 +9,5 @@
         android:fullBackupContent="false"
         android:label="@string/app_name"
         android:supportsRtl="false"
-        tools:ignore="GoogleAppIndexingWarning" />
+        tools:ignore="GoogleAppIndexingWarning,MissingApplicationIcon" />
 </manifest>
