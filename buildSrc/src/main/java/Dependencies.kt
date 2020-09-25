@@ -7,13 +7,16 @@ object Versions {
         const val compile = 28
         const val target = 28
     }
-
-    const val ktlint = "0.23.1"
 }
 
 object Kotlin {
     // Upgrading kotlin version? Update kotlin plugin in buildSrc/build.gradle.kts as well.
     const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10"
+}
+
+object Detekt {
+    // Upgrading detekt version? Update detekt plugin in buildSrc/build.gradle.kts as well.
+    const val formatting = "io.gitlab.arturbosch.detekt:detekt-formatting:1.13.1"
 }
 
 object Rx {

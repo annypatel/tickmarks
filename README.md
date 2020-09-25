@@ -13,7 +13,7 @@ Tickmarks app uses the latest cutting edge libraries and tools.
  * [Architecture Components](https://developer.android.com/topic/libraries/architecture/): Room, ViewModel, LiveData and Lifecycle
  * [dagger-android](https://google.github.io/dagger/android.html) for dependency injection
  * [Retrofit](https://github.com/square/retrofit)
- * [Spotless](https://github.com/diffplug/spotless) with [ktlint](https://github.com/shyiko/ktlint) for codestyle
+ * [Detekt](https://github.com/detekt/detekt) with [ktlint](https://github.com/shyiko/ktlint) for codestyle
  * [Material Design](https://material.io/)
  * [Espresso](https://developer.android.com/training/testing/espresso/), [Junit](https://junit.org/junit4/) and [Mockito](https://github.com/nhaarman/mockito-kotlin)
 
