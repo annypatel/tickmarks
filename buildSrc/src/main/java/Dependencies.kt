@@ -8,19 +8,12 @@ object Versions {
         const val target = 28
     }
 
-    const val kotlin = "1.4.10"
     const val ktlint = "0.23.1"
 }
 
-object Plugins {
-    const val kotlin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
-    const val agp = "com.android.tools.build:gradle:4.0.1"
-    const val spotless = "com.diffplug.spotless:spotless-plugin-gradle:5.5.2"
-    const val gvp = "com.github.ben-manes:gradle-versions-plugin:0.33.0"
-}
-
 object Kotlin {
-    const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+    // Upgrading kotlin version? Update kotlin plugin in buildSrc/build.gradle.kts as well.
+    const val jdk8 = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.4.10"
 }
 
 object Rx {
