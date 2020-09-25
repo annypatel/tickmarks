@@ -1,14 +1,9 @@
 plugins {
-    id("com.android.application")
-    kotlin("android")
-    kotlin("kapt")
+    tickmarks_android_app
 }
 
 android {
-    compileSdkVersion(Versions.Sdk.compile)
     defaultConfig {
-        minSdkVersion(Versions.Sdk.min)
-        targetSdkVersion(Versions.Sdk.target)
         applicationId = "tickmarks.app"
         versionCode = 1
         versionName = "1.0"

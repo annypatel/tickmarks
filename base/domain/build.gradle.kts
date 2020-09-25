@@ -1,5 +1,5 @@
 plugins {
-    kotlin("jvm")
+    tickmarks_kotlin
 }
 
 dependencies {

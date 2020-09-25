@@ -1,23 +1,10 @@
 plugins {
-    id("com.android.library")
-    kotlin("android")
-    kotlin("kapt")
+    tickmarks_android_library
 }
 
 android {
-    compileSdkVersion(Versions.Sdk.compile)
-    defaultConfig {
-        minSdkVersion(Versions.Sdk.min)
-        targetSdkVersion(Versions.Sdk.target)
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
     buildFeatures {
         dataBinding = true
-    }
-
-    testOptions {
-        unitTests.isIncludeAndroidResources = true
     }
 }
 

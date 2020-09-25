@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm")
-    kotlin("kapt")
+    tickmarks_kotlin
 }
 
 dependencies {
