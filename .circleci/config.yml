@@ -1,7 +1,7 @@
 version: 2
 
 cache_key: &cache_key
-  key: jars-{{ checksum "build.gradle" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
+  key: jars-{{ checksum "buildSrc/build.gradle.kts" }}-{{ checksum "buildSrc/src/main/java/Dependencies.kt" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
 
 android_config: &android_config
   working_directory: ~/Tickmarks
