@@ -502,7 +502,7 @@ potential-bugs:
 style:
   active: true
   CollapsibleIfStatements:
-    active: false
+    active: true
   DataClassContainsFunctions:
     active: false
     conversionFunctionPrefix: 'to'
@@ -511,13 +511,13 @@ style:
   EqualsNullCall:
     active: true
   EqualsOnSignatureLine:
-    active: false
+    active: true
   ExplicitCollectionElementAccessMethod:
-    active: false
+    active: true
   ExplicitItLambdaParameter:
-    active: false
+    active: true
   ExpressionBodySyntax:
-    active: false
+    active: true
     includeLineWrapping: false
   ForbiddenComment:
     active: true
@@ -534,7 +534,7 @@ style:
     active: false
     ignorePackages: ['*.internal', '*.internal.*']
   ForbiddenVoid:
-    active: false
+    active: true
     ignoreOverridden: false
     ignoreUsageInGenerics: false
   FunctionOnlyReturningConstant:
@@ -563,9 +563,9 @@ style:
     ignoreEnums: false
     ignoreRanges: false
   MandatoryBracesIfStatements:
-    active: false
+    active: true
   MandatoryBracesLoops:
-    active: false
+    active: true
   MaxLineLength:
     active: true
     maxLineLength: 120
@@ -577,7 +577,7 @@ style:
   ModifierOrder:
     active: true
   NestedClassesVisibility:
-    active: false
+    active: true
   NewLineAtEndOfFile:
     active: true
   NoTabs:
@@ -585,17 +585,17 @@ style:
   OptionalAbstractKeyword:
     active: true
   OptionalUnit:
-    active: false
+    active: true
   OptionalWhenBraces:
-    active: false
+    active: true
   PreferToOverPairSyntax:
-    active: false
+    active: true
   ProtectedMemberInFinalClass:
     active: true
   RedundantExplicitType:
-    active: false
+    active: true
   RedundantVisibilityModifierRule:
-    active: false
+    active: true
   ReturnCount:
     active: true
     max: 2
@@ -606,63 +606,63 @@ style:
   SafeCast:
     active: true
   SerialVersionUIDInSerializableClass:
-    active: false
+    active: true
   SpacingBetweenPackageAndImports:
-    active: false
+    active: true
   ThrowsCount:
     active: true
     max: 2
   TrailingWhitespace:
-    active: false
+    active: true
   UnderscoresInNumericLiterals:
-    active: false
+    active: true
     acceptableDecimalLength: 5
   UnnecessaryAbstractClass:
     active: true
     excludeAnnotatedClasses: ['dagger.Module']
   UnnecessaryAnnotationUseSiteTarget:
-    active: false
+    active: true
   UnnecessaryApply:
-    active: false
+    active: true
   UnnecessaryInheritance:
     active: true
   UnnecessaryLet:
-    active: false
+    active: true
   UnnecessaryParentheses:
-    active: false
+    active: true
   UntilInsteadOfRangeTo:
-    active: false
+    active: true
   UnusedImports:
-    active: false
+    active: true
   UnusedPrivateClass:
     active: true
   UnusedPrivateMember:
-    active: false
+    active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
   UseArrayLiteralsInAnnotations:
-    active: false
+    active: true
   UseCheckNotNull:
-    active: false
+    active: true
   UseCheckOrError:
-    active: false
+    active: true
   UseDataClass:
-    active: false
+    active: true
     excludeAnnotatedClasses: []
     allowVars: false
   UseEmptyCounterpart:
-    active: false
+    active: true
   UseIfInsteadOfWhen:
-    active: false
+    active: true
   UseRequire:
-    active: false
+    active: true
   UseRequireNotNull:
-    active: false
+    active: true
   UselessCallOnNotNull:
     active: true
   UtilityClassWithPublicConstructor:
     active: true
   VarCouldBeVal:
-    active: false
+    active: true
   WildcardImport:
     active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
