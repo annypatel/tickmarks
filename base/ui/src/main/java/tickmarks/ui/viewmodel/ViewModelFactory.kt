@@ -25,11 +25,7 @@ class ViewModelFactory @Inject constructor(
         if (creator == null) {
             throw IllegalStateException("unknown model class $modelClass")
         }
-        try {
-            @Suppress("UNCHECKED_CAST")
-            return creator.get() as T
-        } catch (e: Exception) {
-            throw RuntimeException(e)
-        }
+        @Suppress("UNCHECKED_CAST")
+        return creator.get() as T
     }
 }

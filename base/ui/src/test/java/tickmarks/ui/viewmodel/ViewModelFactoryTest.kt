@@ -10,9 +10,11 @@ class ViewModelFactoryTest {
 
     @Test
     fun create_givenViewModelMap_returnsViewModel() {
-        val factory = ViewModelFactory(mapOf(
-            TestViewModel::class.java to Provider<ViewModel> { TestViewModel() }
-        ))
+        val factory = ViewModelFactory(
+            mapOf(
+                TestViewModel::class.java to Provider<ViewModel> { TestViewModel() }
+            )
+        )
 
         val viewModel = factory.create(TestViewModel::class.java)
 
@@ -21,9 +23,11 @@ class ViewModelFactoryTest {
 
     @Test
     fun create_givenViewModelMap_returnsAssignableViewModel() {
-        val factory = ViewModelFactory(mapOf(
-            ChildTestViewModel::class.java to Provider<ViewModel> { ChildTestViewModel() }
-        ))
+        val factory = ViewModelFactory(
+            mapOf(
+                ChildTestViewModel::class.java to Provider<ViewModel> { ChildTestViewModel() }
+            )
+        )
 
         val viewModel = factory.create(TestViewModel::class.java)
 
