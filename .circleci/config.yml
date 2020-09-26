@@ -37,17 +37,22 @@ jobs:
             - ~/.gradle/wrapper
 
       - run:
-          name: Lint and Assemble APK
-          command: ./gradlew lint dependencyUpdates assembleDebug assembleDebugAndroidTest
+          name: Lint, Detekt and Assemble APK
+          command: ./gradlew lint detekt dependencyUpdates assembleDebug assembleDebugAndroidTest
       - run:
           name: Copy Lint Reports
           command: .circleci/store_artifact.sh ".*/build/reports/lint-results.xml" ~/lint-reports/
+      - run:
+          name: Copy Detekt Reports
+          command: .circleci/store_artifact.sh ".*/build/reports/detekt/detekt.xml" ~/detekt-reports/
       - run:
           name: Copy Dependency Reports
           command: .circleci/store_artifact.sh ".*/build/dependencyUpdates/report.txt" ~/dependency-reports/
 
       - store_artifacts:
           path: ~/lint-reports
+      - store_artifacts:
+          path: ~/detekt-reports
       - store_artifacts:
           path: ~/dependency-reports
 

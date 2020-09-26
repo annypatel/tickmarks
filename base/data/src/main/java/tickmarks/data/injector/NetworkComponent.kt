@@ -42,9 +42,7 @@ object InternalNetworkModule {
     @Provides
     @JvmStatic
     @PrivateToComponent
-    fun networkClient(retrofit: Retrofit): NetworkClient {
-        return NetworkClient(retrofit)
-    }
+    fun networkClient(retrofit: Retrofit): NetworkClient = NetworkClient(retrofit)
 
     @Provides
     @JvmStatic

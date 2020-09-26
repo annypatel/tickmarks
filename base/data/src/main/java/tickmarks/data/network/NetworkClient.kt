@@ -13,7 +13,5 @@ class NetworkClient(
     /**
      * Create an implementation of the API endpoints.
      */
-    fun <T : Any> create(serviceClass: KClass<T>): T {
-        return retrofit.create(serviceClass.java)
-    }
+    fun <T : Any> create(serviceClass: KClass<T>): T = retrofit.create(serviceClass.java)
 }

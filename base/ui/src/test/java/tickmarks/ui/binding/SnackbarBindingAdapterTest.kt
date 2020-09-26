@@ -2,7 +2,7 @@ package tickmarks.ui.binding
 
 import android.widget.FrameLayout
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import org.junit.Assert.assertThat
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import tickmarks.ui.event.Event

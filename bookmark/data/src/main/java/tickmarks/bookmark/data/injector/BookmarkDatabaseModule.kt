@@ -14,7 +14,6 @@ object BookmarkDatabaseModule {
     @Provides
     @Singleton
     @JvmStatic
-    fun bookmarkDatabase(builder: BookmarkDatabaseComponent.Builder): BookmarkDatabase {
-        return builder.build().bookmarkDatabase()
-    }
+    fun bookmarkDatabase(builder: BookmarkDatabaseComponent.Builder): BookmarkDatabase =
+        builder.build().bookmarkDatabase()
 }

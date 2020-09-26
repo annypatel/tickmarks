@@ -29,14 +29,11 @@ abstract class BookmarkDataModule {
 
         @Provides
         @JvmStatic
-        fun crawlerService(client: NetworkClient): CrawlerService {
-            return client.create(CrawlerService::class)
-        }
+        fun crawlerService(client: NetworkClient): CrawlerService =
+            client.create(CrawlerService::class)
 
         @Provides
         @JvmStatic
-        fun bookmarkDao(database: BookmarkDatabase): BookmarkDao {
-            return database.bookmarkDao()
-        }
+        fun bookmarkDao(database: BookmarkDatabase): BookmarkDao = database.bookmarkDao()
     }
 }

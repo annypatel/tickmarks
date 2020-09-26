@@ -1,9 +1,9 @@
 package tickmarks.ui.viewmodel
 
 import io.reactivex.Flowable
-import org.junit.Assert.assertThat
-import org.junit.Test
 import org.hamcrest.CoreMatchers.equalTo
+import org.hamcrest.MatcherAssert.assertThat
+import org.junit.Test
 
 class BaseViewModelTest {
 
