@@ -2,7 +2,7 @@ package tickmarks.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import org.hamcrest.CoreMatchers.instanceOf
-import org.junit.Assert.assertThat
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import javax.inject.Provider
 

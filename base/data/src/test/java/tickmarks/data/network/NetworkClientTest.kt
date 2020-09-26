@@ -1,8 +1,8 @@
 package tickmarks.data.network
 
 import org.hamcrest.CoreMatchers.instanceOf
+import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Assert.assertNotNull
-import org.junit.Assert.assertThat
 import org.junit.Test
 import retrofit2.Retrofit
 
