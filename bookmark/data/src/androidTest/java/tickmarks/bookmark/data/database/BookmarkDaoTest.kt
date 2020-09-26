@@ -2,11 +2,11 @@ package tickmarks.bookmark.data.database
 
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
+import org.hamcrest.CoreMatchers.equalTo
 import org.junit.After
 import org.junit.Assert.assertThat
 import org.junit.Before
 import org.junit.Test
-import org.hamcrest.CoreMatchers.equalTo
 
 class BookmarkDaoTest {
 
