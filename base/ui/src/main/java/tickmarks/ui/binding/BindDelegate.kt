@@ -23,9 +23,7 @@ class BindDelegate<T>(
     private var value: T
 ) : ReadWriteProperty<BaseObservable, T> {
 
-    override fun getValue(thisRef: BaseObservable, property: KProperty<*>): T {
-        return value
-    }
+    override fun getValue(thisRef: BaseObservable, property: KProperty<*>): T = value
 
     override fun setValue(thisRef: BaseObservable, property: KProperty<*>, value: T) {
         this.value = value

@@ -9,8 +9,5 @@ import com.google.android.material.textfield.TextInputLayout
  */
 @BindingAdapter("error")
 fun TextInputLayout.setError(@StringRes resId: Int) {
-    when (resId) {
-        NONE -> error = null
-        else -> error = context.getString(resId)
-    }
+    error = if (resId == NONE) null else context.getString(resId)
 }
