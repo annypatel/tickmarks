@@ -74,7 +74,7 @@ jobs:
 
       - run:
           name: Run Tests
-          command: ./gradlew test
+          command: ./gradlew testDebugUnitTest
       - run:
           name: Copy Test Results
           command: .circleci/store_artifact.sh ".*/build/test-results/.*xml" ~/test-results/
