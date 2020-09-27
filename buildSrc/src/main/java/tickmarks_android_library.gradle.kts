@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 plugins {
     id("com.android.library")
     kotlin("android")
@@ -23,11 +21,20 @@ android {
         targetCompatibility = JavaVersion.VERSION_1_8
     }
 
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    lintOptions {
+        isAbortOnError = true
+        isWarningsAsErrors = true
+        htmlReport = false
+        textReport = false
+        xmlReport = true
+        lintConfig = File("lint-config.xml")
+    }
+
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
     }
-}
-
-tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
 }

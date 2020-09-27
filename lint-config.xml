@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="TrustAllX509TrustManager">
+        <!-- HTTP requests are made using Retrofit, not Jsoup -->
+        <ignore path="org/jsoup/helper/HttpConnection$Response" />
+    </issue>
+</lint>
