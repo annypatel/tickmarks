@@ -1,12 +1,18 @@
 plugins {
     tickmarks_android_app
+    id("com.gladed.androidgitversion")
+}
+
+androidGitVersion {
+    codeFormat = "MMNNPPBBB"
+    format = "%tag%%.count%%-commit%%-dirty%"
 }
 
 android {
     defaultConfig {
         applicationId = "tickmarks.app"
-        versionCode = 1
-        versionName = "1.0"
+        versionName = androidGitVersion.name()
+        versionCode = androidGitVersion.code()
     }
 
     buildFeatures {
