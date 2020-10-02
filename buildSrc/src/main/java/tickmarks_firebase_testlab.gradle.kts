@@ -1,6 +1,7 @@
 @file:Suppress("MagicNumber")
 
 import com.osacky.flank.gradle.FlankGradleExtension
+import com.osacky.flank.gradle.RunFlankTask
 
 // Fulladle plugin must br only applied to root project, so can't use plugins { } syntax.
 rootProject.plugins.apply("com.osacky.fulladle")
@@ -25,4 +26,43 @@ configure<FlankGradleExtension> {
             )
         }
     }
+}
+
+afterEvaluate {
+    tasks.withType<RunFlankTask>().forEach {
+        registerFlankTasks(it)
+    }
+}
+
+fun registerFlankTasks(flankTask: RunFlankTask) {
+    val flankTaskName = flankTask.name.replace("run", "")
+
+    val assembleFlankTask = tasks.register("assemble${flankTaskName.capitalize()}") {
+        group = flankTask.group
+        description = "Assemble debug and test APKs for app and library(only with android tests)"
+        dependsOn(findAssembleDependents())
+    }
+
+    tasks.register("${flankTaskName.decapitalize()}AndroidTest") {
+        group = flankTask.group
+        description = "Assemble and run tests on Firebase"
+        dependsOn(assembleFlankTask)
+        dependsOn(flankTask)
+    }
+}
+
+fun findAssembleDependents(): List<Task> {
+    val tasks = mutableListOf<Task>()
+    subprojects.forEach { project ->
+        val hasAndroidAppPlugin = project.plugins.hasPlugin("com.android.application")
+        val hasAndroidTest = project.file("./src/androidTest").exists()
+        project.tasks.filterTo(tasks) { task ->
+            when (task.name) {
+                "assembleDebug" -> hasAndroidAppPlugin
+                "assembleDebugAndroidTest" -> hasAndroidAppPlugin || hasAndroidTest
+                else -> false
+            }
+        }
+    }
+    return tasks
 }
