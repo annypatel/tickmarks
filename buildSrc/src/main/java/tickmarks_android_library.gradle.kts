@@ -38,4 +38,9 @@ android {
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
     }
+
+    dexOptions {
+        // don't pre-dex on CI
+        preDexLibraries = !ci
+    }
 }

@@ -23,6 +23,11 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
+      - save_cache:
+          <<: *cache_key
+          paths:
+            - ~/.gradle/caches
+            - ~/.gradle/wrapper
 
       - run:
           name: Lint, Detekt and Assemble APK
@@ -50,12 +55,6 @@ jobs:
             - build
             - ./**/build
             - ./**/**/build
-
-      - save_cache:
-          <<: *cache_key
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
 
   unit_test:
     <<: *android_config
