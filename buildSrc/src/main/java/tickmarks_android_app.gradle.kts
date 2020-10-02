@@ -9,6 +9,7 @@ android {
     defaultConfig {
         minSdkVersion(Versions.Sdk.min)
         targetSdkVersion(Versions.Sdk.target)
+        archivesBaseName = "${parent?.name}-$archivesBaseName"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
