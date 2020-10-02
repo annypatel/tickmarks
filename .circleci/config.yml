@@ -95,9 +95,12 @@ jobs:
       - run:
           name: Cleanup Firebase Test
           command: .circleci/ftl_cleanup.sh
-
+      - run:
+          name: Copy Test Results
+          command: .circleci/store_artifact.sh "./build/fladle/.*xml"  ~/instrumented-test-results
+          
       - store_test_results:
-          path: ~/build/fladle
+          path: ~/instrumented-test-results
       - store_artifacts:
           path: ~/instrumented-test-results
 
