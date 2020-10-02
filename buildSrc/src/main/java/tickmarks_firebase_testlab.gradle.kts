@@ -6,7 +6,7 @@ import com.osacky.flank.gradle.FlankGradleExtension
 rootProject.plugins.apply("com.osacky.fulladle")
 
 configure<FlankGradleExtension> {
-    serviceAccountCredentials.set(rootProject.file("gcloud-service-key.json"))
+    serviceAccountCredentials.set(rootProject.file("gcloud_service_key.json"))
     resultsBucket = "staging.tickmarks-5b34c.appspot.com"
     devices = listOf(mapOf("model" to "Pixel2", "version" to "28"))
     repeatTests = 1

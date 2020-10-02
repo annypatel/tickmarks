@@ -17,12 +17,3 @@ fi
 
 # Export to secrets file
 echo $GCLOUD_SERVICE_KEY | base64 -di > gcloud_service_key.json
-
-# Set project ID
-gcloud config set project $GOOGLE_PROJECT_ID
-
-# Auth account
-gcloud auth activate-service-account --key-file gcloud_service_key.json
-
-# Delete secret
-rm gcloud_service_key.json

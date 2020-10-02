@@ -12,13 +12,6 @@ android_config: &android_config
     JAVA_TOOL_OPTIONS: "-Xmx1g"
     GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 
-gcloud_config: &gcloud_config
-  working_directory: ~/Tickmarks
-  docker:
-    - image: google/cloud-sdk:latest
-  environment:
-    TERM: dumb
-
 jobs:
   build:
     <<: *android_config
@@ -30,11 +23,6 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
-      - save_cache:
-          <<: *cache_key
-          paths:
-            - ~/.gradle/caches
-            - ~/.gradle/wrapper
 
       - run:
           name: Lint, Detekt and Assemble APK
@@ -63,6 +51,12 @@ jobs:
             - ./**/build
             - ./**/**/build
 
+      - save_cache:
+          <<: *cache_key
+          paths:
+            - ~/.gradle/caches
+            - ~/.gradle/wrapper
+
   unit_test:
     <<: *android_config
     steps:
@@ -85,25 +79,27 @@ jobs:
           path: ~/test-results
 
   instrumented_test:
-    <<: *gcloud_config
+    <<: *android_config
     steps:
       - checkout
       - attach_workspace:
           at: ~/Tickmarks
+      - restore_cache:
+          <<: *cache_key
 
       - run:
-          name: Setup Google Cloud Auth
+          name: Setup Firebase Test
           command: .circleci/ftl_setup.sh
-
       - run:
           name: Test with Firebase Test Lab and download results
-          command: |
-            .circleci/ftl_test.sh app bookmark/ui ~/instrumented-test-results
-            .circleci/ftl_test.sh app bookmark/data ~/instrumented-test-results
+          command: ./gradlew runFlank
+      - run:
+          name: Cleanup Firebase Test
+          command: .circleci/ftl_cleanup.sh
 
+      - store_test_results:
+          path: ~/build/fladle
       - store_artifacts:
-          path: ~/instrumented-test-results
-      - store_test_Results:
           path: ~/instrumented-test-results
 
 workflows:
