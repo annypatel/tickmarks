@@ -31,7 +31,7 @@ jobs:
 
       - run:
           name: Lint, Detekt and Assemble APK
-          command: ./gradlew lintDebug detekt dependencyUpdates assembleDebug assembleDebugAndroidTest
+          command: ./gradlew lintDebug detekt dependencyUpdates :app:assembleDebug assembleDebugAndroidTest
       - run:
           name: Copy Lint Reports
           command: .circleci/store_artifact.sh ".*/build/reports/lint-results-debug.xml" ~/lint-reports/
