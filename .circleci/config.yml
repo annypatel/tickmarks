@@ -15,23 +15,46 @@ android_config: &android_config
 jobs:
   build:
     <<: *android_config
+    name: Build
     steps:
       - checkout
-
       - restore_cache:
           <<: *cache_key
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
+
+      - run:
+          name: Assemble APKs
+          command: ./gradlew assembleFlank
+
       - save_cache:
           <<: *cache_key
           paths:
             - ~/.gradle/caches
             - ~/.gradle/wrapper
 
+      - persist_to_workspace:
+          root: .
+          paths:
+            - build
+            - ./**/build
+            - ./**/**/build
+
+  static_analysis:
+    <<: *android_config
+    name: Static Analysis
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/Tickmarks
+      - restore_cache:
+          <<: *cache_key
+
       - run:
-          name: Lint, Detekt and Assemble APK
-          command: ./gradlew lintDebug detekt dependencyUpdates assembleFlank
+          name: Run Lint, Detekt and Dependency Updates
+          command: ./gradlew lintDebug detekt dependencyUpdates
+
       - run:
           name: Copy Lint Reports
           command: .circleci/store_artifact.sh ".*/build/reports/lint-results-debug.xml" ~/lint-reports/
@@ -39,7 +62,7 @@ jobs:
           name: Copy Detekt Reports
           command: .circleci/store_artifact.sh ".*/build/reports/detekt/detekt.xml" ~/detekt-reports/
       - run:
-          name: Copy Dependency Reports
+          name: Copy Dependency Update Reports
           command: .circleci/store_artifact.sh ".*/build/dependencyUpdates/report.txt" ~/dependency-reports/
 
       - store_artifacts:
@@ -49,15 +72,9 @@ jobs:
       - store_artifacts:
           path: ~/dependency-reports
 
-      - persist_to_workspace:
-          root: .
-          paths:
-            - build
-            - ./**/build
-            - ./**/**/build
-
   unit_test:
     <<: *android_config
+    name: Unit Test
     steps:
       - checkout
       - attach_workspace:
@@ -66,8 +83,9 @@ jobs:
           <<: *cache_key
 
       - run:
-          name: Run Tests
+          name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
+
       - run:
           name: Copy Test Results
           command: .circleci/store_artifact.sh ".*/build/test-results/.*xml" ~/test-results/
@@ -79,6 +97,7 @@ jobs:
 
   instrumented_test:
     <<: *android_config
+    name: Instrumented Test
     steps:
       - checkout
       - attach_workspace:
@@ -90,15 +109,16 @@ jobs:
           name: Setup Firebase Test
           command: .circleci/ftl_setup.sh
       - run:
-          name: Test with Firebase Test Lab and download results
+          name: Run Instrumented Tests on Firebase
           command: ./gradlew runFlank
       - run:
           name: Cleanup Firebase Test
           command: .circleci/ftl_cleanup.sh
+
       - run:
           name: Copy Test Results
           command: .circleci/store_artifact.sh "./build/fladle/.*xml"  ~/instrumented-test-results
-          
+
       - store_test_results:
           path: ~/instrumented-test-results
       - store_artifacts:
@@ -109,6 +129,9 @@ workflows:
   build_and_test:
     jobs:
       - build
+      - static_analysis:
+          requires:
+            - build
       - unit_test:
           requires:
             - build
