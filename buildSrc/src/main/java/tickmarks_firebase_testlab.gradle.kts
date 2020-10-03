@@ -16,9 +16,9 @@ configure<FlankGradleExtension> {
 
     configs {
         // Use this to check if a test is flaky. Change the test target below and run
-        // `./gradlew runFlankFlaky` to repeatedly run the test on firebase.
-        // All filters supported by AndroidJUnitRunner are supported here as well. Refer -
-        // https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner
+        // `./gradlew runFlankFlaky` or `./gradlew flankFlakyAndroidTest` to repeatedly run the test
+        // on firebase. All filters supported by AndroidJUnitRunner are supported here as well.
+        // Refer - https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner
         create("flaky") {
             repeatTests = 5
             testTargets = listOf(
