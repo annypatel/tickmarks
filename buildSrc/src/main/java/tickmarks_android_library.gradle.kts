@@ -9,6 +9,7 @@ android {
     defaultConfig {
         minSdkVersion(Versions.Sdk.min)
         targetSdkVersion(Versions.Sdk.target)
+        archivesBaseName = "${parent?.name}-$archivesBaseName"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,5 +37,10 @@ android {
 
     packagingOptions {
         exclude("META-INF/*.kotlin_module")
+    }
+
+    dexOptions {
+        // don't pre-dex on CI
+        preDexLibraries = !ci
     }
 }

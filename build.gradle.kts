@@ -1,6 +1,7 @@
 plugins {
     tickmarks_dependency_versions
     tickmarks_static_analysis
+    tickmarks_firebase_testlab
 }
 
 allprojects {

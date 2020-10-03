@@ -1,4 +1,4 @@
-@file:Suppress("ClassName", "ClassNaming", "SpellCheckingInspection")
+@file:Suppress("SpellCheckingInspection")
 
 object Versions {
 
