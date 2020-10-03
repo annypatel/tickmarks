@@ -40,6 +40,8 @@ jobs:
             - build
             - ./**/build
             - ./**/**/build
+            - .gradle
+            - buildSrc/.gradle
 
   static_analysis:
     <<: *android_config
