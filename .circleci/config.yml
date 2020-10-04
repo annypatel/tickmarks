@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 cache_key: &cache_key
   key: jars-{{ checksum "buildSrc/build.gradle.kts" }}-{{ checksum "buildSrc/src/main/java/Dependencies.kt" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
@@ -12,10 +12,21 @@ android_config: &android_config
     JAVA_TOOL_OPTIONS: "-Xmx1g"
     GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 
+orbs:
+  secret:
+    orbs:
+      git-secret: lyvly/git-secret@0.1.0
+    commands:
+      show:
+        steps:
+          - run: git-secret/install_git_secret
+      hide:
+        steps:
+          - run: echo "HIDE SECRET"
+
 jobs:
   build:
     <<: *android_config
-    name: Build
     steps:
       - checkout
       - restore_cache:
@@ -24,9 +35,13 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
+      - secret/show
+
       - run:
           name: Assemble APKs
           command: ./gradlew assembleFlank
+
+      - secret/hide
 
       - save_cache:
           <<: *cache_key
@@ -45,7 +60,6 @@ jobs:
 
   static_analysis:
     <<: *android_config
-    name: Static Analysis
     steps:
       - checkout
       - attach_workspace:
@@ -76,7 +90,6 @@ jobs:
 
   unit_test:
     <<: *android_config
-    name: Unit Test
     steps:
       - checkout
       - attach_workspace:
@@ -99,7 +112,6 @@ jobs:
 
   instrumented_test:
     <<: *android_config
-    name: Instrumented Test
     steps:
       - checkout
       - attach_workspace:
@@ -131,12 +143,12 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - static_analysis:
-          requires:
-            - build
-      - unit_test:
-          requires:
-            - build
-      - instrumented_test:
-          requires:
-            - build
+#      - static_analysis:
+#          requires:
+#            - build
+#      - unit_test:
+#          requires:
+#            - build
+#      - instrumented_test:
+#          requires:
+#            - build
