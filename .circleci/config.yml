@@ -13,16 +13,15 @@ android_config: &android_config
     GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 
 orbs:
-  secret:
-    orbs:
-      git-secret: lyvly/git-secret@0.1.0
-    commands:
-      show:
-        steps:
-          - run: git-secret/install_git_secret
-      hide:
-        steps:
-          - run: echo "HIDE SECRET"
+  git-secret: lyvly/git-secret@0.1.0
+
+commands:
+  install_git_secret: git-secret/install_git_secret
+  import_gpg_key: git-secret/import_gpg_key
+  reveal_secrets: git-secret/reveal_secrets
+  hide_secrets:
+    steps:
+      - run: git secret whoknows
 
 jobs:
   build:
@@ -35,13 +34,12 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
-      - secret/show
+      - install_git_secret
+      - hide_secrets
 
       - run:
           name: Assemble APKs
           command: ./gradlew assembleFlank
-
-      - secret/hide
 
       - save_cache:
           <<: *cache_key
