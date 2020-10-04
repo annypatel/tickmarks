@@ -143,9 +143,9 @@ workflows:
   build_and_test:
     jobs:
       - build
-#      - static_analysis:
-#          requires:
-#            - build
+      - static_analysis:
+          requires:
+            - build
 #      - unit_test:
 #          requires:
 #            - build
