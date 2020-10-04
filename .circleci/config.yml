@@ -21,7 +21,7 @@ commands:
   reveal_secrets: git-secret/reveal_secrets
   hide_secrets:
     steps:
-      - run: git secret whoknows
+      - run: git secret hide -d
 
 jobs:
   build:
@@ -33,9 +33,6 @@ jobs:
       - run:
           name: Download Dependencies
           command: ./gradlew androidDependencies
-
-      - install_git_secret
-      - hide_secrets
 
       - run:
           name: Assemble APKs
@@ -117,15 +114,15 @@ jobs:
       - restore_cache:
           <<: *cache_key
 
-      - run:
-          name: Setup Firebase Test
-          command: .circleci/ftl_setup.sh
+      - install_git_secret
+      - import_gpg_key
+      - reveal_secrets
+
       - run:
           name: Run Instrumented Tests on Firebase
           command: ./gradlew runFlank
-      - run:
-          name: Cleanup Firebase Test
-          command: .circleci/ftl_cleanup.sh
+
+      - hide_secrets
 
       - run:
           name: Copy Test Results
@@ -144,9 +141,9 @@ workflows:
       - static_analysis:
           requires:
             - build
-#      - unit_test:
-#          requires:
-#            - build
-#      - instrumented_test:
-#          requires:
-#            - build
+      - unit_test:
+          requires:
+            - build
+      - instrumented_test:
+          requires:
+            - build
