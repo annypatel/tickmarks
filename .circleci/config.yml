@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 cache_key: &cache_key
   key: jars-{{ checksum "buildSrc/build.gradle.kts" }}-{{ checksum "buildSrc/src/main/java/Dependencies.kt" }}-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}
@@ -12,10 +12,22 @@ android_config: &android_config
     JAVA_TOOL_OPTIONS: "-Xmx1g"
     GRADLE_OPTS: "-Dorg.gradle.daemon=false -Dkotlin.incremental=false"
 
+orbs:
+  git-secret: lyvly/git-secret@0.1.0
+
+commands:
+  install_git_secret: git-secret/install_git_secret
+  import_gpg_key: git-secret/import_gpg_key
+  reveal_secrets: git-secret/reveal_secrets
+  hide_secrets:
+    steps:
+      - run: git secret hide -d
+      - run: gpg --batch --yes --delete-secret-keys ${GPG_KEY_ID}
+      - run: gpg --batch --yes --delete-keys ${GPG_KEY_ID}
+
 jobs:
   build:
     <<: *android_config
-    name: Build
     steps:
       - checkout
       - restore_cache:
@@ -45,7 +57,6 @@ jobs:
 
   static_analysis:
     <<: *android_config
-    name: Static Analysis
     steps:
       - checkout
       - attach_workspace:
@@ -76,7 +87,6 @@ jobs:
 
   unit_test:
     <<: *android_config
-    name: Unit Test
     steps:
       - checkout
       - attach_workspace:
@@ -99,7 +109,6 @@ jobs:
 
   instrumented_test:
     <<: *android_config
-    name: Instrumented Test
     steps:
       - checkout
       - attach_workspace:
@@ -107,15 +116,15 @@ jobs:
       - restore_cache:
           <<: *cache_key
 
-      - run:
-          name: Setup Firebase Test
-          command: .circleci/ftl_setup.sh
+      - install_git_secret
+      - import_gpg_key
+      - reveal_secrets
+
       - run:
           name: Run Instrumented Tests on Firebase
           command: ./gradlew runFlank
-      - run:
-          name: Cleanup Firebase Test
-          command: .circleci/ftl_cleanup.sh
+
+      - hide_secrets
 
       - run:
           name: Copy Test Results
