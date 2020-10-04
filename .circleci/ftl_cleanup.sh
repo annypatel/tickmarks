@@ -1,4 +1,4 @@
 #!/bin/sh
 
 # Delete secret
-rm gcloud_service_key.json
+rm gcloud-service-key.json

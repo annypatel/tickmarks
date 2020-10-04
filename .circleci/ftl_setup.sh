@@ -16,4 +16,4 @@ if [ -z "$GCLOUD_SERVICE_KEY" ]; then
 fi
 
 # Export to secrets file
-echo $GCLOUD_SERVICE_KEY | base64 -di > gcloud_service_key.json
+echo $GCLOUD_SERVICE_KEY | base64 -di > gcloud-service-key.json
