@@ -21,9 +21,12 @@ commands:
   reveal_secrets: git-secret/reveal_secrets
   hide_secrets:
     steps:
-      - run: git secret hide -d
-      - run: gpg --batch --yes --delete-secret-keys ${GPG_KEY_ID}
-      - run: gpg --batch --yes --delete-keys ${GPG_KEY_ID}
+      - run:
+          name: Hide Secrets
+          command: |
+            git secret hide -d
+            gpg --batch --yes --delete-secret-keys ${GPG_KEY_ID}
+            gpg --batch --yes --delete-keys ${GPG_KEY_ID}
 
 jobs:
   build:
