@@ -36,9 +36,13 @@ jobs:
           name: Download Dependencies
           command: ./gradlew androidDependencies
 
+      - reveal_secrets
+
       - run:
           name: Assemble APKs
-          command: ./gradlew assembleFlank
+          command: ./gradlew assembleFlank assembleRelease
+
+      - hide_secrets
 
       - save_cache:
           <<: *cache_key
@@ -64,9 +68,13 @@ jobs:
       - restore_cache:
           <<: *cache_key
 
+      - reveal_secrets
+
       - run:
           name: Run Lint, Detekt and Dependency Updates
           command: ./gradlew lintDebug detekt dependencyUpdates
+
+      - hide_secrets
 
       - run:
           name: Copy Reports
@@ -91,9 +99,13 @@ jobs:
       - restore_cache:
           <<: *cache_key
 
+      - reveal_secrets
+
       - run:
           name: Run Unit Tests
           command: ./gradlew testDebugUnitTest
+
+      - hide_secrets
 
       - run:
           name: Copy Test Results
@@ -130,6 +142,23 @@ jobs:
       - store_artifacts:
           path: ~/instrumented-test-results
 
+  deploy:
+    <<: *android_config
+    steps:
+      - checkout
+      - attach_workspace:
+          at: ~/Tickmarks
+      - restore_cache:
+          <<: *cache_key
+
+      - reveal_secrets
+
+      - run:
+          name: Deploy on Firebase
+          command: ./gradlew appDistributionUploadRelease
+
+      - hide_secrets
+
 workflows:
   version: 2
   build_and_test:
@@ -144,3 +173,8 @@ workflows:
       - instrumented_test:
           requires:
             - build
+      - deploy:
+          requires:
+            - static_analysis
+            - unit_test
+            - instrumented_test
