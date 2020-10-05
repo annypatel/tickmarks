@@ -1,6 +1,8 @@
 plugins {
     tickmarks_android_app
     id("com.gladed.androidgitversion")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.appdistribution")
 }
 
 androidGitVersion {
@@ -20,9 +22,22 @@ android {
     }
 
     buildTypes {
+        getByName("debug") {
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+        }
+
         getByName("release") {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+            isDebuggable = false
+            isShrinkResources = true
+            isMinifyEnabled = true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+            firebaseAppDistribution {
+                serviceCredentialsFile = "gcloud-service-key.json"
+            }
         }
     }
 }
