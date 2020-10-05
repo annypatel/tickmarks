@@ -23,6 +23,7 @@ commands:
       - run:
           name: Hide Secrets
           command: .circleci/hide_secrets.sh
+          when: always
 
 jobs:
   build:
