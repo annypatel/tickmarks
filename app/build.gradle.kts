@@ -37,6 +37,8 @@ android {
             )
             firebaseAppDistribution {
                 serviceCredentialsFile = "gcloud-service-key.json"
+                groups = "all"
+                releaseNotes = ""
             }
         }
     }

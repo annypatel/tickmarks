@@ -178,3 +178,7 @@ workflows:
             - static_analysis
             - unit_test
             - instrumented_test
+          filters:
+            branches:
+              only:
+                - master
