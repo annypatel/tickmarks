@@ -7,7 +7,7 @@ wget -qO - https://api.bintray.com/users/sobolevn/keys/gpg/public.key | sudo apt
 sudo apt-get update && sudo apt-get install git-secret
 
 # import GPG key
-echo $GPG_KEY | gpg --import
+echo $GPG_KEY | gpg --import --quiet
 
 # reveal secret
 git secret reveal -f
