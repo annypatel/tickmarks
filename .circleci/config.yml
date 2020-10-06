@@ -44,6 +44,15 @@ jobs:
 
       - hide_secrets
 
+      - run:
+          name: Copy artifacts
+          command: |
+            .circleci/store_artifact.sh ".*/build/.*/release/.*apk" ~/artifacts/
+            .circleci/store_artifact.sh ".*/build/.*/release/mapping.txt" ~/artifacts/
+
+      - store_artifacts:
+          path: ~/artifacts/
+
       - save_cache:
           <<: *cache_key
           paths:
