@@ -21,16 +21,31 @@ android {
         dataBinding = true
     }
 
-    buildTypes {
-        getByName("debug") {
-            isDebuggable = true
-            applicationIdSuffix = ".debug"
+    signingConfigs {
+        named("debug") {
+            storeFile = rootProject.file("signing/debug.jks")
         }
 
-        getByName("release") {
+        create("release") {
+            storeFile = rootProject.file("signing/release.jks")
+            keyAlias = "tickmarks"
+            storePassword = properties["RELEASE_KEYSTORE_PWD"] as? String
+            keyPassword = properties["RELEASE_KEY_PWD"] as? String
+        }
+    }
+
+    buildTypes {
+        named("debug") {
+            isDebuggable = true
+            applicationIdSuffix = ".debug"
+            signingConfig = signingConfigs.getByName("debug")
+        }
+
+        named("release") {
             isDebuggable = false
             isShrinkResources = true
             isMinifyEnabled = true
+            signingConfig = signingConfigs.getByName("release")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
