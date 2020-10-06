@@ -16,12 +16,12 @@ commands:
   reveal_secrets:
     steps:
       - run:
-          name: Reveal Secrets
+          name: Reveal secrets
           command: .circleci/reveal_secrets.sh
   hide_secrets:
     steps:
       - run:
-          name: Hide Secrets
+          name: Hide secrets
           command: .circleci/hide_secrets.sh
           when: always
 
@@ -33,7 +33,7 @@ jobs:
       - restore_cache:
           <<: *cache_key
       - run:
-          name: Download Dependencies
+          name: Download dependencies
           command: ./gradlew androidDependencies
 
       - reveal_secrets
@@ -71,13 +71,13 @@ jobs:
       - reveal_secrets
 
       - run:
-          name: Run Lint, Detekt and Dependency Updates
+          name: Run Lint, Detekt and Dependency updates
           command: ./gradlew lintDebug detekt dependencyUpdates
 
       - hide_secrets
 
       - run:
-          name: Copy Reports
+          name: Copy reports
           command: |
             .circleci/store_artifact.sh ".*/build/reports/lint-results-debug.xml" ~/lint-reports/
             .circleci/store_artifact.sh ".*/build/reports/detekt/detekt.xml" ~/detekt-reports/
@@ -102,13 +102,13 @@ jobs:
       - reveal_secrets
 
       - run:
-          name: Run Unit Tests
+          name: Run unit tests
           command: ./gradlew testDebugUnitTest
 
       - hide_secrets
 
       - run:
-          name: Copy Test Results
+          name: Copy test results
           command: .circleci/store_artifact.sh ".*/build/test-results/.*xml" ~/test-results/
 
       - store_test_results:
@@ -128,13 +128,13 @@ jobs:
       - reveal_secrets
 
       - run:
-          name: Run Instrumented Tests on Firebase
+          name: Run instrumented tests on Firebase
           command: ./gradlew runFlank
 
       - hide_secrets
 
       - run:
-          name: Copy Test Results
+          name: Copy test results
           command: .circleci/store_artifact.sh "./build/fladle/.*xml"  ~/instrumented-test-results
 
       - store_test_results:
