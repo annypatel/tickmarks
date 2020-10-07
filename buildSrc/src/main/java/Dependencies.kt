@@ -7,6 +7,8 @@ object Versions {
         const val compile = 28
         const val target = 28
     }
+
+    const val jacoco = "0.8.4"
 }
 
 object Kotlin {
