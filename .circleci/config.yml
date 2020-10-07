@@ -46,12 +46,10 @@ jobs:
 
       - run:
           name: Copy artifacts
-          command: |
-            .circleci/store_artifact.sh ".*/build/.*/release/.*apk" ~/artifacts/
-            .circleci/store_artifact.sh ".*/build/.*/release/mapping.txt" ~/artifacts/
+          command: ./gradlew copyReleaseArtifacts
 
       - store_artifacts:
-          path: ~/artifacts/
+          path: ./build/release
 
       - save_cache:
           <<: *cache_key
@@ -87,17 +85,14 @@ jobs:
 
       - run:
           name: Copy reports
-          command: |
-            .circleci/store_artifact.sh ".*/build/reports/lint-results-debug.xml" ~/lint-reports/
-            .circleci/store_artifact.sh ".*/build/reports/detekt/detekt.xml" ~/detekt-reports/
-            .circleci/store_artifact.sh ".*/build/dependencyUpdates/report.txt" ~/dependency-reports/
+          command: ./gradlew copyLintReports copyDetektReports
 
       - store_artifacts:
-          path: ~/lint-reports
+          path: ./build/lint
       - store_artifacts:
-          path: ~/detekt-reports
+          path: ./build/detekt
       - store_artifacts:
-          path: ~/dependency-reports
+          path: ./build/dependency
 
   unit_test:
     <<: *android_config
@@ -118,12 +113,12 @@ jobs:
 
       - run:
           name: Copy test results
-          command: .circleci/store_artifact.sh ".*/build/test-results/.*xml" ~/test-results/
+          command: ./gradlew copyUnitTestReports
 
       - store_test_results:
-          path: ~/test-results
+          path: ./build/unit-tests
       - store_artifacts:
-          path: ~/test-results
+          path: ./build/unit-tests
 
   instrumented_test:
     <<: *android_config
@@ -142,14 +137,10 @@ jobs:
 
       - hide_secrets
 
-      - run:
-          name: Copy test results
-          command: .circleci/store_artifact.sh "./build/fladle/.*xml"  ~/instrumented-test-results
-
       - store_test_results:
-          path: ~/instrumented-test-results
+          path: ./build/fladle
       - store_artifacts:
-          path: ~/instrumented-test-results
+          path: ./build/fladle
 
   deploy:
     <<: *android_config
