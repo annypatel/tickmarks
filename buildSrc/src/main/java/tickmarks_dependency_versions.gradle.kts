@@ -12,6 +12,7 @@ fun isNonStable(version: String): Boolean {
 }
 
 tasks.named<DependencyUpdatesTask>("dependencyUpdates").configure {
+    outputDir = buildDir.path + "/dependency"
     rejectVersionIf {
         !isNonStable(currentVersion) && isNonStable(candidate.version)
     }
