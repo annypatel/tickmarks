@@ -60,8 +60,11 @@ fun configureAndroidProject(project: Project) {
 
     // isIncludeNoLocationClasses is required for robolectric tests
     project.tasks.withType<org.gradle.api.tasks.testing.Test> {
-        extensions.getByType(JacocoTaskExtension::class)
-            .isIncludeNoLocationClasses = true
+        extensions.configure<JacocoTaskExtension>() {
+            isIncludeNoLocationClasses = true
+            // https://github.com/gradle/gradle/issues/5184
+            excludes = listOf("jdk.internal.*")
+        }
     }
 
     project.tasks.create<JacocoReport>("jacocoTestReport") {
