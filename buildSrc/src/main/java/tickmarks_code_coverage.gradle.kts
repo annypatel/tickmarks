@@ -1,17 +1,17 @@
 import com.android.build.gradle.BaseExtension
 
-configureJacocoRoot()
+configureRootProject()
 
 subprojects {
     val project = this
     if (shouldNotIgnore(project)) {
-        plugins.withId("org.jetbrains.kotlin.jvm") { configureJacocoKotlin(project) }
-        plugins.withId("com.android.library") { configureJacocoAndroid(project) }
-        plugins.withId("com.android.application") { configureJacocoAndroid(project) }
+        plugins.withId("org.jetbrains.kotlin.jvm") { configureKotlinProject(project) }
+        plugins.withId("com.android.library") { configureAndroidProject(project) }
+        plugins.withId("com.android.application") { configureAndroidProject(project) }
     }
 }
 
-fun configureJacocoRoot() {
+fun configureRootProject() {
     applyJacoco(rootProject)
 
     val jacocoMerge = tasks.create<JacocoMerge>("jacocoMerge") {
@@ -29,7 +29,7 @@ fun configureJacocoRoot() {
     }
 }
 
-fun configureJacocoKotlin(project: Project) {
+fun configureKotlinProject(project: Project) {
     applyJacoco(project)
 
     project.tasks.named<JacocoReport>("jacocoTestReport") {
@@ -42,7 +42,7 @@ fun configureJacocoKotlin(project: Project) {
     }
 }
 
-fun configureJacocoAndroid(project: Project) {
+fun configureAndroidProject(project: Project) {
     applyJacoco(project)
 
     project.configure<BaseExtension> {
@@ -101,6 +101,7 @@ fun JacocoReport.configure(
     }
 
     classDirectories.setFrom(classDirs)
+    additionalClassDirs.setFrom(classDirs)
     sourceDirectories.setFrom(sourceDirs)
     additionalSourceDirs.setFrom(sourceDirs)
     executionData.setFrom(execData)
