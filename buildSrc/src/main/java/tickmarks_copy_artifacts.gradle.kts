@@ -58,6 +58,3 @@ tasks.register<Copy>("copyReleaseArtifacts") {
 
 // Why no task for flank and dependency updates?
 // Both flank and dependency version plugin generate report into project level build directory.
-
-fun Project.buildDir(dir: String) = File(buildDir, dir)
-fun Project.relativeToRoot() = projectDir.toRelativeString(rootProject.projectDir)

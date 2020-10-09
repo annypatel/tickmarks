@@ -1,8 +1,7 @@
 plugins {
     tickmarks_android_app
+    tickmarks_firebase_appdist
     id("com.gladed.androidgitversion")
-    id("com.google.gms.google-services")
-    id("com.google.firebase.appdistribution")
 }
 
 androidGitVersion {
@@ -50,11 +49,6 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
-            firebaseAppDistribution {
-                serviceCredentialsFile = "gcloud-service-key.json"
-                groups = "all"
-                releaseNotes = ""
-            }
         }
     }
 }
