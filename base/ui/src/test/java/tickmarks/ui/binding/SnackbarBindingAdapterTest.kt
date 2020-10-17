@@ -5,12 +5,12 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
+import tickmarks.test.ui.hasNoSnackbar
+import tickmarks.test.ui.hasSnackbar
+import tickmarks.test.ui.themedContext
+import tickmarks.test.ui.withMessage
 import tickmarks.ui.event.Event
 import tickmarks.ui.event.consume
-import tickmarks.ui.test.hasNoSnackbar
-import tickmarks.ui.test.hasSnackbar
-import tickmarks.ui.test.themedContext
-import tickmarks.ui.test.withMessage
 
 @RunWith(AndroidJUnit4::class)
 class SnackbarBindingAdapterTest {

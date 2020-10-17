@@ -7,7 +7,7 @@ import io.reactivex.Completable
 import org.junit.Test
 import tickmarks.bookmark.data.database.BookmarkDao
 import tickmarks.bookmark.domain.Bookmark
-import tickmarks.data.test.rx.testDataSchedulers
+import tickmarks.test.data.rx.testDataSchedulers
 
 class BookmarkRepositoryImplTest {
 

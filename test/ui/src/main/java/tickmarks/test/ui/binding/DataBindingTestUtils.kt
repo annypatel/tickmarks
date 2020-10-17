@@ -1,4 +1,4 @@
-package tickmarks.ui.test.binding
+package tickmarks.test.ui.binding
 
 import android.view.ContextThemeWrapper
 import android.view.LayoutInflater

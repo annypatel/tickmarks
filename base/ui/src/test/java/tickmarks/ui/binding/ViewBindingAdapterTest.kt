@@ -6,7 +6,7 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
-import tickmarks.ui.test.themedContext
+import tickmarks.test.ui.themedContext
 
 @RunWith(AndroidJUnit4::class)
 class ViewBindingAdapterTest {

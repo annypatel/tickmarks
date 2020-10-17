@@ -1,4 +1,4 @@
-package tickmarks.ui.test.injector
+package tickmarks.test.ui.injector
 
 import androidx.test.espresso.IdlingRegistry
 import com.squareup.rx2.idler.Rx2Idler

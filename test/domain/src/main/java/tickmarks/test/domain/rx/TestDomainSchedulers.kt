@@ -1,4 +1,4 @@
-package tickmarks.domain.test.rx
+package tickmarks.test.domain.rx
 
 import io.reactivex.schedulers.Schedulers
 import tickmarks.domain.rx.DomainSchedulers

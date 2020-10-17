@@ -1,4 +1,4 @@
-package tickmarks.ui.test
+package tickmarks.test.ui
 
 import android.content.Context
 import androidx.annotation.StringRes

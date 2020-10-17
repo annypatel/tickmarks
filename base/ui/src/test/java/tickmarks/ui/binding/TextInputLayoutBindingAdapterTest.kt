@@ -6,8 +6,8 @@ import org.hamcrest.CoreMatchers.nullValue
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
-import tickmarks.ui.test.equalToRes
-import tickmarks.ui.test.themedContext
+import tickmarks.test.ui.equalToRes
+import tickmarks.test.ui.themedContext
 
 @RunWith(AndroidJUnit4::class)
 class TextInputLayoutBindingAdapterTest {

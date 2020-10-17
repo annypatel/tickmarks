@@ -1,4 +1,4 @@
-package tickmarks.data.test.rx
+package tickmarks.test.data.rx
 
 import io.reactivex.schedulers.Schedulers
 import tickmarks.data.rx.DataSchedulers

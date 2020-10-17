@@ -9,9 +9,9 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
+import tickmarks.test.ui.rx.testUiSchedulers
 import tickmarks.ui.binding.NONE
 import tickmarks.ui.binding.Visibility.GONE
-import tickmarks.ui.test.rx.testUiSchedulers
 
 class AddBookmarkViewModelTest {
 

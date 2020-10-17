@@ -9,14 +9,14 @@ import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
 import tickmarks.bookmark.ui.R
+import tickmarks.test.ui.binding.bindNow
+import tickmarks.test.ui.binding.inflate
+import tickmarks.test.ui.binding.parent
+import tickmarks.test.ui.equalToRes
+import tickmarks.test.ui.hasSnackbar
+import tickmarks.test.ui.withMessage
 import tickmarks.ui.binding.Visibility.INVISIBLE
 import tickmarks.ui.event.Event
-import tickmarks.ui.test.binding.bindNow
-import tickmarks.ui.test.binding.inflate
-import tickmarks.ui.test.binding.parent
-import tickmarks.ui.test.equalToRes
-import tickmarks.ui.test.hasSnackbar
-import tickmarks.ui.test.withMessage
 
 @RunWith(AndroidJUnit4::class)
 class AddBookmarkFragmentBindingTest {

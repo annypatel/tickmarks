@@ -6,7 +6,7 @@ import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
 import io.reactivex.Single
 import org.junit.Test
-import tickmarks.domain.test.rx.testDomainSchedulers
+import tickmarks.test.domain.rx.testDomainSchedulers
 
 class AddBookmarkImplTest {
 

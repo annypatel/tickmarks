@@ -1,9 +1,8 @@
-package tickmarks.ui.test
+package tickmarks.test.ui
 
 import android.content.Context
 import android.view.ContextThemeWrapper
 import androidx.test.core.app.ApplicationProvider
-import tickmarks.test.utils.ui.R
 
 /**
  * Returns ContextThemeWrapper with AppCompat theme.

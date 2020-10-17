@@ -1,4 +1,4 @@
-package tickmarks.ui.test.rx
+package tickmarks.test.ui.rx
 
 import io.reactivex.schedulers.Schedulers
 import tickmarks.ui.rx.UiSchedulers

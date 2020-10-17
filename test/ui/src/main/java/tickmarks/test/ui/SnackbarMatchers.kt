@@ -1,4 +1,4 @@
-package tickmarks.ui.test
+package tickmarks.test.ui
 
 import android.content.res.Resources
 import android.view.View
@@ -17,7 +17,8 @@ import org.hamcrest.TypeSafeMatcher
 /**
  * Creates matcher that verifies that view doesn't have Snackbar.
  */
-fun hasNoSnackbar(): Matcher<View> = FindViewByIdMatcher(R.id.snackbar_text, nullValue(View::class.java))
+fun hasNoSnackbar(): Matcher<View> =
+    FindViewByIdMatcher(R.id.snackbar_text, nullValue(View::class.java))
 
 /**
  * Creates matcher that verifies that view has Snackbar.
@@ -34,12 +35,14 @@ fun hasSnackbar(vararg matchers: Matcher<View>): Matcher<View> {
 /**
  * Creates matcher that matches snackbar message text with given string resource id.
  */
-fun withMessage(@StringRes resId: Int): Matcher<View> = FindViewByIdMatcher(R.id.snackbar_text, withText(resId))
+fun withMessage(@StringRes resId: Int): Matcher<View> =
+    FindViewByIdMatcher(R.id.snackbar_text, withText(resId))
 
 /**
  * Creates matcher that matches snackbar action button text with given string resource id.
  */
-fun withAction(@StringRes resId: Int): Matcher<View> = FindViewByIdMatcher(R.id.snackbar_action, withText(resId))
+fun withAction(@StringRes resId: Int): Matcher<View> =
+    FindViewByIdMatcher(R.id.snackbar_action, withText(resId))
 
 /**
  * Wraps matcher and apply it on a view with given resource id.

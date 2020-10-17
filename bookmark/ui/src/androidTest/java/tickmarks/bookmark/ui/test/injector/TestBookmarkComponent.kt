@@ -6,8 +6,8 @@ import dagger.android.support.AndroidSupportInjectionModule
 import tickmarks.bookmark.ui.injector.BookmarkModule
 import tickmarks.bookmark.ui.test.TestBookmarkApp
 import tickmarks.data.injector.NetworkModule
+import tickmarks.test.ui.injector.TestSchedulersModule
 import tickmarks.ui.injector.ViewModelFactoryModule
-import tickmarks.ui.test.injector.TestSchedulersModule
 import javax.inject.Singleton
 
 /**

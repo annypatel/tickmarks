@@ -1,4 +1,4 @@
-package tickmarks.ui.test.mockserver
+package tickmarks.test.ui.mockserver
 
 import android.content.Context
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
