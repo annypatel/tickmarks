@@ -9,20 +9,13 @@ android {
 }
 
 dependencies {
-    api(Kotlin.jdk8)
-    api(Rx.java)
-    api(Rx.kotlin)
-    api(Rx.android)
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
-    implementation(AndroidX.extensions)
+    implementation(AndroidX.extensions) // TODO
     implementation(Google.material)
-    implementation(DataBinding.lint)
 
     testImplementation(project(":test:ui"))
-    testImplementation(Test.junit)
-    testImplementation(Test.mockito)
     testImplementation(Test.robolectric)
-    testImplementation(AndroidX.Test.arch)
     testImplementation(AndroidX.Test.junit)
+    testImplementation(AndroidX.Test.espresso)
 }

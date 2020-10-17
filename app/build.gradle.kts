@@ -54,13 +54,17 @@ android {
 }
 
 dependencies {
+    implementation(project(":base:ui"))
+    implementation(project(":base:domain"))
+    implementation(project(":base:data"))
     implementation(project(":bookmark:ui"))
+    implementation(project(":bookmark:domain"))
+    implementation(project(":bookmark:data"))
+    implementation(Rx.android) // TODO
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
     implementation(Dagger.Android.runtime)
     kapt(Dagger.Android.compiler)
-    implementation(AndroidX.appcompat)
-    implementation(DataBinding.lint)
 
     // for dagger generated code
     implementation(Retrofit.client)

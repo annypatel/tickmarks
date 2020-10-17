@@ -3,5 +3,5 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":base:data"))
+    compileOnly(project(":base:data"))
 }

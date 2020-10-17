@@ -44,3 +44,13 @@ android {
         preDexLibraries = !ci
     }
 }
+
+dependencies {
+    implementation(Kotlin.jdk8)
+    implementation(Rx.java)
+    implementation(Rx.kotlin)
+    implementation(DataBinding.lint)
+
+    testImplementation(Test.junit)
+    testImplementation(Test.mockito)
+}

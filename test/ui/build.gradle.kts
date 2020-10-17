@@ -3,16 +3,17 @@ plugins {
 }
 
 dependencies {
-    implementation(project(":base:ui"))
-    implementation(project(":base:domain"))
-    implementation(project(":base:data"))
-    implementation(Google.material)
-    implementation(Dagger.runtime)
+    compileOnly(project(":base:ui"))
+    compileOnly(project(":base:domain"))
+    compileOnly(project(":base:data"))
+    compileOnly(Rx.android) // TODO
+    compileOnly(Dagger.runtime)
     kapt(Dagger.compiler)
+    compileOnly(Google.material)
 
-    implementation(AndroidX.appcompat)
-    implementation(Test.rxidler)
-    implementation(AndroidX.Test.core)
-    implementation(AndroidX.Test.espresso)
-    implementation(OkHttp.Test.mockWebServer)
+    compileOnly(AndroidX.appcompat)
+    compileOnly(Test.rxidler)
+    compileOnly(AndroidX.Test.core)
+    compileOnly(AndroidX.Test.espresso)
+    compileOnly(OkHttp.Test.mockWebServer)
 }

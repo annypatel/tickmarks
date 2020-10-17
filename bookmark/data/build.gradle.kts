@@ -11,8 +11,8 @@ android {
 }
 
 dependencies {
-    api(project(":base:data"))
-    api(project(":bookmark:domain"))
+    implementation(project(":base:data"))
+    implementation(project(":bookmark:domain"))
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
     implementation(Retrofit.client)
@@ -22,8 +22,6 @@ dependencies {
     kapt(Room.compiler)
 
     testImplementation(project(":test:data"))
-    testImplementation(Test.junit)
-    testImplementation(Test.mockito)
 
     androidTestImplementation(AndroidX.Test.core)
     androidTestImplementation(AndroidX.Test.runner)
