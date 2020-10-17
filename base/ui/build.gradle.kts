@@ -19,7 +19,7 @@ dependencies {
     implementation(Google.material)
     implementation(DataBinding.lint)
 
-    testImplementation(project(":test-utils:ui"))
+    testImplementation(project(":test:ui"))
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
     testImplementation(Test.robolectric)

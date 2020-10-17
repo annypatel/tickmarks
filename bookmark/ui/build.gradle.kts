@@ -22,14 +22,14 @@ dependencies {
     implementation(Google.material)
     implementation(DataBinding.lint)
 
-    testImplementation(project(":test-utils:ui"))
+    testImplementation(project(":test:ui"))
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
     testImplementation(Test.robolectric)
     testImplementation(Test.bindingMapper)
     testImplementation(AndroidX.Test.junit)
 
-    androidTestImplementation(project(":test-utils:ui"))
+    androidTestImplementation(project(":test:ui"))
     androidTestImplementation(AndroidX.Test.core)
     androidTestImplementation(AndroidX.Test.runner)
     androidTestImplementation(AndroidX.Test.rules)
