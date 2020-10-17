@@ -1,10 +1,10 @@
 package tickmarks.bookmark.data
 
 import io.reactivex.Single
+import tickmarks.base.data.rx.DataSchedulers
 import tickmarks.bookmark.data.network.CrawlerService
 import tickmarks.bookmark.domain.CrawlerRepository
 import tickmarks.bookmark.domain.WebPageElements
-import tickmarks.data.rx.DataSchedulers
 import javax.inject.Inject
 
 /**

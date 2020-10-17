@@ -8,7 +8,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
-import tickmarks.ui.R
+import tickmarks.base.ui.R
 
 /**
  * Inflates a binding layout and returns the newly-created binding for that layout.

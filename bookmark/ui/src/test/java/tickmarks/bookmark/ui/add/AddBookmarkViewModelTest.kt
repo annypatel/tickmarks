@@ -7,11 +7,11 @@ import io.reactivex.Completable
 import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
+import tickmarks.base.ui.binding.NONE
+import tickmarks.base.ui.binding.Visibility.GONE
 import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
 import tickmarks.test.ui.rx.testUiSchedulers
-import tickmarks.ui.binding.NONE
-import tickmarks.ui.binding.Visibility.GONE
 
 class AddBookmarkViewModelTest {
 

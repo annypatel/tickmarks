@@ -2,11 +2,11 @@ package tickmarks.bookmark.data
 
 import io.reactivex.Completable
 import io.reactivex.Single
+import tickmarks.base.data.rx.DataSchedulers
 import tickmarks.bookmark.data.database.BookmarkDao
 import tickmarks.bookmark.data.database.BookmarkEntity
 import tickmarks.bookmark.domain.Bookmark
 import tickmarks.bookmark.domain.BookmarkRepository
-import tickmarks.data.rx.DataSchedulers
 import javax.inject.Inject
 
 /**

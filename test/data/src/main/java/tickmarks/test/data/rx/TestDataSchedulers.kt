@@ -1,7 +1,7 @@
 package tickmarks.test.data.rx
 
 import io.reactivex.schedulers.Schedulers
-import tickmarks.data.rx.DataSchedulers
+import tickmarks.base.data.rx.DataSchedulers
 
 /**
  * [DataSchedulers] for unit tests.

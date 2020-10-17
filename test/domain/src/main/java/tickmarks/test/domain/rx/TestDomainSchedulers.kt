@@ -1,7 +1,7 @@
 package tickmarks.test.domain.rx
 
 import io.reactivex.schedulers.Schedulers
-import tickmarks.domain.rx.DomainSchedulers
+import tickmarks.base.domain.rx.DomainSchedulers
 
 /**
  * [DomainSchedulers] for unit tests.

@@ -7,9 +7,9 @@ import dagger.Provides
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
-import tickmarks.data.rx.DataSchedulers
-import tickmarks.domain.rx.DomainSchedulers
-import tickmarks.ui.rx.UiSchedulers
+import tickmarks.base.data.rx.DataSchedulers
+import tickmarks.base.domain.rx.DomainSchedulers
+import tickmarks.base.ui.rx.UiSchedulers
 import javax.inject.Singleton
 
 /**

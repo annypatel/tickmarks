@@ -8,6 +8,8 @@ import org.hamcrest.CoreMatchers.equalTo
 import org.hamcrest.MatcherAssert.assertThat
 import org.junit.Test
 import org.junit.runner.RunWith
+import tickmarks.base.ui.binding.Visibility.INVISIBLE
+import tickmarks.base.ui.event.Event
 import tickmarks.bookmark.ui.R
 import tickmarks.test.ui.binding.bindNow
 import tickmarks.test.ui.binding.inflate
@@ -15,8 +17,6 @@ import tickmarks.test.ui.binding.parent
 import tickmarks.test.ui.equalToRes
 import tickmarks.test.ui.hasSnackbar
 import tickmarks.test.ui.withMessage
-import tickmarks.ui.binding.Visibility.INVISIBLE
-import tickmarks.ui.event.Event
 
 @RunWith(AndroidJUnit4::class)
 class AddBookmarkFragmentBindingTest {

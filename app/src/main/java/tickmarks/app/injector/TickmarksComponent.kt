@@ -4,8 +4,8 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import tickmarks.app.TickmarksApp
-import tickmarks.data.injector.NetworkModule
-import tickmarks.ui.injector.ViewModelFactoryModule
+import tickmarks.base.data.injector.NetworkModule
+import tickmarks.base.ui.injector.ViewModelFactoryModule
 import javax.inject.Singleton
 
 /**

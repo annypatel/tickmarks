@@ -1,7 +1,7 @@
 package tickmarks.test.ui.rx
 
 import io.reactivex.schedulers.Schedulers
-import tickmarks.ui.rx.UiSchedulers
+import tickmarks.base.ui.rx.UiSchedulers
 
 /**
  * [UiSchedulers] for unit tests.
