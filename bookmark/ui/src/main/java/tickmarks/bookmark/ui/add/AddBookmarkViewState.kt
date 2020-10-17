@@ -1,13 +1,13 @@
 package tickmarks.bookmark.ui.add
 
 import androidx.databinding.Bindable
+import tickmarks.base.ui.binding.EMPTY
+import tickmarks.base.ui.binding.NONE
+import tickmarks.base.ui.binding.Visibility
+import tickmarks.base.ui.binding.bind
+import tickmarks.base.ui.event.Event
+import tickmarks.base.ui.viewmodel.BaseViewState
 import tickmarks.bookmark.ui.BR
-import tickmarks.ui.binding.EMPTY
-import tickmarks.ui.binding.NONE
-import tickmarks.ui.binding.Visibility
-import tickmarks.ui.binding.bind
-import tickmarks.ui.event.Event
-import tickmarks.ui.viewmodel.BaseViewState
 
 /**
  * View State for Add Bookmark screen.

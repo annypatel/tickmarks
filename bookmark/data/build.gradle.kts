@@ -21,7 +21,7 @@ dependencies {
     implementation(Room.rx)
     kapt(Room.compiler)
 
-    testImplementation(project(":test-utils:data"))
+    testImplementation(project(":test:data"))
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
 

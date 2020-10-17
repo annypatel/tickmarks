@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
+import tickmarks.base.ui.injector.ViewModelKey
 import tickmarks.bookmark.ui.add.AddBookmarkViewModel
-import tickmarks.ui.injector.ViewModelKey
 
 /**
  * Dagger [module][Module] for bookmark ui module.

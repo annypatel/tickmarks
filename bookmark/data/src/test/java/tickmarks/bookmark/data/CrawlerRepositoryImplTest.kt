@@ -8,7 +8,7 @@ import org.junit.Test
 import tickmarks.bookmark.data.network.CrawlerService
 import tickmarks.bookmark.data.network.WebPageElementsRaw
 import tickmarks.bookmark.domain.WebPageElements
-import tickmarks.data.test.rx.testDataSchedulers
+import tickmarks.test.data.rx.testDataSchedulers
 
 class CrawlerRepositoryImplTest {
 

@@ -7,7 +7,7 @@ dependencies {
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
 
-    testImplementation(project(":test-utils:domain"))
+    testImplementation(project(":test:domain"))
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
 }

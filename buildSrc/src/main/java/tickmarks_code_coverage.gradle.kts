@@ -181,9 +181,9 @@ fun allExecutionData(): FileCollection {
 fun shouldNotIgnore(project: Project): Boolean {
     val ignored = listOf(
         ":app",
-        ":test-utils:ui",
-        ":test-utils:domain",
-        ":test-utils:data"
+        ":test:ui",
+        ":test:domain",
+        ":test:data"
     )
     return !ignored.contains(project.path)
 }

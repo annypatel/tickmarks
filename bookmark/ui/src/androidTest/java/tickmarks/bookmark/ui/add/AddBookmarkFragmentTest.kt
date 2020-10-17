@@ -14,7 +14,7 @@ import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.junit.Test
 import tickmarks.bookmark.ui.R
-import tickmarks.ui.test.mockserver.setBodyAsset
+import tickmarks.test.ui.mockserver.setBodyAsset
 
 class AddBookmarkFragmentTest {
 

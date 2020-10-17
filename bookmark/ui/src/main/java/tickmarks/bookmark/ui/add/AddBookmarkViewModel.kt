@@ -1,14 +1,14 @@
 package tickmarks.bookmark.ui.add
 
 import io.reactivex.rxkotlin.subscribeBy
+import tickmarks.base.ui.binding.NONE
+import tickmarks.base.ui.binding.Visibility.GONE
+import tickmarks.base.ui.binding.Visibility.VISIBLE
+import tickmarks.base.ui.event.Event
+import tickmarks.base.ui.rx.UiSchedulers
+import tickmarks.base.ui.viewmodel.BaseViewModel
 import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
-import tickmarks.ui.binding.NONE
-import tickmarks.ui.binding.Visibility.GONE
-import tickmarks.ui.binding.Visibility.VISIBLE
-import tickmarks.ui.event.Event
-import tickmarks.ui.rx.UiSchedulers
-import tickmarks.ui.viewmodel.BaseViewModel
 import javax.inject.Inject
 
 /**

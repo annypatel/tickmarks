@@ -1,8 +1,8 @@
 package tickmarks.bookmark.domain
 
 import io.reactivex.Completable
-import tickmarks.domain.rx.CompletableUseCase
-import tickmarks.domain.rx.DomainSchedulers
+import tickmarks.base.domain.rx.CompletableUseCase
+import tickmarks.base.domain.rx.DomainSchedulers
 import javax.inject.Inject
 
 /**
