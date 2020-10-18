@@ -59,7 +59,7 @@ object RetroCrawler {
 }
 
 object AndroidX {
-    const val extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     const val appcompat = "androidx.appcompat:appcompat:1.2.0"
     const val fragment = "androidx.fragment:fragment-ktx:1.2.5"
 
@@ -67,8 +67,6 @@ object AndroidX {
         const val junit = "androidx.test.ext:junit:1.1.2"
         const val core = "androidx.test:core-ktx:1.3.0"
         const val runner = "androidx.test:runner:1.3.0"
-        const val rules = "androidx.test:rules:1.3.0"
-        const val arch = "androidx.arch.core:core-testing:2.1.0"
         const val espresso = "androidx.test.espresso:espresso-core:3.3.0"
     }
 }

@@ -3,11 +3,9 @@ plugins {
 }
 
 dependencies {
-    api(project(":base:domain"))
+    implementation(project(":base:domain"))
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
 
     testImplementation(project(":test:domain"))
-    testImplementation(Test.junit)
-    testImplementation(Test.mockito)
 }

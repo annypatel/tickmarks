@@ -13,15 +13,14 @@ import tickmarks.bookmark.data.database.BookmarkDatabase
  * via [Subcomponent.modules] won't exposed outside this component.
  */
 @Subcomponent(modules = [InternalBookmarkDatabaseModule::class])
-interface BookmarkDatabaseComponent {
+internal interface BookmarkDatabaseComponent {
 
     @PrivateToComponent
     fun bookmarkDatabase(): BookmarkDatabase
 
-    @Subcomponent.Builder
-    interface Builder {
-
-        fun build(): BookmarkDatabaseComponent
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(): BookmarkDatabaseComponent
     }
 }
 
@@ -33,9 +32,8 @@ interface BookmarkDatabaseComponent {
 object InternalBookmarkDatabaseModule {
 
     @Provides
-    @JvmStatic
     @PrivateToComponent
-    fun bookmarkDatabase(app: Application): BookmarkDatabase {
+    internal fun bookmarkDatabase(app: Application): BookmarkDatabase {
         return Room.databaseBuilder(app, BookmarkDatabase::class.java, BookmarkDatabase.NAME)
             .build()
     }

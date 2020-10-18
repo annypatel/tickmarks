@@ -8,12 +8,12 @@ import org.junit.Test
 import tickmarks.bookmark.data.network.CrawlerService
 import tickmarks.bookmark.data.network.WebPageElementsRaw
 import tickmarks.bookmark.domain.WebPageElements
-import tickmarks.test.data.rx.testDataSchedulers
+import tickmarks.test.domain.rx.testSchedulers
 
 class CrawlerRepositoryImplTest {
 
     private val crawlerService = mock<CrawlerService>()
-    private val crawlerRepository = CrawlerRepositoryImpl(testDataSchedulers, crawlerService)
+    private val crawlerRepository = CrawlerRepositoryImpl(testSchedulers, crawlerService)
 
     @Test
     fun crawl_whenCrawlingSuccessful_shouldEmitAndComplete() {

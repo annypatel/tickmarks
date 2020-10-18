@@ -2,17 +2,21 @@ plugins {
     tickmarks_android_library
 }
 
-dependencies {
-    implementation(project(":base:ui"))
-    implementation(project(":base:domain"))
-    implementation(project(":base:data"))
-    implementation(Google.material)
-    implementation(Dagger.runtime)
-    kapt(Dagger.compiler)
+android {
+    buildFeatures {
+        dataBinding = true
+    }
+}
 
-    implementation(AndroidX.appcompat)
-    implementation(Test.rxidler)
-    implementation(AndroidX.Test.core)
-    implementation(AndroidX.Test.espresso)
-    implementation(OkHttp.Test.mockWebServer)
+dependencies {
+    compileOnly(project(":base:domain"))
+    compileOnly(Rx.android)
+    compileOnly(Dagger.runtime)
+    kapt(Dagger.compiler)
+    compileOnly(AndroidX.appcompat)
+    compileOnly(Google.material)
+    compileOnly(Test.rxidler)
+    compileOnly(AndroidX.Test.core)
+    compileOnly(AndroidX.Test.espresso)
+    compileOnly(OkHttp.Test.mockWebServer)
 }

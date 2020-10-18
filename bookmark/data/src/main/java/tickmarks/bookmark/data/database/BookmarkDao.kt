@@ -10,7 +10,7 @@ import io.reactivex.Single
  * Data Access Object for the bookmarks table.
  */
 @Dao
-interface BookmarkDao {
+internal interface BookmarkDao {
 
     /**
      * Inserts a bookmark in the database.

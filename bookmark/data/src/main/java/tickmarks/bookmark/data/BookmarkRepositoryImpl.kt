@@ -2,7 +2,7 @@ package tickmarks.bookmark.data
 
 import io.reactivex.Completable
 import io.reactivex.Single
-import tickmarks.base.data.rx.DataSchedulers
+import tickmarks.base.domain.rx.RxSchedulers
 import tickmarks.bookmark.data.database.BookmarkDao
 import tickmarks.bookmark.data.database.BookmarkEntity
 import tickmarks.bookmark.domain.Bookmark
@@ -13,7 +13,7 @@ import javax.inject.Inject
  * Internal implementation of [BookmarkRepository], manages bookmarks in local database.
  */
 internal class BookmarkRepositoryImpl @Inject constructor(
-    private val schedulers: DataSchedulers,
+    private val schedulers: RxSchedulers,
     private val bookmarkDao: BookmarkDao
 ) : BookmarkRepository {
 

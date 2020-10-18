@@ -12,7 +12,7 @@ import tickmarks.bookmark.ui.BR
 /**
  * View State for Add Bookmark screen.
  */
-class AddBookmarkViewState : BaseViewState() {
+internal class AddBookmarkViewState : BaseViewState() {
     @get:Bindable var url by bind(BR.url, EMPTY)
     @get:Bindable var error by bind(BR.error, NONE)
     @get:Bindable var loader by bind(BR.loader, Visibility.GONE)

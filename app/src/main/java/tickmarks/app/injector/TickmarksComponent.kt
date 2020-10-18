@@ -5,6 +5,7 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import tickmarks.app.TickmarksApp
 import tickmarks.base.data.injector.NetworkModule
+import tickmarks.base.ui.injector.RxSchedulersModule
 import tickmarks.base.ui.injector.ViewModelFactoryModule
 import javax.inject.Singleton
 
@@ -18,7 +19,7 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         NetworkModule::class,
         ViewModelFactoryModule::class,
-        SchedulersModule::class,
+        RxSchedulersModule::class,
         AppModule::class,
         FeaturesModule::class
     ]
@@ -26,5 +27,5 @@ import javax.inject.Singleton
 interface TickmarksComponent : AndroidInjector<TickmarksApp> {
 
     @Component.Factory
-    abstract class Factory : AndroidInjector.Factory<TickmarksApp>
+    interface Factory : AndroidInjector.Factory<TickmarksApp>
 }

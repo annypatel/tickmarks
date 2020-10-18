@@ -6,13 +6,13 @@ import com.nhaarman.mockitokotlin2.whenever
 import io.reactivex.Completable
 import io.reactivex.Single
 import org.junit.Test
-import tickmarks.test.domain.rx.testDomainSchedulers
+import tickmarks.test.domain.rx.testSchedulers
 
 class AddBookmarkImplTest {
 
     private val crawlerRepository = mock<CrawlerRepository>()
     private val bookmarkRepository = mock<BookmarkRepository>()
-    private val addBookmark = AddBookmarkImpl(testDomainSchedulers, crawlerRepository, bookmarkRepository)
+    private val addBookmark = AddBookmarkImpl(testSchedulers, crawlerRepository, bookmarkRepository)
 
     @Test
     fun execute_whenCrawlingAndSavingSuccessful_shouldComplete() {
