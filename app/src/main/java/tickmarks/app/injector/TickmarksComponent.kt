@@ -27,5 +27,5 @@ import javax.inject.Singleton
 interface TickmarksComponent : AndroidInjector<TickmarksApp> {
 
     @Component.Factory
-    abstract class Factory : AndroidInjector.Factory<TickmarksApp>
+    interface Factory : AndroidInjector.Factory<TickmarksApp>
 }

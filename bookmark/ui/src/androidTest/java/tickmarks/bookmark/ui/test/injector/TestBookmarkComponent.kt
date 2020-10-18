@@ -34,5 +34,5 @@ import javax.inject.Singleton
 interface TestBookmarkComponent : AndroidInjector<TestBookmarkApp> {
 
     @Component.Factory
-    abstract class Factory : AndroidInjector.Factory<TestBookmarkApp>
+    interface Factory : AndroidInjector.Factory<TestBookmarkApp>
 }

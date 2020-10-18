@@ -24,16 +24,13 @@ abstract class BookmarkDataModule {
     @Binds
     internal abstract fun bookmarkRepository(repository: BookmarkRepositoryImpl): BookmarkRepository
 
-    @Module
-    internal companion object {
+    companion object {
 
         @Provides
-        @JvmStatic
-        fun crawlerService(client: NetworkClient): CrawlerService =
+        internal fun crawlerService(client: NetworkClient): CrawlerService =
             client.create(CrawlerService::class)
 
         @Provides
-        @JvmStatic
-        fun bookmarkDao(database: BookmarkDatabase): BookmarkDao = database.bookmarkDao()
+        internal fun bookmarkDao(database: BookmarkDatabase): BookmarkDao = database.bookmarkDao()
     }
 }

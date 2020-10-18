@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
         BookmarkEntity::class
     ]
 )
-abstract class BookmarkDatabase : RoomDatabase() {
+internal abstract class BookmarkDatabase : RoomDatabase() {
 
     companion object {
         const val VERSION = 1

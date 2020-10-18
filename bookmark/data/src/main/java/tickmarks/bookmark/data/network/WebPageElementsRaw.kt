@@ -5,7 +5,7 @@ import pl.droidsonroids.jspoon.annotation.Selector
 /**
  * Data class for html elements of a web page.
  */
-data class WebPageElementsRaw(
+internal data class WebPageElementsRaw(
     @Selector(value = "meta[property^=og:title]", attr = "content")
     var title: String? = null,
 

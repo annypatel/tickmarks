@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
  * A bookmark entity for bookmarks table in database.
  */
 @Entity(tableName = "bookmarks")
-data class BookmarkEntity(
+internal data class BookmarkEntity(
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true)

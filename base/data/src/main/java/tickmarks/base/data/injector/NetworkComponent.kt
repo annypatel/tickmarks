@@ -20,10 +20,9 @@ interface NetworkComponent {
     @PrivateToComponent
     fun networkClient(): NetworkClient
 
-    @Subcomponent.Builder
-    interface Builder {
-
-        fun build(): NetworkComponent
+    @Subcomponent.Factory
+    interface Factory {
+        fun create(): NetworkComponent
     }
 }
 
@@ -40,12 +39,10 @@ object InternalNetworkModule {
     private const val WRITE_TIMEOUT = 10L
 
     @Provides
-    @JvmStatic
     @PrivateToComponent
     fun networkClient(retrofit: Retrofit): NetworkClient = NetworkClient(retrofit)
 
     @Provides
-    @JvmStatic
     fun retrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
             .client(okHttpClient)
@@ -56,7 +53,6 @@ object InternalNetworkModule {
     }
 
     @Provides
-    @JvmStatic
     fun okHttpClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
