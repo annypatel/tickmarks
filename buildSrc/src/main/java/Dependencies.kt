@@ -59,7 +59,7 @@ object RetroCrawler {
 }
 
 object AndroidX {
-    const val extensions = "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
     const val appcompat = "androidx.appcompat:appcompat:1.2.0"
     const val fragment = "androidx.fragment:fragment-ktx:1.2.5"
 

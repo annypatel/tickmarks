@@ -7,12 +7,12 @@ import io.reactivex.Completable
 import org.junit.Test
 import tickmarks.bookmark.data.database.BookmarkDao
 import tickmarks.bookmark.domain.Bookmark
-import tickmarks.test.data.rx.testDataSchedulers
+import tickmarks.test.domain.rx.testSchedulers
 
 class BookmarkRepositoryImplTest {
 
     private val bookmarkDao = mock<BookmarkDao>()
-    private val repository = BookmarkRepositoryImpl(testDataSchedulers, bookmarkDao)
+    private val repository = BookmarkRepositoryImpl(testSchedulers, bookmarkDao)
 
     @Test
     fun saveBookmark_whenInsertSuccessful_shouldComplete() {

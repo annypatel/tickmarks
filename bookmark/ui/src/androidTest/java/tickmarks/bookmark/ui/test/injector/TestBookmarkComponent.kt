@@ -5,9 +5,11 @@ import dagger.android.AndroidInjector
 import dagger.android.support.AndroidSupportInjectionModule
 import tickmarks.base.data.injector.NetworkModule
 import tickmarks.base.ui.injector.ViewModelFactoryModule
-import tickmarks.bookmark.ui.injector.BookmarkModule
+import tickmarks.bookmark.data.injector.BookmarkDataModule
+import tickmarks.bookmark.domain.injector.BookmarkDomainModule
+import tickmarks.bookmark.ui.injector.BookmarkUiModule
 import tickmarks.bookmark.ui.test.TestBookmarkApp
-import tickmarks.test.ui.injector.TestSchedulersModule
+import tickmarks.test.ui.injector.TestRxSchedulersModule
 import javax.inject.Singleton
 
 /**
@@ -21,10 +23,12 @@ import javax.inject.Singleton
         NetworkModule::class,
         ViewModelFactoryModule::class,
         // test-only modules
-        TestSchedulersModule::class,
+        TestRxSchedulersModule::class,
         TestBookmarkAppModule::class,
-        // feature module
-        BookmarkModule::class
+        // feature modules
+        BookmarkUiModule::class,
+        BookmarkDomainModule::class,
+        BookmarkDataModule::class
     ]
 )
 interface TestBookmarkComponent : AndroidInjector<TestBookmarkApp> {

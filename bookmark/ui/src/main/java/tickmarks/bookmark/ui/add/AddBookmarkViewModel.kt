@@ -1,11 +1,11 @@
 package tickmarks.bookmark.ui.add
 
 import io.reactivex.rxkotlin.subscribeBy
+import tickmarks.base.domain.rx.RxSchedulers
 import tickmarks.base.ui.binding.NONE
 import tickmarks.base.ui.binding.Visibility.GONE
 import tickmarks.base.ui.binding.Visibility.VISIBLE
 import tickmarks.base.ui.event.Event
-import tickmarks.base.ui.rx.UiSchedulers
 import tickmarks.base.ui.viewmodel.BaseViewModel
 import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
@@ -15,7 +15,7 @@ import javax.inject.Inject
  * View Model for Add Bookmark screen.
  */
 internal class AddBookmarkViewModel @Inject constructor(
-    private val schedulers: UiSchedulers,
+    private val schedulers: RxSchedulers,
     private val addBookmark: AddBookmark
 ) : BaseViewModel() {
 
@@ -31,7 +31,7 @@ internal class AddBookmarkViewModel @Inject constructor(
         viewState.error = NONE
         viewState.loader = VISIBLE
         addBookmark(urlToAdd)
-            .observeOn(schedulers.mainThread)
+            .observeOn(schedulers.main)
             .subscribeBy(
                 onComplete = {
                     viewState.loader = GONE

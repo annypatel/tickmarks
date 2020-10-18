@@ -15,7 +15,7 @@ import tickmarks.bookmark.domain.CrawlerRepository
 /**
  * Dagger [module][Module] for bookmark data module.
  */
-@Module
+@Module(includes = [BookmarkDatabaseModule::class])
 abstract class BookmarkDataModule {
 
     @Binds

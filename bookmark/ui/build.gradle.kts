@@ -12,7 +12,6 @@ dependencies {
     implementation(project(":base:ui"))
     implementation(project(":base:domain"))
     implementation(project(":bookmark:domain"))
-    implementation(project(":bookmark:data"))
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
     implementation(Dagger.Android.runtime)
@@ -22,6 +21,7 @@ dependencies {
     implementation(Google.material)
 
     testImplementation(project(":test:ui"))
+    testImplementation(project(":test:domain"))
     testImplementation(Test.robolectric)
     testImplementation(Test.bindingMapper)
     testImplementation(AndroidX.Test.junit)
@@ -36,6 +36,7 @@ dependencies {
 
     // for dagger generated code
     androidTestImplementation(project(":base:data"))
+    androidTestImplementation(project(":bookmark:data"))
     kaptAndroidTest(Dagger.compiler)
     androidTestImplementation(Retrofit.client)
     androidTestImplementation(Room.runtime)

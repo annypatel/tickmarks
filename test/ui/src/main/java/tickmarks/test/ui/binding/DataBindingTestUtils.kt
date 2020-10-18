@@ -8,13 +8,15 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.test.core.app.ApplicationProvider.getApplicationContext
-import tickmarks.base.ui.R
 
 /**
  * Inflates a binding layout and returns the newly-created binding for that layout.
  */
 fun <T : ViewDataBinding> inflate(@LayoutRes layout: Int): T {
-    val context = ContextThemeWrapper(getApplicationContext(), R.style.Theme_AppCompat)
+    val context = ContextThemeWrapper(
+        getApplicationContext(),
+        androidx.appcompat.R.style.Theme_AppCompat
+    )
 
     val inflater = LayoutInflater.from(context)
     val parent = FrameLayout(context)

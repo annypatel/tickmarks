@@ -2,7 +2,7 @@ package tickmarks.bookmark.domain
 
 import io.reactivex.Completable
 import tickmarks.base.domain.rx.CompletableUseCase
-import tickmarks.base.domain.rx.DomainSchedulers
+import tickmarks.base.domain.rx.RxSchedulers
 import javax.inject.Inject
 
 /**
@@ -14,7 +14,7 @@ interface AddBookmark : CompletableUseCase<String>
  * Internal implementation of AddBookmark use case.
  */
 internal class AddBookmarkImpl @Inject constructor(
-    private val schedulers: DomainSchedulers,
+    private val schedulers: RxSchedulers,
     private val crawlerRepository: CrawlerRepository,
     private val bookmarkRepository: BookmarkRepository
 ) : AddBookmark {

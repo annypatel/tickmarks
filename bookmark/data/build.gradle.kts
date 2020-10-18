@@ -12,6 +12,7 @@ android {
 
 dependencies {
     implementation(project(":base:data"))
+    implementation(project(":base:domain"))
     implementation(project(":bookmark:domain"))
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
@@ -21,7 +22,7 @@ dependencies {
     implementation(Room.rx)
     kapt(Room.compiler)
 
-    testImplementation(project(":test:data"))
+    testImplementation(project(":test:domain"))
 
     androidTestImplementation(AndroidX.Test.core)
     androidTestImplementation(AndroidX.Test.runner)

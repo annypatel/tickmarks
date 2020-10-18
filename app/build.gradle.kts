@@ -60,7 +60,6 @@ dependencies {
     implementation(project(":bookmark:ui"))
     implementation(project(":bookmark:domain"))
     implementation(project(":bookmark:data"))
-    implementation(Rx.android) // TODO
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
     implementation(Dagger.Android.runtime)

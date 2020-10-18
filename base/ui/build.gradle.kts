@@ -9,9 +9,11 @@ android {
 }
 
 dependencies {
+    implementation(project(":base:domain"))
+    implementation(Rx.android)
     implementation(Dagger.runtime)
     kapt(Dagger.compiler)
-    implementation(AndroidX.extensions) // TODO
+    implementation(AndroidX.viewModel)
     implementation(Google.material)
 
     testImplementation(project(":test:ui"))

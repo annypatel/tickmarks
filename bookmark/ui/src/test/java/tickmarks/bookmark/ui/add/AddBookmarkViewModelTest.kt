@@ -11,12 +11,12 @@ import tickmarks.base.ui.binding.NONE
 import tickmarks.base.ui.binding.Visibility.GONE
 import tickmarks.bookmark.domain.AddBookmark
 import tickmarks.bookmark.ui.R
-import tickmarks.test.ui.rx.testUiSchedulers
+import tickmarks.test.domain.rx.testSchedulers
 
 class AddBookmarkViewModelTest {
 
     private val addBookmark = mock<AddBookmark>()
-    private val viewModel = AddBookmarkViewModel(testUiSchedulers, addBookmark)
+    private val viewModel = AddBookmarkViewModel(testSchedulers, addBookmark)
     private val viewState = viewModel.viewState
 
     @Test
