@@ -10,7 +10,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:4.0.1")
+    implementation("com.android.tools.build:gradle:4.1.0")
     // Upgrading kotlin plugin? Update kotlin version in Dependencies.kt as well.
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.10")
     // Upgrading detekt plugin? Update detekt version in Dependencies.kt as well.

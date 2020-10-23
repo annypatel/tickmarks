@@ -5,7 +5,7 @@ plugins {
 android {
     defaultConfig {
         javaCompileOptions.annotationProcessorOptions {
-            arguments = mapOf("room.schemaLocation" to "$projectDir/schemas".toString())
+            arguments += mapOf("room.schemaLocation" to "$projectDir/schemas")
         }
     }
 }
