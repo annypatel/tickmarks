@@ -53,4 +53,5 @@ dependencies {
 
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
+    kaptTest(DataBinding.compiler)
 }
