@@ -77,6 +77,7 @@ object Google {
 }
 
 object DataBinding {
+    const val compiler = "androidx.databinding:databinding-compiler:_"
     const val lint = "com.github.annypatel.databinding:lint-checks:_"
 }
 
