@@ -9,11 +9,11 @@ rootProject.plugins.apply("com.osacky.fulladle")
 configure<FlankGradleExtension> {
     flankVersion.set("_")
     serviceAccountCredentials.set(rootProject.file("gcloud-service-key.json"))
-    resultsBucket = "staging.tickmarks-5b34c.appspot.com"
-    devices = listOf(mapOf("model" to "Pixel2", "version" to "28"))
-    repeatTests = 1
-    flakyTestAttempts = 0
-    disableSharding = true
+    resultsBucket.set("staging.tickmarks-5b34c.appspot.com")
+    devices.set(listOf(mapOf("model" to "Pixel2", "version" to "28")))
+    repeatTests.set(1)
+    flakyTestAttempts.set(0)
+    disableSharding.set(true)
 
     configs {
         // Use this to check if a test is flaky. Change the test target below and run
@@ -21,9 +21,11 @@ configure<FlankGradleExtension> {
         // on firebase. All filters supported by AndroidJUnitRunner are supported here as well.
         // Refer - https://developer.android.com/reference/android/support/test/runner/AndroidJUnitRunner
         create("flaky") {
-            repeatTests = 5
-            testTargets = listOf(
-                "class tickmarks.sample.MyFlakyTest"
+            repeatTests.set(5)
+            testTargets.set(
+                listOf(
+                    "class tickmarks.sample.MyFlakyTest"
+                )
             )
         }
     }
