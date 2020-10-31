@@ -3,6 +3,7 @@ package tickmarks.base.data.injector
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import dagger.hilt.migration.DisableInstallInCheck
 import okhttp3.OkHttpClient
 import retrocrawler.jspoon.RetroCrawlerJSpoonConverterFactory
 import retrofit2.Retrofit
@@ -29,8 +30,11 @@ interface NetworkComponent {
 /**
  * Dagger module for [NetworkComponent]. Defines dependencies required to constructs [NetworkClient]. All the
  * dependencies declared here is internal to [NetworkComponent] and won't be accessible outside.
+ *
+ * InstallIn check is disabled as it is an internal module.
  */
 @Module
+@DisableInstallInCheck
 object InternalNetworkModule {
 
     private const val BASE_URL = "http://api.example.com"

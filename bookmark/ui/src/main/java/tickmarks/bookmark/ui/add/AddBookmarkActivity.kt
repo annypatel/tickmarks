@@ -2,11 +2,13 @@ package tickmarks.bookmark.ui.add
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import tickmarks.bookmark.ui.R
 
 /**
  * Activity add bookmark screen.
  */
+@AndroidEntryPoint
 class AddBookmarkActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

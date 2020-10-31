@@ -11,7 +11,7 @@ Tickmarks app uses the latest cutting edge libraries and tools.
  * [CircleCI](https://circleci.com/docs/2.0/language-android/) with [Firebase Test Lab](https://firebase.google.com/products/test-lab/)
  * [RxJava](https://github.com/ReactiveX/RxJava) 2, [RxKotlin](https://github.com/ReactiveX/RxKotlin) and [RxAndroid](https://github.com/ReactiveX/RxAndroid) 
  * [Architecture Components](https://developer.android.com/topic/libraries/architecture/): Room, ViewModel, LiveData and Lifecycle
- * [dagger-android](https://google.github.io/dagger/android.html) for dependency injection
+ * [Hilt](https://dagger.dev/hilt/) for dependency injection
  * [Retrofit](https://github.com/square/retrofit)
  * [Detekt](https://github.com/detekt/detekt) with [ktlint](https://github.com/shyiko/ktlint) for codestyle
  * [Material Design](https://material.io/)

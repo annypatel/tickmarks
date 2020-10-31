@@ -1,10 +1,12 @@
 package tickmarks.bookmark.data.injector
 
-import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import dagger.Module
 import dagger.Provides
 import dagger.Subcomponent
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.migration.DisableInstallInCheck
 import tickmarks.base.data.injector.PrivateToComponent
 import tickmarks.bookmark.data.database.BookmarkDatabase
 
@@ -27,14 +29,17 @@ internal interface BookmarkDatabaseComponent {
 /**
  * Dagger module for [BookmarkDatabaseComponent]. Defines dependencies required to constructs [BookmarkDatabase]. All
  * the dependencies declared here is internal to [BookmarkDatabaseComponent] and won't be accessible outside.
+ *
+ * InstallIn check is disabled as it is an internal module.
  */
 @Module
+@DisableInstallInCheck
 object InternalBookmarkDatabaseModule {
 
     @Provides
     @PrivateToComponent
-    internal fun bookmarkDatabase(app: Application): BookmarkDatabase {
-        return Room.databaseBuilder(app, BookmarkDatabase::class.java, BookmarkDatabase.NAME)
+    internal fun bookmarkDatabase(@ApplicationContext context: Context): BookmarkDatabase {
+        return Room.databaseBuilder(context, BookmarkDatabase::class.java, BookmarkDatabase.NAME)
             .build()
     }
 }

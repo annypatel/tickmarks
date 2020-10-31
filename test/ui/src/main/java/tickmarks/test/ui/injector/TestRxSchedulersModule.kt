@@ -4,6 +4,8 @@ import androidx.test.espresso.IdlingRegistry
 import com.squareup.rx2.idler.Rx2Idler
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ApplicationComponent
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -15,6 +17,7 @@ import javax.inject.Singleton
  * graph for integration tests.
  */
 @Module
+@InstallIn(ApplicationComponent::class)
 object TestRxSchedulersModule {
 
     @Provides

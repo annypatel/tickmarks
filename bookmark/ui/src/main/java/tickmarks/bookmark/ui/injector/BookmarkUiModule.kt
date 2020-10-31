@@ -1,25 +1,16 @@
 package tickmarks.bookmark.ui.injector
 
-import androidx.lifecycle.ViewModel
-import dagger.Binds
 import dagger.Module
-import dagger.android.ContributesAndroidInjector
-import dagger.multibindings.IntoMap
-import tickmarks.base.ui.injector.ViewModelKey
-import tickmarks.bookmark.ui.add.AddBookmarkFragment
-import tickmarks.bookmark.ui.add.AddBookmarkViewModel
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
+import tickmarks.bookmark.domain.injector.BookmarkDomainModule
 
 /**
  * Dagger [module][Module] for bookmark ui module.
+ *
+ * [BookmarkDomainModule] is included here because currently Hilt does not support pure java/kotlin
+ * gradle modules.
  */
-@Module
-abstract class BookmarkUiModule {
-
-    @Binds
-    @IntoMap
-    @ViewModelKey(AddBookmarkViewModel::class)
-    internal abstract fun addBookmarkViewModel(viewModel: AddBookmarkViewModel): ViewModel
-
-    @ContributesAndroidInjector
-    internal abstract fun addBookmarkFragment(): AddBookmarkFragment
-}
+@Module(includes = [BookmarkDomainModule::class])
+@InstallIn(ActivityRetainedComponent::class)
+abstract class BookmarkUiModule

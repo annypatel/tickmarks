@@ -60,12 +60,9 @@ dependencies {
     implementation(project(":bookmark:ui"))
     implementation(project(":bookmark:domain"))
     implementation(project(":bookmark:data"))
-    implementation(Dagger.runtime)
-    kapt(Dagger.compiler)
-    implementation(Dagger.Android.runtime)
-    kapt(Dagger.Android.compiler)
 
-    // for dagger generated code
+    // for generated code
+    implementation(AndroidX.appcompat)
     implementation(Retrofit.client)
     implementation(Room.runtime)
 }

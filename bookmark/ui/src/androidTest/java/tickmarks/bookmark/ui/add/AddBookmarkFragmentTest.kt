@@ -9,17 +9,23 @@ import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.espresso.matcher.ViewMatchers.withText
+import dagger.hilt.android.testing.HiltAndroidRule
+import dagger.hilt.android.testing.HiltAndroidTest
+import dagger.hilt.android.testing.UninstallModules
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
 import org.junit.Rule
 import org.junit.Test
+import tickmarks.base.ui.injector.RxSchedulersModule
 import tickmarks.bookmark.ui.R
 import tickmarks.test.ui.mockserver.setBodyAsset
 
+@HiltAndroidTest
+@UninstallModules(RxSchedulersModule::class)
 class AddBookmarkFragmentTest {
 
-    @get:Rule
-    var server = MockWebServer()
+    @get:Rule(order = 0) val hilt = HiltAndroidRule(this)
+    @get:Rule(order = 1) val server = MockWebServer()
 
     @Test
     fun addBookmark_givenEmptyUrl_shouldShowEmptyError() {

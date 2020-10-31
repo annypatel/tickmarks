@@ -11,8 +11,6 @@ android {
 dependencies {
     implementation(project(":base:domain"))
     implementation(Rx.android)
-    implementation(Dagger.runtime)
-    kapt(Dagger.compiler)
     implementation(AndroidX.viewModel)
     implementation(Google.material)
 
