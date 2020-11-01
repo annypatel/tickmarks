@@ -21,4 +21,5 @@ dependencies {
 
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
+    testImplementation(Test.mockitoInline)
 }

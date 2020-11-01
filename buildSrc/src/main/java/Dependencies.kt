@@ -89,6 +89,7 @@ object DataBinding {
 object Test {
     const val junit = "junit:junit:_"
     const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:_"
+    const val mockitoInline = "org.mockito:mockito-inline:_"
     const val robolectric = "org.robolectric:robolectric:_"
     const val bindingMapper = "com.github.annypatel.databinding:binding-mapper:_"
     const val rxidler = "com.squareup.rx.idler:rx2-idler:_"
