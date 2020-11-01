@@ -18,4 +18,5 @@ dependencies {
     implementation("com.osacky.flank.gradle:fladle:_")
     implementation("com.google.gms:google-services:_")
     implementation("com.google.firebase:firebase-appdistribution-gradle:_")
+    implementation("com.google.dagger:hilt-android-gradle-plugin:_")
 }

@@ -4,8 +4,6 @@ plugins {
 
 dependencies {
     implementation(project(":base:domain"))
-    implementation(Dagger.runtime)
-    kapt(Dagger.compiler)
 
     testImplementation(project(":test:domain"))
 }

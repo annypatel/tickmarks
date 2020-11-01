@@ -11,8 +11,6 @@ android {
 dependencies {
     compileOnly(project(":base:domain"))
     compileOnly(Rx.android)
-    compileOnly(Dagger.runtime)
-    kapt(Dagger.compiler)
     compileOnly(AndroidX.appcompat)
     compileOnly(Google.material)
     compileOnly(Test.rxidler)

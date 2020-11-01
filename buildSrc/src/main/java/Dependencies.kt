@@ -25,13 +25,18 @@ object Rx {
     const val android = "io.reactivex.rxjava2:rxandroid:_"
 }
 
-object Dagger {
-    const val runtime = "com.google.dagger:dagger:_"
-    const val compiler = "com.google.dagger:dagger-compiler:_"
+object Hilt {
+    const val core = "com.google.dagger:hilt-core:_"
+    const val android = "com.google.dagger:hilt-android:_"
+    const val compiler = "com.google.dagger:hilt-android-compiler:_"
 
-    object Android {
-        const val runtime = "com.google.dagger:dagger-android-support:_"
-        const val compiler = "com.google.dagger:dagger-android-processor:_"
+    object AndroidX {
+        const val viewModel = "androidx.hilt:hilt-lifecycle-viewmodel:_"
+        const val compiler = "androidx.hilt:hilt-compiler:_"
+    }
+
+    object Test {
+        const val runtime = "com.google.dagger:hilt-android-testing:_"
     }
 }
 
@@ -50,12 +55,12 @@ object Retrofit {
 
 object RetroCrawler {
     const val converterJspoon = "com.github.annypatel.retrocrawler:converter-jspoon:_"
-    const val jspoon =  "pl.droidsonroids:jspoon:_"
+    const val jspoon = "pl.droidsonroids:jspoon:_"
 }
 
 object AndroidX {
     const val viewModel = "androidx.lifecycle:lifecycle-viewmodel-ktx:_"
-    const val appcompat =  "androidx.appcompat:appcompat:_"
+    const val appcompat = "androidx.appcompat:appcompat:_"
     const val fragment = "androidx.fragment:fragment-ktx:_"
 
     object Test {
@@ -67,7 +72,7 @@ object AndroidX {
 }
 
 object Room {
-    const val runtime =  "androidx.room:room-runtime:_"
+    const val runtime = "androidx.room:room-runtime:_"
     const val compiler = "androidx.room:room-compiler:_"
     const val rx = "androidx.room:room-rxjava2:_"
 }
@@ -85,6 +90,6 @@ object Test {
     const val junit = "junit:junit:_"
     const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:_"
     const val robolectric = "org.robolectric:robolectric:_"
-    const val bindingMapper =  "com.github.annypatel.databinding:binding-mapper:_"
+    const val bindingMapper = "com.github.annypatel.databinding:binding-mapper:_"
     const val rxidler = "com.squareup.rx.idler:rx2-idler:_"
 }

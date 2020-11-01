@@ -14,8 +14,6 @@ dependencies {
     implementation(project(":base:data"))
     implementation(project(":base:domain"))
     implementation(project(":bookmark:domain"))
-    implementation(Dagger.runtime)
-    kapt(Dagger.compiler)
     implementation(Retrofit.client)
     implementation(RetroCrawler.jspoon)
     implementation(Room.runtime)

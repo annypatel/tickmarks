@@ -3,6 +3,8 @@ package tickmarks.bookmark.data.injector
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityRetainedComponent
 import tickmarks.base.data.network.NetworkClient
 import tickmarks.bookmark.data.BookmarkRepositoryImpl
 import tickmarks.bookmark.data.CrawlerRepositoryImpl
@@ -15,7 +17,8 @@ import tickmarks.bookmark.domain.CrawlerRepository
 /**
  * Dagger [module][Module] for bookmark data module.
  */
-@Module(includes = [BookmarkDatabaseModule::class])
+@Module
+@InstallIn(ActivityRetainedComponent::class)
 abstract class BookmarkDataModule {
 
     @Binds

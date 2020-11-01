@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("dagger.hilt.android.plugin")
     kotlin("android")
     kotlin("kapt")
 }
@@ -50,6 +51,10 @@ dependencies {
     implementation(Rx.java)
     implementation(Rx.kotlin)
     implementation(DataBinding.lint)
+    implementation(Hilt.android)
+    kapt(Hilt.compiler)
+    implementation(Hilt.AndroidX.viewModel)
+    kapt(Hilt.AndroidX.compiler)
 
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
