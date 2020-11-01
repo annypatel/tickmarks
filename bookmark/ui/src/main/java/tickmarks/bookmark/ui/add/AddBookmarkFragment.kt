@@ -14,7 +14,11 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class AddBookmarkFragment : Fragment() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         val binding = AddBookmarkFragmentBinding.inflate(inflater, container, false)
             .apply {
                 val vm by viewModels<AddBookmarkViewModel>()

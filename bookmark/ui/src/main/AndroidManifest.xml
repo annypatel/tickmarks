@@ -2,11 +2,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     package="tickmarks.bookmark.ui">
 
-    <application
-        android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
+    <application android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
 
-        <activity
-            android:name=".add.AddBookmarkActivity">
+        <activity android:name=".add.AddBookmarkActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

@@ -18,7 +18,12 @@ class CrawlerRepositoryImplTest {
     @Test
     fun crawl_whenCrawlingSuccessful_shouldEmitAndComplete() {
         val elements = WebPageElementsRaw("Title", "Url", "Image", "Description")
-        val expectedElements = WebPageElements(elements.title, elements.url, elements.image, elements.description)
+        val expectedElements = WebPageElements(
+            elements.title,
+            elements.url,
+            elements.image,
+            elements.description
+        )
         whenever(crawlerService.crawl(any()))
             .thenReturn(Single.just(elements))
 

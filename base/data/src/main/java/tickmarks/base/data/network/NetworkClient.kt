@@ -4,7 +4,8 @@ import retrofit2.Retrofit
 import kotlin.reflect.KClass
 
 /**
- * Client for creating an implementation of the API endpoints defined by the Retrofit service interface.
+ * Client for creating an implementation of the API endpoints defined by the Retrofit service
+ * interface.
  */
 class NetworkClient(
     private val retrofit: Retrofit

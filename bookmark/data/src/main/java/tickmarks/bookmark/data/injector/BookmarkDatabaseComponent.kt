@@ -11,8 +11,8 @@ import tickmarks.base.data.injector.PrivateToComponent
 import tickmarks.bookmark.data.database.BookmarkDatabase
 
 /**
- * BookmarkDatabaseComponent exposes [BookmarkDatabase] with [bookmarkDatabase] provision method, dependencies declared
- * via [Subcomponent.modules] won't exposed outside this component.
+ * BookmarkDatabaseComponent exposes [BookmarkDatabase] with [bookmarkDatabase] provision method,
+ * dependencies declared via [Subcomponent.modules] won't exposed outside this component.
  */
 @Subcomponent(modules = [InternalBookmarkDatabaseModule::class])
 internal interface BookmarkDatabaseComponent {
@@ -27,8 +27,9 @@ internal interface BookmarkDatabaseComponent {
 }
 
 /**
- * Dagger module for [BookmarkDatabaseComponent]. Defines dependencies required to constructs [BookmarkDatabase]. All
- * the dependencies declared here is internal to [BookmarkDatabaseComponent] and won't be accessible outside.
+ * Dagger module for [BookmarkDatabaseComponent]. Defines dependencies required to constructs
+ * [BookmarkDatabase]. All the dependencies declared here is internal to [BookmarkDatabaseComponent]
+ * and won't be accessible outside.
  *
  * InstallIn check is disabled as it is an internal module.
  */

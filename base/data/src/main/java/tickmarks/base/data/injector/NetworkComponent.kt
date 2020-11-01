@@ -12,8 +12,8 @@ import tickmarks.base.data.network.NetworkClient
 import java.util.concurrent.TimeUnit
 
 /**
- * NetworkComponent exposes [NetworkClient] with [networkClient] provision method, dependencies declared via
- * [Subcomponent.modules] won't exposed outside this component.
+ * NetworkComponent exposes [NetworkClient] with [networkClient] provision method, dependencies
+ * declared via [Subcomponent.modules] won't exposed outside this component.
  */
 @Subcomponent(modules = [InternalNetworkModule::class])
 interface NetworkComponent {
@@ -28,8 +28,9 @@ interface NetworkComponent {
 }
 
 /**
- * Dagger module for [NetworkComponent]. Defines dependencies required to constructs [NetworkClient]. All the
- * dependencies declared here is internal to [NetworkComponent] and won't be accessible outside.
+ * Dagger module for [NetworkComponent]. Defines dependencies required to constructs [NetworkClient]
+ * . All the dependencies declared here is internal to [NetworkComponent] and won't be accessible
+ * outside.
  *
  * InstallIn check is disabled as it is an internal module.
  */

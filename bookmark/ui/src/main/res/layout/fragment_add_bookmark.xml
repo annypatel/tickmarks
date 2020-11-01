@@ -8,6 +8,7 @@
         <variable
             name="viewModel"
             type="tickmarks.bookmark.ui.add.AddBookmarkViewModel" />
+
         <variable
             name="viewState"
             type="tickmarks.bookmark.ui.add.AddBookmarkViewState" />
@@ -23,8 +24,8 @@
             android:id="@+id/tilUrl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:errorEnabled="true"
-            app:error="@{viewState.error}">
+            app:error="@{viewState.error}"
+            app:errorEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etUrl"
@@ -37,10 +38,10 @@
 
         <Button
             android:id="@+id/btnAddBookmark"
-            android:text="@string/add_bookmark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:onClick="@{() -> viewModel.addBookmark()}" />
+            android:onClick="@{() -> viewModel.addBookmark()}"
+            android:text="@string/add_bookmark" />
 
         <ProgressBar
             android:id="@+id/loader"

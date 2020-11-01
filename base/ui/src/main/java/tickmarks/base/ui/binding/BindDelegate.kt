@@ -16,7 +16,8 @@ fun <T> bind(fieldId: Int) = BindDelegate(fieldId, null as T?)
 fun <T> bind(fieldId: Int, value: T) = BindDelegate(fieldId, value)
 
 /**
- * Delegate for [Bindable] properties, which automatically notifies listeners that property has changed.
+ * Delegate for [Bindable] properties, which automatically notifies listeners that property has
+ * changed.
  */
 class BindDelegate<T>(
     private val fieldId: Int,
