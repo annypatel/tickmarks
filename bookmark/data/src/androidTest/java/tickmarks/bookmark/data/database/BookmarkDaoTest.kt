@@ -15,8 +15,10 @@ class BookmarkDaoTest {
 
     @Before
     fun setup() {
-        database = Room.inMemoryDatabaseBuilder(getApplicationContext(), BookmarkDatabase::class.java)
-            .build()
+        database = Room.inMemoryDatabaseBuilder(
+            getApplicationContext(),
+            BookmarkDatabase::class.java
+        ).build()
         bookmarkDao = database.bookmarkDao()
     }
 

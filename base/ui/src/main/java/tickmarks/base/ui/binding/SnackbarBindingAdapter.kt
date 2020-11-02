@@ -9,8 +9,8 @@ import tickmarks.base.ui.event.consume
 /**
  * Shows snackbar with the string resource id wrapped inside an event.
  *
- * Note: The string resource is wrapped inside an event because showing a snackbar is an event, which should be
- * consumed only once.
+ * Note: The string resource is wrapped inside an event because showing a snackbar is an event,
+ * which should be consumed only once.
  */
 @BindingAdapter("snackbar")
 fun View.showSnackbar(event: Event<Int>?) {
