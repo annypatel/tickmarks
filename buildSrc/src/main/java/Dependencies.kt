@@ -42,10 +42,7 @@ object Hilt {
 
 object OkHttp {
     const val client = "com.squareup.okhttp3:okhttp:_"
-
-    object Test {
-        const val mockWebServer = "com.squareup.okhttp3:mockwebserver:_"
-    }
+    const val logging = "com.squareup.okhttp3:logging-interceptor:_"
 }
 
 object Retrofit {
@@ -93,4 +90,5 @@ object Test {
     const val robolectric = "org.robolectric:robolectric:_"
     const val bindingMapper = "com.github.annypatel.databinding:binding-mapper:_"
     const val rxidler = "com.squareup.rx.idler:rx2-idler:_"
+    const val okReplay = "com.airbnb.okreplay:espresso:_"
 }

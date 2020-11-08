@@ -1,0 +1,19 @@
+!tape
+name: add bookmark when successful should show success message
+interactions:
+  - recorded: 2020-11-08T12:42:35.505Z
+    request:
+      method: GET
+      uri: https://www.example.com
+    response:
+      status: 200
+      headers:
+        Content-Length: '145'
+      body: |-
+        <html>
+        <head>
+            <meta property="og:title" content="The Rock"/>
+            <meta property="og:url" content="/image.jpg"/>
+        </head>
+        <body></body>
+        </html>
