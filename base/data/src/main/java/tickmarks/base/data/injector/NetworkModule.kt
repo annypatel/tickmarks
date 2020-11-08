@@ -6,6 +6,7 @@ import dagger.Subcomponent
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import dagger.hilt.migration.DisableInstallInCheck
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrocrawler.jspoon.RetroCrawlerJSpoonConverterFactory
 import retrofit2.Retrofit
@@ -74,11 +75,14 @@ object InternalNetworkModule {
     }
 
     @Provides
-    fun okHttpClient(): OkHttpClient {
+    fun okHttpClient(interceptors: Set<@JvmSuppressWildcards Interceptor>): OkHttpClient {
         return OkHttpClient.Builder()
             .connectTimeout(CONNECT_TIMEOUT, TimeUnit.SECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.SECONDS)
             .writeTimeout(WRITE_TIMEOUT, TimeUnit.SECONDS)
+            .apply {
+                interceptors.forEach { addInterceptor(it) }
+            }
             .build()
     }
 }

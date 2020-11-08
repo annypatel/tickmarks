@@ -1,0 +1,12 @@
+!tape
+name: add bookmark when failed should show failure message
+interactions:
+  - recorded: 2020-11-08T12:33:13.487Z
+    request:
+      method: GET
+      uri: https://www.example.com
+    response:
+      status: 404
+      headers:
+        Content-Length: '0'
+      body: ''

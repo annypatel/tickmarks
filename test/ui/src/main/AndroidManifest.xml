@@ -1,1 +1,8 @@
-<manifest package="tickmarks.test.ui" />
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    package="tickmarks.test.ui">
+
+    <!-- OkReplay requires this permission to store recorded tapes -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+</manifest>

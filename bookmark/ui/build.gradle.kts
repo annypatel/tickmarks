@@ -27,10 +27,10 @@ dependencies {
     androidTestImplementation(Hilt.Test.runtime)
     kaptAndroidTest(Hilt.compiler)
     androidTestImplementation(Test.rxidler)
+    androidTestImplementation(Test.okReplay)
     androidTestImplementation(AndroidX.Test.core)
     androidTestImplementation(AndroidX.Test.runner)
     androidTestImplementation(AndroidX.Test.espresso)
-    androidTestImplementation(OkHttp.Test.mockWebServer)
 
     // for generated code
     androidTestImplementation(project(":base:data"))

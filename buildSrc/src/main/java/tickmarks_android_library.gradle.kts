@@ -60,4 +60,6 @@ dependencies {
     testImplementation(Test.mockito)
     testImplementation(Test.mockitoInline)
     kaptTest(DataBinding.compiler)
+
+    androidTestImplementation(Test.junit)
 }
