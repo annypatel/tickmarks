@@ -1,14 +1,5 @@
 package tickmarks.bookmark.ui.add
 
-import androidx.test.core.app.launchActivity
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
-import androidx.test.espresso.action.ViewActions.closeSoftKeyboard
-import androidx.test.espresso.action.ViewActions.typeText
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
-import androidx.test.espresso.matcher.ViewMatchers.withText
 import dagger.hilt.android.testing.BindValueIntoSet
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -29,45 +20,34 @@ class AddBookmarkFragmentTest {
     @BindValueIntoSet @JvmField val interceptor = okReplay.interceptor
 
     @Test
-    fun addBookmark_givenEmptyUrl_shouldShowEmptyError() {
-        launchActivity<AddBookmarkActivity>()
-        onView(withId(R.id.etUrl))
-            .perform(typeText(""))
+    fun addBookmark_givenEmptyUrl_shouldShowEmptyError() = addBookmark {
+        launch()
+        typeUrl("")
 
-        onView(withId(R.id.btnAddBookmark))
-            .perform(click(), closeSoftKeyboard())
+        clickAddBookmark()
 
-        onView(withText(R.string.add_bookmark_empty_url))
-            .check(matches(isDisplayed()))
+        shouldShowMessage(R.string.add_bookmark_empty_url)
     }
 
     @Test
     @OkReplay
-    fun addBookmark_whenSuccessful_shouldShowSuccessMessage() {
-        launchActivity<AddBookmarkActivity>()
-        val urlToBookmark = "https://www.example.com"
-        onView(withId(R.id.etUrl))
-            .perform(typeText(urlToBookmark))
+    fun addBookmark_whenSuccessful_shouldShowSuccessMessage() = addBookmark {
+        launch()
+        typeUrl("https://www.example.com")
 
-        onView(withId(R.id.btnAddBookmark))
-            .perform(click(), closeSoftKeyboard())
+        clickAddBookmark()
 
-        onView(withText(R.string.add_bookmark_successful))
-            .check(matches(isDisplayed()))
+        shouldShowMessage(R.string.add_bookmark_successful)
     }
 
     @Test
     @OkReplay
-    fun addBookmark_whenFailed_shouldShowFailureMessage() {
-        launchActivity<AddBookmarkActivity>()
-        val urlToBookmark = "https://www.example.com"
-        onView(withId(R.id.etUrl))
-            .perform(typeText(urlToBookmark))
+    fun addBookmark_whenFailed_shouldShowFailureMessage() = addBookmark {
+        launch()
+        typeUrl("https://www.example.com")
 
-        onView(withId(R.id.btnAddBookmark))
-            .perform(click(), closeSoftKeyboard())
+        clickAddBookmark()
 
-        onView(withText(R.string.add_bookmark_failure))
-            .check(matches(isDisplayed()))
+        shouldShowMessage(R.string.add_bookmark_failure)
     }
 }
