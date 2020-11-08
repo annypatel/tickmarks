@@ -83,6 +83,11 @@ object DataBinding {
     const val lint = "com.github.annypatel.databinding:lint-checks:_"
 }
 
+object LeakCanary {
+    const val android = "com.squareup.leakcanary:leakcanary-android:_"
+    const val instrumentation = "com.squareup.leakcanary:leakcanary-android-instrumentation:_"
+}
+
 object Test {
     const val junit = "junit:junit:_"
     const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:_"

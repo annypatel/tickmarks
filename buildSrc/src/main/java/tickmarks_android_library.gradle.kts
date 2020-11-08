@@ -12,6 +12,7 @@ android {
         targetSdkVersion(Versions.Sdk.target)
         archivesBaseName = "${parent?.name}-$archivesBaseName"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArgument("listener", "leakcanary.FailTestOnLeakRunListener")
     }
 
     testOptions {
@@ -55,6 +56,7 @@ dependencies {
     kapt(Hilt.compiler)
     implementation(Hilt.AndroidX.viewModel)
     kapt(Hilt.AndroidX.compiler)
+    debugImplementation(LeakCanary.android)
 
     testImplementation(Test.junit)
     testImplementation(Test.mockito)
@@ -62,4 +64,5 @@ dependencies {
     kaptTest(DataBinding.compiler)
 
     androidTestImplementation(Test.junit)
+    androidTestImplementation(LeakCanary.instrumentation)
 }
