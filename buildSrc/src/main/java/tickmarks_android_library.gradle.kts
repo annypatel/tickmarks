@@ -36,10 +36,6 @@ android {
         xmlReport = true
         lintConfig = File("lint-config.xml")
     }
-
-    packagingOptions {
-        resources { excludes += "META-INF/*.kotlin_module" }
-    }
 }
 
 dependencies {
