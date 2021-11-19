@@ -2,6 +2,6 @@
 <lint>
     <issue id="TrustAllX509TrustManager">
         <!-- HTTP requests are made using Retrofit, not Jsoup -->
-        <ignore path="org/jsoup/helper/HttpConnection$Response" />
+        <ignore path="**/org/jsoup/helper/HttpConnection$Response$2.class" />
     </issue>
 </lint>

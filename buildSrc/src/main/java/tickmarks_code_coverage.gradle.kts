@@ -48,7 +48,7 @@ fun configureAndroidProject(project: Project) {
     project.configure<BaseExtension> {
         // AGP should use same jacoco version
         jacoco {
-            version = Versions.jacoco
+            jacocoVersion = Versions.jacoco
         }
 
         buildTypes {
@@ -81,7 +81,7 @@ fun applyJacoco(project: Project) {
     project.plugins.apply("jacoco")
     project.configure<JacocoPluginExtension> {
         toolVersion = Versions.jacoco
-        reportsDir = file("${project.buildDir}/reports")
+        reportsDirectory.set(file("${project.buildDir}/reports"))
     }
 }
 

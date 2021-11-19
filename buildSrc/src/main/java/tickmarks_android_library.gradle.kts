@@ -6,13 +6,13 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Versions.Sdk.compile)
+    compileSdk = Versions.Sdk.compile
     defaultConfig {
-        minSdkVersion(Versions.Sdk.min)
-        targetSdkVersion(Versions.Sdk.target)
+        minSdk = Versions.Sdk.min
+        targetSdk = Versions.Sdk.target
         archivesBaseName = "${parent?.name}-$archivesBaseName"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        testInstrumentationRunnerArgument("listener", "leakcanary.FailTestOnLeakRunListener")
+        testInstrumentationRunnerArguments += "listener" to "leakcanary.FailTestOnLeakRunListener"
     }
 
     testOptions {
@@ -28,22 +28,13 @@ android {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
 
-    lintOptions {
+    lint {
         isAbortOnError = true
         isWarningsAsErrors = true
         htmlReport = false
         textReport = false
         xmlReport = true
-        lintConfig = File("lint-config.xml")
-    }
-
-    packagingOptions {
-        exclude("META-INF/*.kotlin_module")
-    }
-
-    dexOptions {
-        // don't pre-dex on CI
-        preDexLibraries = !ci
+        lintConfig = rootProject.file("lint-config.xml")
     }
 }
 
