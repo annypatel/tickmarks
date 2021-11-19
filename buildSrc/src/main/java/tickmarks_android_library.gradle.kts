@@ -34,7 +34,7 @@ android {
         htmlReport = false
         textReport = false
         xmlReport = true
-        lintConfig = File("lint-config.xml")
+        lintConfig = rootProject.file("lint-config.xml")
     }
 }
 

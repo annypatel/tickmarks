@@ -4,7 +4,9 @@
 
     <application android:theme="@style/Theme.MaterialComponents.Light.DarkActionBar">
 
-        <activity android:name=".add.AddBookmarkActivity">
+        <activity
+            android:name=".add.AddBookmarkActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
